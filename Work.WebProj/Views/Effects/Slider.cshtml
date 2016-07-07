@@ -1,0 +1,104 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+    ViewBag.Title = "圖片輪播";
+    ViewBag.BodyClass = "ch3 p5";
+}
+@section breadCrumb {
+    <li><a href=""><i class="fa-list-alt"></i> 特效套件</a></li>
+}
+@section CSS {
+	<link rel="stylesheet" href="~/Scripts/vendor/nivoslider/nivo-slider.css">
+	<link rel="stylesheet" href="~/Scripts/vendor/flexslider/flexslider.css">
+	<style>
+		.slider {width:300px;}
+		.slider .nivo-prevNav, .slider .nivo-nextNav {
+			margin-top:-0.5em;
+			font-size: 3em;
+			color:#fff;
+			text-shadow: 0 0 5px #000;
+		}
+		.slider .nivo-prevNav {left:-50px; transition:left 0.3s, opacity 0.3s;}
+		.slider .nivo-nextNav {right:-50px; transition:right 0.3s, opacity 0.3s;}
+		.slider:hover .nivo-prevNav {left:10px;}
+		.slider:hover .nivo-nextNav {right:10px;}
+		.slider2 {
+			height:300px;
+			background: #eee;
+			border:0;
+			overflow: hidden;
+		}
+		.slider2 li img {
+			width:auto !important;
+			max-height: 300px;
+			margin:0 auto;
+		}
+		.slider2 .flex-direction-nav .flex-prev:before {
+			font-family: "fontAwesome";
+			content: "\f104";
+		}
+		.slider2 .flex-direction-nav .flex-next:before {
+			font-family: "fontAwesome";
+			content: "\f105";
+		}
+	</style>
+}
+@section Scripts {
+	
+	<script src="~/Scripts/vendor/nivoslider/jquery.nivo.slider.js"></script>
+	<script src="~/Scripts/vendor/flexslider/jquery.flexslider-min.js"></script>
+	<script>
+		$(function() {
+			$(".slider").nivoSlider({
+				controlNav: false,
+				prevText: '<i class="fa-angle-left"></i>',
+				nextText: '<i class="fa-angle-right"></i>'
+			});
+			$(".slider2").flexslider();
+		});
+	</script>
+}
+
+<h4 class="title">@ViewBag.Title - nivoSlider</h4>
+
+<div class="alert alert-info">
+    <ol class="list-order">
+        <li>套件名稱: jquery.nivoSlider.js</li>
+        <li>官網: <a class="alert-link" href="http://docs.dev7studios.com/jquery-plugins/nivo-slider">http://docs.dev7studios.com/jquery-plugins/nivo-slider</a></li>        
+    </ol>
+</div>
+
+<div class="alert alert-warning">
+	<p>輪播的圖片尺寸建議相同，否則特效出現時會有點醜</p>
+</div>
+
+<div class="slider nivoSlider">
+	<img src="~/Content/images/Effects/Slider/pic.jpg" alt="">
+	<img src="~/Content/images/Effects/Slider/pic2.jpg" alt="">
+	<img src="~/Content/images/Effects/Slider/pic3.jpg" alt="">
+</div>
+
+<hr class="expanded">
+
+<h4 class="title">@ViewBag.Title - FlexSlider</h4>
+
+<div class="alert alert-info">
+    <ol class="list-order">
+        <li>套件名稱: jquery.flexslider.js</li>
+        <li>官網: <a class="alert-link" href="http://flexslider.woothemes.com/">http://flexslider.woothemes.com/</a></li>
+        <li>設定: <a href="https://github.com/woothemes/FlexSlider/wiki/FlexSlider-Properties" class="alert-link">https://github.com/woothemes/FlexSlider/wiki/FlexSlider-Properties</a></li>
+    </ol>
+</div>
+
+<div class="alert alert-warning">
+	<p>輪播的圖片尺寸可以不同 (可用 CSS 固定高度並置中)</p>
+</div>
+
+<div class="slider2 flexslider">
+	<ul class="slides">
+		<li><img src="~/Content/images/Effects/pic_L.jpg" alt=""></li>
+		<li><img src="~/Content/images/Effects/pic2_L.jpg" alt=""></li>
+		<li><img src="~/Content/images/Effects/pic3_L.jpg" alt=""></li>
+		<li><img src="~/Content/images/Effects/pic4_L.jpg" alt=""></li>
+		<li><img src="~/Content/images/Effects/pic5_L.jpg" alt=""></li>
+	</ul>
+</div>

@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>React.JavaScriptEngine.ClearScriptV8</name>
+    </assembly>
+    <members>
+        <member name="T:React.JavaScriptEngine.ClearScriptV8.AssemblyRegistration">
+            <summary>
+            Handles registration of ClearScript V8 for ReactJS.NET.
+            </summary>
+        </member>
+        <member name="M:React.JavaScriptEngine.ClearScriptV8.AssemblyRegistration.Register(React.TinyIoC.TinyIoCContainer)">
+            <summary>
+            Registers components in the React IoC container
+            </summary>
+            <param name="container">Container to register components in</param>
+        </member>
+        <member name="T:React.JavaScriptEngine.ClearScriptV8.ClearScriptV8Utils">
+            <summary>
+            Utility methods for VroomJs JavaScript engine
+            </summary>
+        </member>
+        <member name="M:React.JavaScriptEngine.ClearScriptV8.ClearScriptV8Utils.IsEnvironmentSupported">
+            <summary>
+            Determines if the current environment supports the ClearScript V8 engine
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:React.JavaScriptEngine.ClearScriptV8.ClearScriptV8Utils.EnsureEngineFunctional">
+            <summary>
+            If the user is explicitly referencing this assembly, they probably want to use it.
+            Attempt to use the engine and throw an exception if it doesn't work.
+            </summary>
+        </member>
+        <member name="T:React.JavaScriptEngine.ClearScriptV8.ClearScriptV8InitialisationException">
+            <summary>
+            Thrown when the JavaScript engine does not support JSX transformation
+            </summary>
+        </member>
+        <member name="M:React.JavaScriptEngine.ClearScriptV8.ClearScriptV8InitialisationException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:React.JavaScriptEngine.ClearScriptV8.ClearScriptV8InitialisationException"/> class.
+            </summary>
+        </member>
+        <member name="M:React.JavaScriptEngine.ClearScriptV8.ClearScriptV8InitialisationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Used by deserialization
+            </summary>
+        </member>
+        <member name="M:React.JavaScriptEngine.ClearScriptV8.ClearScriptV8InitialisationException.GetMessage(System.String)">
+            <summary>
+            Gets a message that describes the current exception.
+            </summary>
+        </member>
+    </members>
+</doc>

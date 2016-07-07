@@ -1,0 +1,407 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="C36A0_JCIYPModelStoreContainer" CdmEntityContainer="C36A0_JCIYPEntities">
+    <EntitySetMapping Name="SYS_人員">
+      <EntityTypeMapping TypeName="C36A0_JCIYPModel.SYS_人員">
+        <MappingFragment StoreEntitySet="SYS_人員">
+          <ScalarProperty Name="SN" ColumnName="SN" />
+          <ScalarProperty Name="UID" ColumnName="UID" />
+          <ScalarProperty Name="PID" ColumnName="PID" />
+          <ScalarProperty Name="PName" ColumnName="PName" />
+          <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+          <ScalarProperty Name="LoginPwd" ColumnName="LoginPwd" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Permission" ColumnName="Permission" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SYS_流水號資料表">
+      <EntityTypeMapping TypeName="C36A0_JCIYPModel.SYS_流水號資料表">
+        <MappingFragment StoreEntitySet="SYS_流水號資料表">
+          <ScalarProperty Name="流水號" ColumnName="流水號" />
+          <ScalarProperty Name="資料表名稱" ColumnName="資料表名稱" />
+          <ScalarProperty Name="號數" ColumnName="號數" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SYS_單位">
+      <EntityTypeMapping TypeName="C36A0_JCIYPModel.SYS_單位">
+        <MappingFragment StoreEntitySet="SYS_單位">
+          <ScalarProperty Name="UID" ColumnName="UID" />
+          <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="行業分類">
+      <EntityTypeMapping TypeName="C36A0_JCIYPModel.行業分類">
+        <MappingFragment StoreEntitySet="行業分類">
+          <ScalarProperty Name="流水號" ColumnName="流水號" />
+          <ScalarProperty Name="分類編號" ColumnName="分類編號" />
+          <ScalarProperty Name="分類名稱" ColumnName="分類名稱" />
+          <ScalarProperty Name="分類說明" ColumnName="分類說明" />
+          <ScalarProperty Name="排序" ColumnName="排序" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="產品分類">
+      <EntityTypeMapping TypeName="C36A0_JCIYPModel.產品分類">
+        <MappingFragment StoreEntitySet="產品分類">
+          <ScalarProperty Name="流水號" ColumnName="流水號" />
+          <ScalarProperty Name="分類編號" ColumnName="分類編號" />
+          <ScalarProperty Name="分類名稱" ColumnName="分類名稱" />
+          <ScalarProperty Name="分類說明" ColumnName="分類說明" />
+          <ScalarProperty Name="排序" ColumnName="排序" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="會員_其他單位分類">
+      <EntityTypeMapping TypeName="C36A0_JCIYPModel.會員_其他單位分類">
+        <MappingFragment StoreEntitySet="會員_其他單位分類">
+          <ScalarProperty Name="流水號" ColumnName="流水號" />
+          <ScalarProperty Name="分類編號" ColumnName="分類編號" />
+          <ScalarProperty Name="分類名稱" ColumnName="分類名稱" />
+          <ScalarProperty Name="分類說明" ColumnName="分類說明" />
+          <ScalarProperty Name="排序" ColumnName="排序" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="會員分類">
+      <EntityTypeMapping TypeName="C36A0_JCIYPModel.會員分類">
+        <MappingFragment StoreEntitySet="會員分類">
+          <ScalarProperty Name="流水號" ColumnName="流水號" />
+          <ScalarProperty Name="分類編號" ColumnName="分類編號" />
+          <ScalarProperty Name="分類名稱" ColumnName="分類名稱" />
+          <ScalarProperty Name="分類說明" ColumnName="分類說明" />
+          <ScalarProperty Name="排序" ColumnName="排序" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="會員產品">
+      <EntityTypeMapping TypeName="C36A0_JCIYPModel.會員產品">
+        <MappingFragment StoreEntitySet="會員產品">
+          <ScalarProperty Name="流水號" ColumnName="流水號" />
+          <ScalarProperty Name="會員流水號" ColumnName="會員流水號" />
+          <ScalarProperty Name="產品編號" ColumnName="產品編號" />
+          <ScalarProperty Name="產品名稱" ColumnName="產品名稱" />
+          <ScalarProperty Name="產品分類" ColumnName="產品分類" />
+          <ScalarProperty Name="產品特色" ColumnName="產品特色" />
+          <ScalarProperty Name="價格" ColumnName="價格" />
+          <ScalarProperty Name="價格說明" ColumnName="價格說明" />
+          <ScalarProperty Name="排序" ColumnName="排序" />
+          <ScalarProperty Name="顯示狀態Flag" ColumnName="顯示狀態Flag" />
+          <ScalarProperty Name="曝光" ColumnName="曝光" />
+          <ScalarProperty Name="活動日期" ColumnName="活動日期" />
+          <ScalarProperty Name="修改日期" ColumnName="修改日期" />
+          <ScalarProperty Name="點閱率" ColumnName="點閱率" />
+          <ScalarProperty Name="新增人員" ColumnName="新增人員" />
+          <ScalarProperty Name="修改人員" ColumnName="修改人員" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="C36A0_JCIYPModel.AspNetRoles">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="C36A0_JCIYPModel.AspNetUserClaims">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="C36A0_JCIYPModel.AspNetUserLogins">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="C36A0_JCIYPModel.AspNetUsers">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="department_id" ColumnName="department_id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Department">
+      <EntityTypeMapping TypeName="C36A0_JCIYPModel.Department">
+        <MappingFragment StoreEntitySet="Department">
+          <ScalarProperty Name="i_Hide" ColumnName="i_Hide" />
+          <ScalarProperty Name="department_name" ColumnName="department_name" />
+          <ScalarProperty Name="department_id" ColumnName="department_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="i_Adr_zh_TW_Data">
+      <EntityTypeMapping TypeName="C36A0_JCIYPModel.i_Adr_zh_TW_Data">
+        <MappingFragment StoreEntitySet="i_Adr_zh_TW_Data">
+          <ScalarProperty Name="sort" ColumnName="sort" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="scope" ColumnName="scope" />
+          <ScalarProperty Name="road" ColumnName="road" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="zip" ColumnName="zip" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="i_Currency">
+      <EntityTypeMapping TypeName="C36A0_JCIYPModel.i_Currency">
+        <MappingFragment StoreEntitySet="i_Currency">
+          <ScalarProperty Name="is_use" ColumnName="is_use" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="sign" ColumnName="sign" />
+          <ScalarProperty Name="english_currency" ColumnName="english_currency" />
+          <ScalarProperty Name="name_currency" ColumnName="name_currency" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="i_IDX">
+      <EntityTypeMapping TypeName="C36A0_JCIYPModel.i_IDX">
+        <MappingFragment StoreEntitySet="i_IDX">
+          <ScalarProperty Name="IDX" ColumnName="IDX" />
+          <ScalarProperty Name="table_name" ColumnName="table_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="i_Lang">
+      <EntityTypeMapping TypeName="C36A0_JCIYPModel.i_Lang">
+        <MappingFragment StoreEntitySet="i_Lang">
+          <ScalarProperty Name="sort" ColumnName="sort" />
+          <ScalarProperty Name="isuse" ColumnName="isuse" />
+          <ScalarProperty Name="memo" ColumnName="memo" />
+          <ScalarProperty Name="area" ColumnName="area" />
+          <ScalarProperty Name="lang" ColumnName="lang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="i_Parm">
+      <EntityTypeMapping TypeName="C36A0_JCIYPModel.i_Parm">
+        <MappingFragment StoreEntitySet="i_Parm">
+          <ScalarProperty Name="Memo" ColumnName="Memo" />
+          <ScalarProperty Name="B" ColumnName="B" />
+          <ScalarProperty Name="D" ColumnName="D" />
+          <ScalarProperty Name="F" ColumnName="F" />
+          <ScalarProperty Name="I" ColumnName="I" />
+          <ScalarProperty Name="S" ColumnName="S" />
+          <ScalarProperty Name="ParmType" ColumnName="ParmType" />
+          <ScalarProperty Name="ParmName" ColumnName="ParmName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="i_SN">
+      <EntityTypeMapping TypeName="C36A0_JCIYPModel.i_SN">
+        <MappingFragment StoreEntitySet="i_SN">
+          <ScalarProperty Name="sn_max" ColumnName="sn_max" />
+          <ScalarProperty Name="w" ColumnName="w" />
+          <ScalarProperty Name="d" ColumnName="d" />
+          <ScalarProperty Name="m" ColumnName="m" />
+          <ScalarProperty Name="y" ColumnName="y" />
+          <ScalarProperty Name="sn_type" ColumnName="sn_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="i_UserLoginLog">
+      <EntityTypeMapping TypeName="C36A0_JCIYPModel.i_UserLoginLog">
+        <MappingFragment StoreEntitySet="i_UserLoginLog">
+          <ScalarProperty Name="browers" ColumnName="browers" />
+          <ScalarProperty Name="logintime" ColumnName="logintime" />
+          <ScalarProperty Name="account" ColumnName="account" />
+          <ScalarProperty Name="ip" ColumnName="ip" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="i_WebCount">
+      <EntityTypeMapping TypeName="C36A0_JCIYPModel.i_WebCount">
+        <MappingFragment StoreEntitySet="i_WebCount">
+          <ScalarProperty Name="Cnt" ColumnName="Cnt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="i_WebVisitData">
+      <EntityTypeMapping TypeName="C36A0_JCIYPModel.i_WebVisitData">
+        <MappingFragment StoreEntitySet="i_WebVisitData">
+          <ScalarProperty Name="page" ColumnName="page" />
+          <ScalarProperty Name="source" ColumnName="source" />
+          <ScalarProperty Name="browser" ColumnName="browser" />
+          <ScalarProperty Name="setdate" ColumnName="setdate" />
+          <ScalarProperty Name="ip" ColumnName="ip" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="C36A0_JCIYPModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="會員">
+      <EntityTypeMapping TypeName="C36A0_JCIYPModel.會員">
+        <MappingFragment StoreEntitySet="會員">
+          <ScalarProperty Name="修改人員" ColumnName="修改人員" />
+          <ScalarProperty Name="新增人員" ColumnName="新增人員" />
+          <ScalarProperty Name="點閱率" ColumnName="點閱率" />
+          <ScalarProperty Name="修改日期" ColumnName="修改日期" />
+          <ScalarProperty Name="活動日期" ColumnName="活動日期" />
+          <ScalarProperty Name="發文註記" ColumnName="發文註記" />
+          <ScalarProperty Name="會員狀態" ColumnName="會員狀態" />
+          <ScalarProperty Name="顯示狀態Flag" ColumnName="顯示狀態Flag" />
+          <ScalarProperty Name="排序" ColumnName="排序" />
+          <ScalarProperty Name="密碼" ColumnName="密碼" />
+          <ScalarProperty Name="帳號" ColumnName="帳號" />
+          <ScalarProperty Name="服務項目" ColumnName="服務項目" />
+          <ScalarProperty Name="公司簡介" ColumnName="公司簡介" />
+          <ScalarProperty Name="社團經歷" ColumnName="社團經歷" />
+          <ScalarProperty Name="宣示日期" ColumnName="宣示日期" />
+          <ScalarProperty Name="入會日期" ColumnName="入會日期" />
+          <ScalarProperty Name="生日" ColumnName="生日" />
+          <ScalarProperty Name="地址" ColumnName="地址" />
+          <ScalarProperty Name="區號" ColumnName="區號" />
+          <ScalarProperty Name="網站" ColumnName="網站" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="傳真" ColumnName="傳真" />
+          <ScalarProperty Name="行動電話" ColumnName="行動電話" />
+          <ScalarProperty Name="住家電話" ColumnName="住家電話" />
+          <ScalarProperty Name="公司電話" ColumnName="公司電話" />
+          <ScalarProperty Name="副行業" ColumnName="副行業" />
+          <ScalarProperty Name="主行業" ColumnName="主行業" />
+          <ScalarProperty Name="職業別" ColumnName="職業別" />
+          <ScalarProperty Name="SEX" ColumnName="SEX" />
+          <ScalarProperty Name="會內職稱" ColumnName="會內職稱" />
+          <ScalarProperty Name="姓名" ColumnName="姓名" />
+          <ScalarProperty Name="會員分類編號" ColumnName="會員分類編號" />
+          <ScalarProperty Name="會員編號" ColumnName="會員編號" />
+          <ScalarProperty Name="流水號" ColumnName="流水號" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="最新消息">
+      <EntityTypeMapping TypeName="C36A0_JCIYPModel.最新消息">
+        <MappingFragment StoreEntitySet="最新消息">
+          <ScalarProperty Name="修改人員" ColumnName="修改人員" />
+          <ScalarProperty Name="新增人員" ColumnName="新增人員" />
+          <ScalarProperty Name="點閱率" ColumnName="點閱率" />
+          <ScalarProperty Name="修改日期" ColumnName="修改日期" />
+          <ScalarProperty Name="活動日期" ColumnName="活動日期" />
+          <ScalarProperty Name="顯示狀態Flag" ColumnName="顯示狀態Flag" />
+          <ScalarProperty Name="排序" ColumnName="排序" />
+          <ScalarProperty Name="內容" ColumnName="內容" />
+          <ScalarProperty Name="標題" ColumnName="標題" />
+          <ScalarProperty Name="分類" ColumnName="分類" />
+          <ScalarProperty Name="流水號" ColumnName="流水號" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="最新消息分類">
+      <EntityTypeMapping TypeName="C36A0_JCIYPModel.最新消息分類">
+        <MappingFragment StoreEntitySet="最新消息分類">
+          <ScalarProperty Name="排序" ColumnName="排序" />
+          <ScalarProperty Name="分類說明" ColumnName="分類說明" />
+          <ScalarProperty Name="分類名稱" ColumnName="分類名稱" />
+          <ScalarProperty Name="分類編號" ColumnName="分類編號" />
+          <ScalarProperty Name="流水號" ColumnName="流水號" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="活動花絮內容">
+      <EntityTypeMapping TypeName="C36A0_JCIYPModel.活動花絮內容">
+        <MappingFragment StoreEntitySet="活動花絮內容">
+          <ScalarProperty Name="修改人員" ColumnName="修改人員" />
+          <ScalarProperty Name="新增人員" ColumnName="新增人員" />
+          <ScalarProperty Name="點閱率" ColumnName="點閱率" />
+          <ScalarProperty Name="修改日期" ColumnName="修改日期" />
+          <ScalarProperty Name="活動日期" ColumnName="活動日期" />
+          <ScalarProperty Name="顯示狀態Flag" ColumnName="顯示狀態Flag" />
+          <ScalarProperty Name="排序" ColumnName="排序" />
+          <ScalarProperty Name="內容" ColumnName="內容" />
+          <ScalarProperty Name="標題" ColumnName="標題" />
+          <ScalarProperty Name="主檔流水號" ColumnName="主檔流水號" />
+          <ScalarProperty Name="流水號" ColumnName="流水號" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="活動花絮分類">
+      <EntityTypeMapping TypeName="C36A0_JCIYPModel.活動花絮分類">
+        <MappingFragment StoreEntitySet="活動花絮分類">
+          <ScalarProperty Name="排序" ColumnName="排序" />
+          <ScalarProperty Name="分類說明" ColumnName="分類說明" />
+          <ScalarProperty Name="分類名稱" ColumnName="分類名稱" />
+          <ScalarProperty Name="分類編號" ColumnName="分類編號" />
+          <ScalarProperty Name="流水號" ColumnName="流水號" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="活動花絮主檔">
+      <EntityTypeMapping TypeName="C36A0_JCIYPModel.活動花絮主檔">
+        <MappingFragment StoreEntitySet="活動花絮主檔">
+          <ScalarProperty Name="修改人員" ColumnName="修改人員" />
+          <ScalarProperty Name="新增人員" ColumnName="新增人員" />
+          <ScalarProperty Name="點閱率" ColumnName="點閱率" />
+          <ScalarProperty Name="修改日期" ColumnName="修改日期" />
+          <ScalarProperty Name="活動日期" ColumnName="活動日期" />
+          <ScalarProperty Name="顯示狀態Flag" ColumnName="顯示狀態Flag" />
+          <ScalarProperty Name="排序" ColumnName="排序" />
+          <ScalarProperty Name="內容" ColumnName="內容" />
+          <ScalarProperty Name="標題" ColumnName="標題" />
+          <ScalarProperty Name="分類" ColumnName="分類" />
+          <ScalarProperty Name="流水號" ColumnName="流水號" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="文件管理">
+      <EntityTypeMapping TypeName="C36A0_JCIYPModel.文件管理">
+        <MappingFragment StoreEntitySet="文件管理">
+          <ScalarProperty Name="修改人員" ColumnName="修改人員" />
+          <ScalarProperty Name="新增人員" ColumnName="新增人員" />
+          <ScalarProperty Name="點閱率" ColumnName="點閱率" />
+          <ScalarProperty Name="修改日期" ColumnName="修改日期" />
+          <ScalarProperty Name="活動日期" ColumnName="活動日期" />
+          <ScalarProperty Name="顯示狀態Flag" ColumnName="顯示狀態Flag" />
+          <ScalarProperty Name="排序" ColumnName="排序" />
+          <ScalarProperty Name="內容" ColumnName="內容" />
+          <ScalarProperty Name="標題" ColumnName="標題" />
+          <ScalarProperty Name="分類" ColumnName="分類" />
+          <ScalarProperty Name="流水號" ColumnName="流水號" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BannerRotator">
+      <EntityTypeMapping TypeName="C36A0_JCIYPModel.BannerRotator">
+        <MappingFragment StoreEntitySet="BannerRotator">
+          <ScalarProperty Name="sort" ColumnName="sort" />
+          <ScalarProperty Name="is_open" ColumnName="is_open" />
+          <ScalarProperty Name="banner_name" ColumnName="banner_name" />
+          <ScalarProperty Name="banner_rotator_id" ColumnName="banner_rotator_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

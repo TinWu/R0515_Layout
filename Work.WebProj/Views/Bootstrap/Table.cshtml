@@ -1,0 +1,378 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+    ViewBag.Title = "表格";
+    ViewBag.BodyClass = "ch1 p6";
+}
+@section breadCrumb {
+    <li><a href=""><i class="fa-list-alt"></i> Bootstrap 教學</a></li>
+}
+
+<h3 class="title">@ViewBag.Title</h3>
+
+<div class="callout callout-warning">
+    <p>使用 <strong class="text-danger">表格</strong> 時，<code>&lt;tr&gt;</code> 就是 row，<code>&lt;th&gt;</code> 和 <code>&lt;td&gt;</code> 就是 column，<code>col-$-%</code> 可寫在表頭 <code>&lt;th&gt;</code> ，這樣之後的 <code>&lt;td&gt;</code> 就不用寫。</p>
+    <ol>
+        <li>一個表格中，所有 <code>&lt;th class="col-$-%"&gt;</code> 的數字總和必須 <strong class="text-danger">剛好等於 12</strong> ，否則會跑版。</li>
+        <li>如果不想要表格滿版 (寬度 100% )，就在 <code>&lt;table&gt;</code> 外層再加上 row 和 column ，但 <code>&lt;th class="col-$-%"&gt;</code> 的數字總和仍須等於 12 。</li>
+        <li>如果表格欄位很多，12格不夠用，就不要在 <code>&lt;th&gt;</code> 加 class。</li>
+        <li>因為我們的表格的 <code>&lt;tr&gt;</code> 已經使用 <code>＠extend .row</code>，所以不需要加 <code>class="row"</code></li>
+    </ol>
+</div>
+
+<ul class="item-tab" role="tablist">
+    <li class="active"><a href="#tab1" role="tab" data-toggle="tab">一般表格</a></li>
+    <li><a href="#tab2" role="tab" data-toggle="tab">加上表頭</a></li>
+    <li><a href="#tab3" role="tab" data-toggle="tab">間距變窄</a></li>
+    <li><a href="#tab4" role="tab" data-toggle="tab">上色</a></li>
+    <li><a href="#tab5" role="tab" data-toggle="tab">不要滿版</a></li>
+    <li><a href="#tab6" role="tab" data-toggle="tab">欄位很多</a></li>
+    <li><a href="#tab7" role="tab" data-toggle="tab">RWD 表格 (小螢幕會出現橫向捲軸)</a></li>
+</ul><!-- tab-nav //-->
+
+<div class="tab-content">
+
+    <div class="tab-pane active" id="tab1">
+        <h4 class="title">一般表格</h4>
+
+        <table>
+            <thead>
+                <tr>
+                    <th class="col-xs-1">01</th>
+                    <th class="col-xs-2">02</th>
+                    <th class="col-xs-3">03</th>
+                    <th class="col-xs-4">04</th>
+                    <th class="col-xs-2">05</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>01</td>
+                    <td>02</td>
+                    <td>03</td>
+                    <td>04</td>
+                    <td>05</td>
+                </tr>
+                <tr>
+                    <td>01</td>
+                    <td>02</td>
+                    <td>03</td>
+                    <td>04</td>
+                    <td>05</td>
+                </tr>
+                <tr>
+                    <td>01</td>
+                    <td>02</td>
+                    <td>03</td>
+                    <td>04</td>
+                    <td>05</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="tab-pane" id="tab2">
+        <h4 class="title">加上表頭</h4>
+
+        <table>
+            <thead>
+                <caption>Title Here</caption>
+                <tr>
+                    <th class="col-xs-1">01</th>
+                    <th class="col-xs-2">02</th>
+                    <th class="col-xs-3">03</th>
+                    <th class="col-xs-4">04</th>
+                    <th class="col-xs-2">05</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>01</td>
+                    <td>02</td>
+                    <td>03</td>
+                    <td>04</td>
+                    <td>05</td>
+                </tr>
+                <tr>
+                    <td>01</td>
+                    <td>02</td>
+                    <td>03</td>
+                    <td>04</td>
+                    <td>05</td>
+                </tr>
+                <tr>
+                    <td>01</td>
+                    <td>02</td>
+                    <td>03</td>
+                    <td>04</td>
+                    <td>05</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="tab-pane" id="tab3">
+        <h4 class="title">間距變窄</h4>
+
+        <table class="table-condensed">
+            <thead>
+                <tr>
+                    <th class="col-xs-1">01</th>
+                    <th class="col-xs-2">02</th>
+                    <th class="col-xs-3">03</th>
+                    <th class="col-xs-4">04</th>
+                    <th class="col-xs-2">05</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>01</td>
+                    <td>02</td>
+                    <td>03</td>
+                    <td>04</td>
+                    <td>05</td>
+                </tr>
+                <tr>
+                    <td>01</td>
+                    <td>02</td>
+                    <td>03</td>
+                    <td>04</td>
+                    <td>05</td>
+                </tr>
+                <tr>
+                    <td>01</td>
+                    <td>02</td>
+                    <td>03</td>
+                    <td>04</td>
+                    <td>05</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="tab-pane" id="tab4">
+        <h4 class="title">上色</h4>
+
+        <table class="table-condensed">
+            <thead>
+                <tr>
+                    <th class="col-xs-1">01</th>
+                    <th class="col-xs-2">02</th>
+                    <th class="col-xs-3">03</th>
+                    <th class="col-xs-4">04</th>
+                    <th class="col-xs-2">05</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>01</td>
+                    <td>02</td>
+                    <td>03</td>
+                    <td>04</td>
+                    <td>05</td>
+                </tr>
+                <tr class="active">
+                    <td>01</td>
+                    <td>02</td>
+                    <td>03</td>
+                    <td>04</td>
+                    <td>05</td>
+                </tr>
+                <tr>
+                    <td>01</td>
+                    <td>02</td>
+                    <td>03</td>
+                    <td>04</td>
+                    <td>05</td>
+                </tr>
+                <tr class="success">
+                    <td>01</td>
+                    <td>02</td>
+                    <td>03</td>
+                    <td>04</td>
+                    <td>05</td>
+                </tr>
+                <tr>
+                    <td>01</td>
+                    <td>02</td>
+                    <td>03</td>
+                    <td>04</td>
+                    <td>05</td>
+                </tr>
+                <tr class="info">
+                    <td>01</td>
+                    <td>02</td>
+                    <td>03</td>
+                    <td>04</td>
+                    <td>05</td>
+                </tr>
+                <tr>
+                    <td>01</td>
+                    <td>02</td>
+                    <td>03</td>
+                    <td>04</td>
+                    <td>05</td>
+                </tr>
+                <tr class="warning">
+                    <td>01</td>
+                    <td>02</td>
+                    <td>03</td>
+                    <td>04</td>
+                    <td>05</td>
+                </tr>
+                <tr>
+                    <td>01</td>
+                    <td>02</td>
+                    <td>03</td>
+                    <td>04</td>
+                    <td>05</td>
+                </tr>
+                <tr class="danger">
+                    <td>01</td>
+                    <td>02</td>
+                    <td>03</td>
+                    <td>04</td>
+                    <td>05</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="tab-pane" id="tab5">
+        <h4 class="title">不要滿版</h4>
+        <div class="row">
+            <div class="col-xs-8">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="col-xs-1">01</th>
+                            <th class="col-xs-2">02</th>
+                            <th class="col-xs-3">03</th>
+                            <th class="col-xs-4">04</th>
+                            <th class="col-xs-2">05</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01</td>
+                            <td>02</td>
+                            <td>03</td>
+                            <td>04</td>
+                            <td>05</td>
+                        </tr>
+                        <tr>
+                            <td>01</td>
+                            <td>02</td>
+                            <td>03</td>
+                            <td>04</td>
+                            <td>05</td>
+                        </tr>
+                        <tr>
+                            <td>01</td>
+                            <td>02</td>
+                            <td>03</td>
+                            <td>04</td>
+                            <td>05</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane" id="tab6">
+        <h4 class="title">欄位很多</h4>
+
+        <table class="table-condensed">
+            <thead>
+                <tr>
+                    <th>01</th>
+                    <th>02</th>
+                    <th>03</th>
+                    <th>04</th>
+                    <th>05</th>
+                    <th>06</th>
+                    <th>07</th>
+                    <th>08</th>
+                    <th>09</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>001</td>
+                    <td>AAAAA</td>
+                    <td>"Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+                    <td>04</td>
+                    <td>Sed ut</td>
+                    <td>06666</td>
+                    <td>07</td>
+                    <td>blinded</td>
+                    <td>09</td>
+                </tr>
+                <tr>
+                    <td>002</td>
+                    <td>BBBBB</td>
+                    <td>tempor incididunt ut labore et dolore magna aliqua.</td>
+                    <td>04</td>
+                    <td>Nem</td>
+                    <td>06666</td>
+                    <td>07</td>
+                    <td>reiciendis</td>
+                    <td>09</td>
+                </tr>
+                <tr>
+                    <td>003</td>
+                    <td>CCCCC</td>
+                    <td>dolore eu fugiat nulla pariatur. Excepteur sint</td>
+                    <td>04</td>
+                    <td>Sed ut</td>
+                    <td>06666</td>
+                    <td>07</td>
+                    <td>reiciendis</td>
+                    <td>09</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="tab-pane" id="tab7">
+        <h4 class="title">RWD 表格 (小螢幕會出現橫向捲軸)</h4>
+
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="col-xs-1">01</th>
+                        <th class="col-xs-2">02</th>
+                        <th class="col-xs-3">03</th>
+                        <th class="col-xs-4">04</th>
+                        <th class="col-xs-2">05</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>011111</td>
+                        <td>022222</td>
+                        <td>033333</td>
+                        <td>044444</td>
+                        <td>055555</td>
+                    </tr>
+                    <tr>
+                        <td>011111</td>
+                        <td>022222</td>
+                        <td>033333</td>
+                        <td>044444</td>
+                        <td>055555</td>
+                    </tr>
+                    <tr>
+                        <td>011111</td>
+                        <td>022222</td>
+                        <td>033333</td>
+                        <td>044444</td>
+                        <td>055555</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

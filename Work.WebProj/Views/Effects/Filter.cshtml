@@ -1,0 +1,196 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+    ViewBag.Title = "排序分類特效";
+    ViewBag.BodyClass = "ch3 p3";
+}
+@section breadCrumb {
+    <li><a href=""><i class="fa-list-alt"></i> 特效套件</a></li>
+}
+@section CSS {
+	<style>
+		.pic-list li {
+			width:120px; 
+			height:120px;
+			float:left;
+			position: relative;
+			margin:8px;
+			overflow: hidden;
+		}
+		.pic-list li img {
+			max-width: none;
+			min-height: 100%;
+		}
+		.pic-list li em {
+			display: block;
+			width: 100%; height:100%;
+			position: absolute;
+			left:0; top:0;
+			text-align:center;
+			line-height: 120px;
+			font-size: 3em;
+			font-weight: bold;
+			font-style: normal;
+			color:#fff;
+			text-shadow:0 0 10px #666;
+			opacity: 0.85;
+		}
+		.list-inline li {
+			color:#438EB9;
+			cursor:pointer;
+		}
+		.list-inline li:hover, .list-inline li.current {color:#D9534F;}
+	</style>
+}
+@section Scripts {
+	<script src="~/Scripts/vendor/jquery.lazyload.min.js"></script>
+    <script src="~/Scripts/vendor/isotope.pkgd.min.js"></script>
+    <script src="~/Scripts/vendor/freewall.js"></script>
+	<script>
+		$(function() {
+
+		    $("img").lazyload({
+				effect : "fadeIn"
+			}); //lazyload
+
+			$('#filter').isotope({
+				getSortData: {
+					number: '#filter em'
+				},
+				masonry: {
+					gutter: 8
+				},
+				sortBy: 'number'
+			}); //default setting
+			$('.filter').on( 'click', 'li', function() {
+				$(this).siblings().removeClass('current');
+				$(this).addClass('current'); //add class to current filter
+				var filterValue = $(this).attr('data-filter');
+				$('#filter').isotope({ filter: filterValue }); //show selected category
+			});
+			$('.sort').on( 'click', 'li', function() {
+				$(this).siblings().removeClass('current');
+				$(this).addClass('current'); //add class to current sorting mode
+				if ( $(this).hasClass('desc') ) {
+					$('.pic-list').isotope({ sortAscending: false }); //desc
+				}
+				else {
+					$('.pic-list').isotope({ sortAscending: true }); //asc
+				}
+			}); //分類排序特效 isotope
+
+			var wall = new freewall("#filter2");
+			wall.reset({
+				selector: 'li',
+				animate: true
+			});
+			$(".filter2 li").click(function() {
+				$(".filter2 li").removeClass("current");
+				var filter = $(this).addClass('current').data('filter');
+				if (filter) {
+					wall.filter(filter);
+				} else {
+					wall.unFilter();
+				}
+			});
+			wall.fitWidth(); //分類特效 freewall
+
+		});
+	</script>
+}
+
+<h4 class="title">@ViewBag.Title - Isotope</h4>
+
+<div class="alert alert-info">
+    <ol>
+        <li>套件名稱: isotope.pkgd.js</li>
+        <li>官網: <a class="alert-link" href="http://isotope.metafizzy.co/">http://isotope.metafizzy.co/</a></li>
+    </ol>
+</div>
+
+<ul class="filter list-inline">
+	<li class="current" data-filter="*">全部</li>
+	<li data-filter=".c1">分類1</li>
+	<li data-filter=".c2">分類2</li>
+	<li data-filter=".c3">分類3</li>
+	<li data-filter=".c4">分類4</li>
+	<li data-filter=".c5">分類5</li>
+</ul>
+
+<ul class="sort list-inline">
+	<li class="current asc">由小到大</li>
+	<li class="desc">由大到小</li>
+</ul>
+
+<ol id="filter" class="pic-list list-unstyled">
+	<li class="c1 c3"><em>1</em><img data-original="/Content/images/Effects/pic.jpg" alt=""></li>
+	<li class="c2 c5"><em>2</em><img data-original="/Content/images/Effects/pic2.jpg" alt=""></li>
+	<li class="c4"><em>3</em><img data-original="/Content/images/Effects/pic3.jpg" alt=""></li>
+	<li class="c5"><em>4</em><img data-original="/Content/images/Effects/pic4.jpg" alt=""></li>
+	<li class="c1 c4"><em>5</em><img data-original="/Content/images/Effects/pic5.jpg" alt=""></li>
+	<li class="c2"><em>6</em><img data-original="/Content/images/Effects/pic6.jpg" alt=""></li>
+	<li class="c4"><em>7</em><img data-original="/Content/images/Effects/pic7.jpg" alt=""></li>
+	<li class="c1 c4 c5"><em>8</em><img data-original="/Content/images/Effects/pic8.jpg" alt=""></li>
+	<li class="c3 c5"><em>9</em><img data-original="/Content/images/Effects/pic9.jpg" alt=""></li>
+	<li class="c1 c2 c3"><em>10</em><img data-original="/Content/images/Effects/pic10.jpg" alt=""></li>
+	<li class="c4"><em>11</em><img data-original="/Content/images/Effects/pic11.jpg" alt=""></li>
+	<li class="c1 c2"><em>12</em><img data-original="/Content/images/Effects/pic12.jpg" alt=""></li>
+	<li class="c3 c4"><em>13</em><img data-original="/Content/images/Effects/pic.jpg" alt=""></li>
+	<li class="c1"><em>14</em><img data-original="/Content/images/Effects/pic2.jpg" alt=""></li>
+	<li class="c5"><em>15</em><img data-original="/Content/images/Effects/pic3.jpg" alt=""></li>
+	<li class="c4 c5"><em>16</em><img data-original="/Content/images/Effects/pic4.jpg" alt=""></li>
+	<li class="c1 c2 c4"><em>17</em><img data-original="/Content/images/Effects/pic5.jpg" alt=""></li>
+	<li class="c2"><em>18</em><img data-original="/Content/images/Effects/pic6.jpg" alt=""></li>
+	<li class="c1"><em>19</em><img data-original="/Content/images/Effects/pic7.jpg" alt=""></li>
+	<li class="c5"><em>20</em><img data-original="/Content/images/Effects/pic8.jpg" alt=""></li>
+	<li class="c3 c4"><em>21</em><img data-original="/Content/images/Effects/pic9.jpg" alt=""></li>
+	<li class="c1 c3"><em>22</em><img data-original="/Content/images/Effects/pic10.jpg" alt=""></li>
+	<li class="c2"><em>23</em><img data-original="/Content/images/Effects/pic11.jpg" alt=""></li>
+	<li class="c4 c5"><em>24</em><img data-original="/Content/images/Effects/pic12.jpg" alt=""></li>
+</ol>
+
+<hr class="expanded">
+
+<h4 class="title">分類特效 2 - freewall</h4>
+
+<div class="alert alert-info">
+    <ol>
+        <li>套件名稱: jquery.freewall.js</li>
+        <li>官網: <a class="alert-link" href="http://vnjs.net/www/project/freewall/">http://vnjs.net/www/project/freewall/</a></li>
+    </ol>
+</div>
+
+<ul class="filter2 list-inline">
+	<li class="current" data-filter="*">全部</li>
+	<li data-filter=".c1">分類1</li>
+	<li data-filter=".c2">分類2</li>
+	<li data-filter=".c3">分類3</li>
+	<li data-filter=".c4">分類4</li>
+	<li data-filter=".c5">分類5</li>
+</ul>
+
+<ol id="filter2" class="pic-list list-unstyled">
+	<li class="c1 c3"><img data-original="/Content/images/Effects/pic.jpg" alt=""></li>
+	<li class="c2 c5"><img data-original="/Content/images/Effects/pic2.jpg" alt=""></li>
+	<li class="c4"><img data-original="/Content/images/Effects/pic3.jpg" alt=""></li>
+	<li class="c5"><img data-original="/Content/images/Effects/pic4.jpg" alt=""></li>
+	<li class="c1 c4"><img data-original="/Content/images/Effects/pic5.jpg" alt=""></li>
+	<li class="c2"><img data-original="/Content/images/Effects/pic6.jpg" alt=""></li>
+	<li class="c4"><img data-original="/Content/images/Effects/pic7.jpg" alt=""></li>
+	<li class="c1 c4 c5"><img data-original="/Content/images/Effects/pic8.jpg" alt=""></li>
+	<li class="c3 c5"><img data-original="/Content/images/Effects/pic9.jpg" alt=""></li>
+	<li class="c1 c2 c3"><img data-original="/Content/images/Effects/pic10.jpg" alt=""></li>
+	<li class="c4"><img data-original="/Content/images/Effects/pic11.jpg" alt=""></li>
+	<li class="c1 c2"><img data-original="/Content/images/Effects/pic12.jpg" alt=""></li>
+	<li class="c3 c4"><img data-original="/Content/images/Effects/pic.jpg" alt=""></li>
+	<li class="c1"><img data-original="/Content/images/Effects/pic2.jpg" alt=""></li>
+	<li class="c5"><img data-original="/Content/images/Effects/pic3.jpg" alt=""></li>
+	<li class="c4 c5"><img data-original="/Content/images/Effects/pic4.jpg" alt=""></li>
+	<li class="c1 c2 c4"><img data-original="/Content/images/Effects/pic5.jpg" alt=""></li>
+	<li class="c2"><img data-original="/Content/images/Effects/pic6.jpg" alt=""></li>
+	<li class="c1"><img data-original="/Content/images/Effects/pic7.jpg" alt=""></li>
+	<li class="c5"><img data-original="/Content/images/Effects/pic8.jpg" alt=""></li>
+	<li class="c3 c4"><img data-original="/Content/images/Effects/pic9.jpg" alt=""></li>
+	<li class="c1 c3"><img data-original="/Content/images/Effects/pic10.jpg" alt=""></li>
+	<li class="c2"><img data-original="/Content/images/Effects/pic11.jpg" alt=""></li>
+	<li class="c4 c5"><img data-original="/Content/images/Effects/pic12.jpg" alt=""></li>
+</ol>

@@ -1,0 +1,17 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+    ViewBag.Title = "內頁版頭 (客製化範例)";
+    ViewBag.BodyClass = "custom ch2 p9";
+}
+@section breadCrumb {
+    <li><a href=""><i class="fa-list-alt"></i> 後台介面</a></li>
+}
+
+<h4 class="title">@ViewBag.Title</h4>
+
+<div class="callout callout-info">
+    <ol>
+        <li>在 <code>&lt;body&gt;</code> 加上 <code>class="custom"</code></li>
+        <li>可到 _Code/CSS/sass/_variables.scss 修改變數，如圖片路徑、Banner 高度、右上角按鈕顏色…等。</li>
+    </ol>
+</div>

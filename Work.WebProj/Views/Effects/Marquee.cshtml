@@ -1,0 +1,97 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+    ViewBag.Title = "無限跑馬燈";
+    ViewBag.BodyClass = "ch3 p4";
+}
+@section breadCrumb {
+    <li><a href=""><i class="fa-list-alt"></i> 特效套件</a></li>
+}
+@section CSS {
+	<style>
+		.marquee {
+			width:100%;
+			height:120px;
+			overflow:hidden;
+		}
+		.marquee ul {
+			width:2000px;
+			margin:0;
+		}
+		.marquee li {
+			display: inline-block;
+			min-width: 86px;
+			height:120px;
+			margin:0 5px;
+		}
+		.marquee li img {
+			min-width: 86px;
+			height: 100%;
+		}
+	</style>
+}
+@section Scripts {
+	<script src="~/Scripts/vendor/jquery.lazyload.min.js"></script>
+	<script src="~/Scripts/vendor/jquery.scrollbox.js"></script>
+	<script>
+		$(function() {
+
+		    $("img").lazyload({
+		    	container: $(".marquee"),
+				effect : "fadeIn"
+			});
+
+			$(".marquee").scrollbox({
+				direction: 'h',
+				linear: true,
+				step: 1,
+				delay: 0,
+				speed: 50
+			});
+		});
+	</script>
+}
+
+<h4 class="title">@ViewBag.Title</h4>
+
+<div class="alert alert-info">
+    <ol>
+        <li>套件名稱: jquery.scrollbox.js</li>
+        <li>官網: <a class="alert-link" href="http://wmh.github.io/jquery-scrollbox/">http://wmh.github.io/jquery-scrollbox/</a></li>
+    </ol>
+</div>
+
+<div class="alert alert-warning">
+	<ol>
+		<li>裡面的容器只能用 <code>ul</code></li>
+		<li>同時使用 Lazyload 要在 Lazyload 另外設定 container 、圖片或容器要設寬度(水平捲動)或高度(垂直捲動)。</li>
+	</ol>
+</div>
+
+<div class="marquee">
+	<ul class="list-unstyled">
+		<li><img data-original="/Content/images/Effects/pic.jpg" alt=""></li>
+		<li><img data-original="/Content/images/Effects/pic2.jpg" alt=""></li>
+		<li><img data-original="/Content/images/Effects/pic3.jpg" alt=""></li>
+		<li><img data-original="/Content/images/Effects/pic4.jpg" alt=""></li>
+		<li><img data-original="/Content/images/Effects/pic5.jpg" alt=""></li>
+		<li><img data-original="/Content/images/Effects/pic6.jpg" alt=""></li>
+		<li><img data-original="/Content/images/Effects/pic7.jpg" alt=""></li>
+		<li><img data-original="/Content/images/Effects/pic8.jpg" alt=""></li>
+		<li><img data-original="/Content/images/Effects/pic9.jpg" alt=""></li>
+		<li><img data-original="/Content/images/Effects/pic10.jpg" alt=""></li>
+		<li><img data-original="/Content/images/Effects/pic11.jpg" alt=""></li>
+		<li><img data-original="/Content/images/Effects/pic12.jpg" alt=""></li>
+		<li><img data-original="/Content/images/Effects/pic.jpg" alt=""></li>
+		<li><img data-original="/Content/images/Effects/pic2.jpg" alt=""></li>
+		<li><img data-original="/Content/images/Effects/pic3.jpg" alt=""></li>
+		<li><img data-original="/Content/images/Effects/pic4.jpg" alt=""></li>
+		<li><img data-original="/Content/images/Effects/pic5.jpg" alt=""></li>
+		<li><img data-original="/Content/images/Effects/pic6.jpg" alt=""></li>
+		<li><img data-original="/Content/images/Effects/pic7.jpg" alt=""></li>
+		<li><img data-original="/Content/images/Effects/pic8.jpg" alt=""></li>
+		<li><img data-original="/Content/images/Effects/pic9.jpg" alt=""></li>
+		<li><img data-original="/Content/images/Effects/pic10.jpg" alt=""></li>
+		<li><img data-original="/Content/images/Effects/pic11.jpg" alt=""></li>
+		<li><img data-original="/Content/images/Effects/pic12.jpg" alt=""></li>
+	</ul>
+</div>

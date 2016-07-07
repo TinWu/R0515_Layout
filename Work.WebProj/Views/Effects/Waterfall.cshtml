@@ -1,0 +1,122 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+    ViewBag.Title = "瀑布流";
+    ViewBag.BodyClass = "ch3 p2";
+}
+@section breadCrumb {
+    <li><a href=""><i class="fa-list-alt"></i> 特效套件</a></li>
+}
+@section CSS {
+	<style>
+		img {width: 100%;}
+		.pic-list li {width:150px;}
+		.pic-list li.w-lg {width:300px;}
+		.pic-list li.w-xl {width:450px;}
+		.pic-list2 li {margin-bottom:8px;}
+	</style>
+}
+@section Scripts {
+    <script src="~/Scripts/vendor/jquery.lazyload.min.js"></script>
+    <script src="~/Scripts/vendor/freewall.js"></script>
+    <script src="~/Scripts/vendor/isotope.pkgd.min.js"></script>
+	<script>
+		$(function() {
+
+		    $("img").lazyload({
+				effect : "fadeIn"
+			}); //lazyload
+
+			$("img").load(function() {
+
+				var wall = new freewall(".pic-list");
+				wall.reset({
+					selector: 'li',
+					animate: true,
+					cellW: 150,
+					cellH: 'auto',
+					onResize: function() {
+						wall.fitWidth();
+					}
+				});
+				wall.fitWidth(); //瀑布流
+
+				$('.pic-list2').isotope({
+					itemSelector: 'li',
+					masonry: {
+						columnWidth: '.col-xs-2'
+					}
+				}); //瀑布流2
+
+			});
+
+		});
+	</script>
+}
+
+<h4 class="title">@ViewBag.Title - freewall</h4>
+
+<div class="alert alert-info">
+    <ol class="list-order">
+        <li>套件名稱: jquery.freewall.js</li>
+        <li>官網: <a class="alert-link" href="http://vnjs.net/www/project/freewall/">http://vnjs.net/www/project/freewall/</a></li>
+    </ol>
+</div>
+
+<div class="alert alert-warning">
+	<p>同時使用 Lazyload :</p>
+	<ol>
+		<li>需用到 jQuery 的 .load() 方法 (已載入的圖片才套用瀑布流特效)，否則圖片會全部疊在一起</li>
+		<li>有部分圖片一開始不會顯示，網頁需向下捲動才會出現 (可用 jQuery 的 .scroll() 方法在網頁載入後向下捲動 1px )</li>
+	</ol>
+	<p>須在 js 設定最小欄寬 (單位: px )</p>
+</div>
+
+<ol class="pic-list list-unstyled">
+	<li><img data-original="/Content/images/Effects/pic.jpg" alt=""></li>
+	<li><img data-original="/Content/images/Effects/pic2.jpg" alt=""></li>
+	<li class="w-lg"><img data-original="/Content/images/Effects/pic3.jpg" alt=""></li>
+	<li><img data-original="/Content/images/Effects/pic4.jpg" alt=""></li>
+	<li><img data-original="/Content/images/Effects/pic5.jpg" alt=""></li>
+	<li class="w-lg"><img data-original="/Content/images/Effects/pic6.jpg" alt=""></li>
+	<li><img data-original="/Content/images/Effects/pic7.jpg" alt=""></li>
+	<li><img data-original="/Content/images/Effects/pic8.jpg" alt=""></li>
+	<li><img data-original="/Content/images/Effects/pic9.jpg" alt=""></li>
+	<li><img data-original="/Content/images/Effects/pic10.jpg" alt=""></li>
+	<li><img data-original="/Content/images/Effects/pic11.jpg" alt=""></li>
+	<li><img data-original="/Content/images/Effects/pic12.jpg" alt=""></li>
+</ol>
+
+<hr class="expanded">
+
+<h4 class="title">@ViewBag.Title 2 - Isotope</h4>
+
+<div class="alert alert-info">
+    <ol class="list-order">
+        <li>套件名稱: isotope.pkgd.js</li>
+        <li>官網: <a class="alert-link" href="http://isotope.metafizzy.co/">http://isotope.metafizzy.co/</a></li>
+    </ol>
+</div>
+
+<div class="alert alert-warning">
+	<p>同時使用 Lazyload :</p>
+	<ol>
+		<li>需用到 jQuery 的 .load() 方法 (已載入的圖片才套用瀑布流特效)，否則圖片會全部疊在一起</li>
+		<li>有部分圖片一開始不會顯示，網頁需向下捲動才會出現 (可用 jQuery 的 .scroll() 方法在網頁載入後向下捲動 1px )</li>
+	</ol>
+	<p>須在 js 設定最小欄寬 (單位: px 或 css class )</p>
+</div>
+
+<ol class="pic-list2 row list-unstyled">
+	<li class="col-xs-2"><img data-original="/Content/images/Effects/pic.jpg" alt=""></li>
+	<li class="col-xs-4"><img data-original="/Content/images/Effects/pic2.jpg" alt=""></li>
+	<li class="col-xs-2"><img data-original="/Content/images/Effects/pic3.jpg" alt=""></li>
+	<li class="col-xs-2"><img data-original="/Content/images/Effects/pic4.jpg" alt=""></li>
+	<li class="col-xs-4"><img data-original="/Content/images/Effects/pic5.jpg" alt=""></li>
+	<li class="col-xs-2"><img data-original="/Content/images/Effects/pic6.jpg" alt=""></li>
+	<li class="col-xs-2"><img data-original="/Content/images/Effects/pic7.jpg" alt=""></li>
+	<li class="col-xs-2"><img data-original="/Content/images/Effects/pic8.jpg" alt=""></li>
+	<li class="col-xs-2"><img data-original="/Content/images/Effects/pic9.jpg" alt=""></li>
+	<li class="col-xs-2"><img data-original="/Content/images/Effects/pic10.jpg" alt=""></li>
+	<li class="col-xs-2"><img data-original="/Content/images/Effects/pic11.jpg" alt=""></li>
+	<li class="col-xs-2"><img data-original="/Content/images/Effects/pic12.jpg" alt=""></li>
+</ol>

@@ -1,0 +1,89 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+    ViewBag.Title = "日曆小幫手";
+    ViewBag.BodyClass = "ch3 p7";
+}
+@section breadCrumb {
+    <li><a href=""><i class="fa-list-alt"></i> 特效套件</a></li>
+}
+@section CSS {
+    <link rel="stylesheet" href="~/_Code/css/css/datetimepicker/bootstrap-datetimepicker-build.css" />
+}
+@section Scripts {
+    <script type="text/javascript" src="~/Scripts/vendor/datetimepicker/moment-with-locales.js"></script>
+    <script type="text/javascript" src="~/Scripts/vendor/datetimepicker/bootstrap-datetimepicker.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#date').datetimepicker({
+                locale: 'zh-tw',
+                icons: {
+                    time: "fa-clock-o",
+                    date: "fa-calendar",
+                    up: "fa-angle-up",
+                    down: "fa-angle-down",
+                    previous: "fa-angle-left",
+                    next: "fa-angle-right"
+                },
+                format: 'YYYY-MM-DD'
+            });
+            $('#time').datetimepicker({
+                locale: 'zh-tw',
+                icons: {
+                    time: "fa-clock-o",
+                    date: "fa-calendar",
+                    up: "fa-angle-up",
+                    down: "fa-angle-down",
+                    previous: "fa-angle-left",
+                    next: "fa-angle-right"
+                },
+                format: "a hh:mm"
+            });
+            $('.datetimepicker').datetimepicker({
+                locale: 'zh-tw',
+                icons: {
+                    time: "fa-clock-o",
+                    date: "fa-calendar",
+                    up: "fa-angle-up",
+                    down: "fa-angle-down",
+                    previous: "fa-angle-left",
+                    next: "fa-angle-right"
+                },
+                format: "YYYY年MMMD日 A h點m分"
+            });
+        });
+    </script>
+}
+
+<h4 class="title">@ViewBag.Title</h4>
+
+<div class="alert alert-info">
+    <ol class="list-order">
+        <li>套件名稱: datetimepicker.js</li>
+        <li>官網: <a class="alert-link" href="http://eonasdan.github.io/bootstrap-datetimepicker/">http://eonasdan.github.io/bootstrap-datetimepicker/</a></li>
+        <li>不支援 angular.js ，須改用 <a href="http://angular-ui.github.io/bootstrap/#/datepicker" class="alert-link">angular 專用的日曆小幫手</a></li>
+    </ol>
+</div>
+
+<form class="form-horizontal" action="">
+	<div class="form-group has-feedback">
+		<label class="control-label col-xs-2" for="">日期</label>
+		<div class="col-xs-5">
+			<input type="text" class="form-control datetimepicker" id="date">
+			<i class="fa-calendar form-control-feedback"></i>
+		</div>
+	</div>
+	<div class="form-group has-feedback">
+		<label class="control-label col-xs-2" for="">時間</label>
+		<div class="col-xs-5">
+			<input type="text" class="form-control datetimepicker" id="time">
+			<i class="fa-clock-o form-control-feedback"></i>
+		</div>
+	</div>
+	<div class="form-group has-feedback">
+		<label class="control-label col-xs-2" for="">日期+時間</label>
+		<div class="col-xs-5">
+			<input type="text" class="form-control datetimepicker" id="datetime">
+			<i class="fa-calendar form-control-feedback"></i>
+		</div>
+	</div>
+</form>

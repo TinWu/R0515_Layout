@@ -1,0 +1,58 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+    ViewBag.Title = "延遲載入 Lazyload";
+    ViewBag.BodyClass = "ch3 p1";
+}
+@section breadCrumb {
+    <li><a href=""><i class="fa-list-alt"></i> 特效套件</a></li>
+}
+@section CSS {
+	<style>
+		.pic-list li {
+			height:400px;
+			overflow: hidden;
+		}
+		.pic-list li img {
+			width: 100%;
+			min-height: 100%;
+		}
+	</style>
+}
+@section Scripts {
+    <script src="~/Scripts/vendor/jquery.lazyload.min.js"></script>
+	<script>
+		$(function() {
+		    $("img").lazyload({
+				effect : "fadeIn"
+			});
+		});
+	</script>
+}
+
+<h4 class="title">@ViewBag.Title</h4>
+
+<div class="alert alert-info">
+    <ol>
+        <li>套件名稱: jquery.lazyload.js</li>
+        <li>官網: <a class="alert-link" href="http://www.appelsiini.net/projects/lazyload">http://www.appelsiini.net/projects/lazyload</a></li>
+    </ol>
+</div>
+
+<div class="alert alert-warning">
+	圖片或外部容器須設定高度，否則無作用
+</div>
+
+<ol class="pic-list row list-unstyled">
+	<li class="col-xs-4"><img data-original="/Content/images/Effects/pic_L.jpg" alt=""></li>
+	<li class="col-xs-4"><img data-original="/Content/images/Effects/pic2_L.jpg" alt=""></li>
+	<li class="col-xs-4"><img data-original="/Content/images/Effects/pic3_L.jpg" alt=""></li>
+	<li class="col-xs-4"><img data-original="/Content/images/Effects/pic4_L.jpg" alt=""></li>
+	<li class="col-xs-4"><img data-original="/Content/images/Effects/pic5_L.jpg" alt=""></li>
+	<li class="col-xs-4"><img data-original="/Content/images/Effects/pic6_L.jpg" alt=""></li>
+	<li class="col-xs-4"><img data-original="/Content/images/Effects/pic7_L.jpg" alt=""></li>
+	<li class="col-xs-4"><img data-original="/Content/images/Effects/pic8_L.jpg" alt=""></li>
+	<li class="col-xs-4"><img data-original="/Content/images/Effects/pic9_L.jpg" alt=""></li>
+	<li class="col-xs-4"><img data-original="/Content/images/Effects/pic10_L.jpg" alt=""></li>
+	<li class="col-xs-4"><img data-original="/Content/images/Effects/pic11_L.jpg" alt=""></li>
+	<li class="col-xs-4"><img data-original="/Content/images/Effects/pic12_L.jpg" alt=""></li>
+</ol>

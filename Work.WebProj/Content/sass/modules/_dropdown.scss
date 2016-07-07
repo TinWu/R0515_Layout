@@ -1,0 +1,35 @@
+.dropdown {
+    position: relative;
+
+    &:hover, &:focus, &.active {
+        ul { display: block; }
+    }
+
+    ul {
+        @include absolute(top 100%);
+
+        display: none;
+        z-index: z(dropdown);
+
+        background: #fff;
+        border: 1px solid #dadada;
+        border-radius: 0 0 3px 3px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.175);
+    }
+
+    li {
+        display: block;
+        overflow: visible;
+        padding: 8px;
+
+        + li { border-top: 1px solid #eee; }
+
+        a {
+            color: #555;
+            padding: 8px;
+            margin: -8px;
+
+            &:hover { color: black; }
+        }
+    }
+}

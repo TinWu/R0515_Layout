@@ -1,0 +1,352 @@
+// wrapper
+$wrapper-bg:           #fff !default;
+$content-spacing:      30px !default;
+
+// header
+$header-bg:            $brand-primary !default;
+$header-height:        46px !default;
+$banner-height:        $header-height !default;
+$top-nav-height:       $header-height !default;
+$top-nav: (
+    lang:              #555 #ECF2F7,
+    activity:          #892E65 #F7ECF2,
+    user:              #2C7659 $gray-lighter
+) !default;
+$dropdown-arrow-size:  6px !default;
+
+// footer
+$footer-height:        30px !default;
+$footer-bg:            #E5E6DE !default;
+$goTop:                (bottom: 10px, right: 15px) !default;
+
+// sidebar
+$sidebar-width:        220px;
+$sidebar-title-height: 40px;
+
+
+/*      layout
+-----------------------------------------------------------------------*/
+// 有最小寬度，滿版
+%container {
+    position: relative;
+    min-width: $min-width;
+}
+
+// 有最大寬度，非滿版
+%center {
+    max-width: $max-width;
+    margin: 0 auto;
+}
+
+// 容器內主體部份(header、wrap、main、footer等)
+%box {
+    @extend %clearfix;
+
+    @include media(sm) {
+        padding: 0 ($gutter / 2);
+        width: 100%;
+    }
+}
+
+#wrapper {
+    @extend %container;
+    @if $lte7 {
+        _height: 100%;
+    }
+    min-height: 100%;
+    background: $wrapper-bg;
+}
+
+.wrap {
+    @extend %container;
+    @extend %box;
+    @extend %center;
+    @extend .text-left;
+}
+
+section, main {
+    @extend %container;
+    @extend %box;
+}
+
+main {
+    @extend .text-left;
+    // padding-top: $header-height + $sidebar-title-height;
+    // padding-left: $sidebar-width + 10px;
+    // padding-right: 10px;
+    // padding-bottom: $footer-height + $content-spacing; // 內容與footer間距
+    padding: ($header-height + $sidebar-title-height) 10px ($footer-height + $content-spacing) ($sidebar-width + 15px);
+    z-index: z(main);
+}
+
+#header, #sidebar {
+    position: fixed;
+}
+
+// header
+// ----------------------------------------------------------------------
+#header {
+    @extend .text-left;
+    background: $header-bg;
+    width: 100%;
+    height: $header-height;
+    z-index: z(header);
+
+    h1 {
+        cursor: pointer; cursor: hand; // for ie
+        z-index: z(logo);
+
+        color: #fff;
+        font-size: em(19px, 16px);
+        font-weight: normal;
+        line-height: $header-height;
+
+        @include absolute(left 6px);
+    }
+}
+
+.top-nav {
+    font-size: em(14px);
+    height: $top-nav-height;
+
+    @extend %list-unstyled;
+    @include absolute(right 0);
+
+    a { display: block; }
+
+    > li {
+        float: left;
+
+        > a {
+            height: $top-nav-height;
+            line-height: $top-nav-height;
+            padding: 0 10px;
+
+            border-left: 1px solid #fff;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 -1px rgba(black, .3);
+        }
+    }
+
+    .title { font-weight: bold; } // dropdown 裡的title
+    .dropdown {
+        ul {
+
+            min-width: 200px;
+            right: 0;
+
+            // 上方小箭頭
+            &::before {
+                @include arrow(top, $dropdown-arrow-size, #fff);
+                @include absolute(right ($dropdown-arrow-size * 2) top (-($dropdown-arrow-size * 2)));
+            }
+        }
+        &:last-child ul {
+            min-width: 150px;
+        }
+    }
+
+    @each $class, $color in $top-nav {
+        $root-color: nth($color, 1);
+        $sub-color: nth($color, 2);
+
+        .#{$class} {
+            > a {
+                background: $root-color;
+                &:hover, &:active, &:focus { background: darken($root-color, 7%); }
+            }
+            .title {
+                background: $sub-color;
+                color: darken($sub-color, 50%);
+
+                + li { border-top-color: darken($sub-color, 10%); }
+            }
+            ul a:hover {
+                background: $sub-color;
+            }
+        }
+    }
+}
+
+
+// footer
+// ----------------------------------------------------------------------
+#footer {
+    margin-top: -($footer-height);
+    height: $footer-height;
+    z-index: z(footer);
+}
+
+.goTop {
+    display: none;
+    transition: all .5s ease;
+    opacity: .8;
+
+    z-index: z(goTop);
+    position: fixed;
+
+    @each $attr, $value in $goTop {
+        #{$attr}: $value;
+    }
+    @include text-pic('gotop.png', 50px, 30px);
+
+    &:hover {
+        background-image: url(#{$img-path}/gotop2.png);
+        opacity: 1
+    }
+}
+
+
+// sidebar
+// ----------------------------------------------------------------------
+#sidebar {
+    @extend .text-left;
+    background: #F2F2F2;
+    border-right: 1px solid #ccc;
+    width: $sidebar-width;
+
+    position: fixed;
+    left: 0; bottom: 0; // 同時用 top:0; bottom:0; 高度會自動填滿
+    top: $top-nav-height;
+    z-index: z(sidebar);
+
+    .custom & { top: $banner-height + $sidebar-title-height; }
+
+    h3.title {
+        margin: 0;
+        height: $sidebar-title-height;
+        line-height: $sidebar-title-height;
+        font-size: em(17);
+        color: #555;
+
+        .custom & { top: $banner-height; }
+
+        &::before {
+            content: '';
+            display: block; float: left;
+
+            margin: 8px 18px 0 10px;
+            @include size(10px);
+
+            background: $success;
+            border-radius: 3px;
+            box-shadow: 12px 0 0 $info, 0 12px 0 $warning, 12px 12px 0 $error;
+        }
+    }
+
+    header {
+        border-top: 1px solid #E5E5E5;
+        padding: 10px;
+
+        background: #F8F8F8;
+        border-right: 2px solid transparent;
+
+        color: #555;
+        font-size: 1em;
+        transition: border 0.3s;
+        cursor: pointer; cursor:hand;
+
+        &:hover, &:active, &:focus {
+            color: $brand-primary;
+            border-right-color: $brand-primary;
+        }
+        // icon
+        &::before {
+            font-weight: normal;
+            margin-right: 10px;
+        }
+    }
+
+    ul {
+        display: none;
+        border-top: 1px solid #E5E5E5;
+        padding: 0; margin: 0;
+    }
+
+    a {
+        display: block;
+        position: relative;
+        padding: 8px 8px 8px 35px;
+        color: #555;
+
+        // 選單左邊icon小箭頭
+        &::before {
+            @include absolute(left 17px top 50%);
+            color: $brand-primary;
+            margin-top: -8px;
+            opacity: 0;
+            transition: opacity .15s;
+            z-index: z(sidebar) + 3;
+        }
+        &:hover, &:active, &:focus {
+            background: lighten($brand-primary,46%);
+
+            &::before { opacity: 1; }
+        }
+    }
+
+    li {
+        border-bottom: 1px dotted #E4E4E4;
+        position: relative;
+
+        &:last-child { border-bottom: 0; }
+        &::before, &::after {
+            content: '';
+            display: block;
+            position: absolute;
+        }
+        // 選單左直虛線
+        &::before {
+            @include size(1px,100%);
+            border-left: 1px dotted lighten($brand-primary,20%);
+            top: 0; left: 18px;
+            z-index: z(sidebar) + 2;
+        }
+        // 選單左橫虛線
+        &::after {
+            @include size(7px, 1px);
+            border-bottom: 1px dotted lighten($brand-primary,20%);
+            top: 50%; left: 19px;
+        }
+        &:hover, &.current {
+            &::after { display: none; }
+        }
+        // 當前選單樣式
+        &.current a {
+            background: lighten($brand-primary,48%);
+            color: $brand-primary;
+
+            &::before {
+                color: $error;
+                opacity: 1;
+            }
+            // 當前選單的右藍箭頭
+            &::after {
+                @include absolute(right 0 top 50%);
+                @include arrow(left, 14px, $brand-primary);
+                border-right-width: 10px;
+                margin-top: -14px;
+            }
+        }
+    }
+
+    nav {
+        background: #fff;
+        font-size: em(14px);
+
+        // 當前展開選單
+        &.in {
+            header {
+                color: $brand-primary;
+                border-right-color: $brand-primary;
+                font-weight: bold;
+                background: #fff;
+            }
+            ul {
+                display: block;
+                border-right: 2px solid $brand-primary;
+            }
+        }
+    }
+}

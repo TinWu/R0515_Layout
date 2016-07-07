@@ -1,0 +1,111 @@
+﻿@{
+Layout = "~/Views/Shared/Layout.cshtml";
+ViewBag.Title = "編輯器";
+ViewBag.BodyClass = "ch2 p3";
+}
+@section breadCrumb {
+<li><a href=""><i class="fa-list-alt"></i> 後台介面</a></li>
+}
+@section CSS {
+    
+}
+@section Scripts {
+    <script src="~/ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'editor1' );
+
+        var cfg1 = {
+            toolbar: [
+                [ 'Source', '-', 'Bold', 'Italic', 'Underline', 'Strike' ]
+            ] };
+        var cfg2 = { toolbar: [
+                [ 'Source', '-', 'Bold', 'Italic', 'Underline', 'Strike' ],
+                [ 'FontSize', 'TextColor', 'BGColor' ],
+                ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock']
+            ] };
+        var cfg3 = { toolbar: [
+                [ 'Source', '-', 'Bold', 'Italic', 'Underline', 'Strike' ],
+                ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent'],
+                [ 'FontSize', 'TextColor', 'BGColor' ]
+            ] };
+        CKEDITOR.disableAutoInline = true;
+        CKEDITOR.inline( 'editor2-1', cfg1 );
+        CKEDITOR.inline( 'editor2-2', cfg2 );
+        CKEDITOR.inline( 'editor2-3', cfg3 );
+
+        CKEDITOR.replace( 'editor3', {
+            toolbar: [
+                [ 'Source', '-', 'Templates' ],
+                [ 'Bold', 'Italic', 'Underline', 'Strike' ],
+                ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+                ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent'],
+                [ 'Format', 'FontSize', 'TextColor', 'BGColor' ],
+                [ 'Link', 'Unlink', 'Anchor' ],
+                [ 'Image', 'Table' ]
+            ]
+        });
+    </script>
+}
+
+<h3 class="title">@ViewBag.Title</h3>
+
+<p>詳細設定可看<a href="http://docs.ckeditor.com/#!/guide/dev_installation" target="new">官方說明文件</a></p>
+
+<ul class="item-tab" role="tablist">
+    <li class="active"><a href="#tab1" role="tab" data-toggle="tab">預設模式</a></li>
+    <li><a href="#tab2" role="tab" data-toggle="tab">inline 模式</a></li>
+    <li><a href="#tab3" role="tab" data-toggle="tab">選擇樣板</a></li>
+</ul><!-- tab-nav //-->
+
+<div class="tab-content">
+
+    <div class="tab-pane active" id="tab1">
+        <div class="callout callout-warning">
+            可以在 config.js 匯入自訂的 css 來呈現跟前台一樣的版面。(ex. editor.css)
+        </div>
+        <div class="editor" id="editor1">
+            <h1>HIHI</h1>
+            <p>這是 CKEditor 編輯器 (預設模式 + 完整版工具列)</p>
+            <p>可匯入自訂的 css (ex. 標題變成藍色)</p>
+        </div>
+    </div>
+
+    <div class="tab-pane" id="tab2">
+        <div class="callout callout-warning">
+            <ol>
+                <li><strong>無法使用</strong>自訂的 css，會繼承此頁原本的 css 。(除非單獨為編輯器做一個頁面，再用 <code>&lt;iframe&gt;</code> 嵌進來)</li>
+                <li>無法使用查看原始碼功能，<a href="http://ckeditor.com/addon/sourcedialog" target="new">可以另外加裝套件解決</a></li>
+            </ol>
+        </div>
+        <div class="editor">
+            <h1 id="editor2-1" contenteditable="true">HIHI 按這裡就可以編輯</h1>
+            <div id="editor2-2" contenteditable="true">
+                <p>這是 CKEditor 編輯器 ( inline 模式)</p>
+                <p>可以設定在不同區塊出現不同工具列</p>
+            </div>
+            <hr>
+            <div id="editor2-3" contenteditable="true">
+                <ul>
+                    <li>List item</li>
+                    <li>List item</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane" id="tab3">
+        <div class="callout callout-warning">
+            <ol>
+                <li>點選 <i class="fa-file-text-o"></i> 就可選擇樣板。</li>
+                <li><a href="http://www.dotblogs.com.tw/lastsecret/archive/2010/10/06/18154.aspx" target="new">自訂樣板內容的教學按這裡</a> (缺點: 樣板的 html 要寫在 javascript 裡面)</li>
+                <li>須注意工具列的功能完整性，樣板有用到的 html，工具列也要有。例如：樣板有表格，工具列也要有插入表格的功能，否則表格不會出現。</li>
+            </ol>
+        </div>
+        <div class="editor" id="editor3">
+            <h1>HIHI</h1>
+            <p>這是 CKEditor 編輯器 (預設模式 + 自訂工具列)</p>
+            <p>可以預先寫好樣板給使用者套用</p>
+        </div>
+    </div>
+
+</div>

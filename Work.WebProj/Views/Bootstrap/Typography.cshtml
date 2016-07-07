@@ -1,0 +1,199 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+    ViewBag.Title = "基本元素";
+    ViewBag.BodyClass = "ch1 p4";
+}
+@section breadCrumb {
+    <li><a href=""><i class="fa-list-alt"></i> Bootstrap 教學</a></li>
+}
+
+<h3 class="title">@ViewBag.Title</h3>
+
+<div class="row">
+    <div class="col-xs-6">
+
+        <div class="item-box">
+            <div class="item-title"><h5>標題 &amp; 段落文字</h5></div>
+            <div class="panel-body">
+
+                <h1>標題一 H1</h1>
+                <p class="lead">引言 Leading paragraph. Leading paragraph. Leading paragraph. Leading paragraph. Leading paragraph. Leading paragraph. Leading paragraph. Leading paragraph. Leading paragraph.</p>
+                <h2>標題二 H2</h2>
+                <p>段落 Paragraph. Paragraph. Paragraph. Paragraph. Paragraph. Paragraph. Paragraph. Paragraph. Paragraph. Paragraph. Paragraph. Paragraph. Paragraph. Paragraph. Paragraph. Paragraph. Paragraph. Paragraph. Paragraph. Paragraph.</p>
+                <h3>標題三 H3</h3>
+                <h4>標題四 H4</h4>
+                <h5>標題五 H5</h5>
+                <h6>標題六 H6</h6>
+
+            </div>
+        </div>
+
+        <div class="item-box">
+            <div class="item-title"><h5>列表清單</h5></div>
+            <div class="panel-body">
+
+                <div class="row">
+
+                    <div class="col-xs-6">
+                        <h5 class="title">無編號:</h5>
+                        <ul>
+                            <li>Paragraph.</li>
+                            <li>
+                                Paragraph.
+                                <ul>
+                                    <li>sublist</li>
+                                    <li>sublist</li>
+                                </ul>
+                            </li>
+                            <li>
+                                無編號中的有編號:
+                                <ol>
+                                    <li>sublist</li>
+                                    <li>sublist</li>
+                                </ol>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-xs-6">
+                        <h5 class="title">有編號:</h5>
+                        <ol>
+                            <li>Paragraph.</li>
+                            <li>
+                                有編號中的無編號:
+                                <ul>
+                                    <li>sublist</li>
+                                    <li>sublist</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Paragraph.
+                                <ol>
+                                    <li>sublist</li>
+                                    <li>sublist</li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="item-box">
+            <div class="item-title"><h5>分隔線</h5></div>
+            <div class="panel-body">
+
+                <p>預設:</p>
+                <hr>
+                <p>寬版:</p>
+                <hr class="expanded">
+                <p>窄版:</p>
+                <hr class="condensed">
+
+            </div>
+        </div>
+
+    </div>
+    <div class="col-xs-6">
+        <div class="item-box">
+            <div class="item-title"><h5>文字標記</h5></div>
+            <div class="panel-body">
+
+                <ul class="list-unstyled">
+                    <li class="text-primary">文字顏色1 text-primary</li>
+                    <li class="text-success">文字顏色2 text-success</li>
+                    <li class="text-info">文字顏色3 text-info</li>
+                    <li class="text-warning">文字顏色4 text-warning</li>
+                    <li class="text-danger">文字顏色5 text-danger</li>
+                </ul>
+                <hr>
+                <ul class="list-unstyled">
+                    <li class="text-left">置左 text-left</li>
+                    <li class="text-center">置中 text-center</li>
+                    <li class="text-right">置右 text-right</li>
+                </ul>
+                <hr>
+                <ul class="list-inline">
+                    <li><mark>背景上色 mark</mark></li>
+                    <li><del>刪除線 del</del></li>
+                    <li><small>小字 small</small></li>
+                    <li><strong>粗體 strong</strong></li>
+                    <li><em>斜體 em</em></li>
+                </ul>
+                <hr>
+                <ul class="list-inline">
+                    <li>標籤</li>
+                    <li><span class="label label-default">default</span></li>
+                    <li><span class="label label-primary">primary</span></li>
+                    <li><span class="label label-success">success</span></li>
+                    <li><span class="label label-info">info</span></li>
+                    <li><span class="label label-warning">warning</span></li>
+                    <li><span class="label label-danger">danger</span></li>
+                </ul>
+                <hr>
+                <ul class="list-inline">
+                    <li>通知</li>
+                    <li><span class="badge">1</span></li>
+                    <li><span class="badge badge-primary">2</span></li>
+                    <li><span class="badge badge-success">3</span></li>
+                    <li><span class="badge badge-info">4</span></li>
+                    <li><span class="badge badge-warning">5</span></li>
+                    <li><span class="badge badge-danger">6</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="item-box">
+            <div class="item-title"><h5>超連結</h5></div>
+            <div class="panel-body">
+                <ul class="list-inline">
+                    <li><a href="">default</a></li>
+                    <li><a href="" class="text-success">success</a></li>
+                    <li><a href="" class="text-info">info</a></li>
+                    <li><a href="" class="text-warning">warning</a></li>
+                    <li><a href="" class="text-danger">danger</a></li>
+                </ul>
+                <ul class="list-inline">
+                    <li><a href="" class="btn btn-default">偽裝成按鈕</a></li>
+                    <li><a href="" class="btn btn-primary">primary</a></li>
+                    <li><a href="" class="btn btn-success">success</a></li>
+                    <li><a href="" class="btn btn-info">info</a></li>
+                    <li><a href="" class="btn btn-warning">warning</a></li>
+                    <li><a href="" class="btn btn-danger">danger</a></li>
+                </ul>
+                <ul class="list-inline">
+                    <li><a href="" class="btn btn-primary btn-lg">偽裝成按鈕 lg</a></li>
+                    <li><a href="" class="btn btn-success">default</a></li>
+                    <li><a href="" class="btn btn-info btn-sm">sm</a></li>
+                    <li><a href="" class="btn btn-warning btn-xs">xs</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="item-box">
+            <div class="item-title"><h5>按鈕</h5></div>
+            <div class="panel-body">
+                <p>
+                    <button>default</button>
+                    <button class="btn-primary">primary</button>
+                    <button class="btn-success">success</button>
+                    <button class="btn-info">info</button>
+                    <button class="btn-warning">warning</button>
+                    <button class="btn-danger">danger</button>
+                </p>
+                <p>
+                    <button class="btn-primary btn-xs">xs</button>
+                    <button class="btn-success btn-sm">sm</button>
+                    <button>default</button>
+                    <button class="btn-warning btn-lg">lg</button>
+                </p>
+                <ul class="list-inline">
+                    <li><button class="btn-link">偽裝成超連結</button></li>
+                    <li><button class="btn-link text-danger">text-danger</button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

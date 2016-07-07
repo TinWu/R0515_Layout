@@ -1,0 +1,652 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+    ViewBag.BodyClass = "ch1 p5";
+    ViewBag.Title = "UI 元件";
+}
+
+@section breadCrumb {
+    <li><a href=""><i class="fa-list-alt"></i> Bootstrap 教學</a></li>
+}
+@section Scripts {
+    <script type="text/javascript" src="~/Scripts/vendor/Sortable/Sortable.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var list = document.getElementById('accordion2');
+            var sortable = Sortable.create(list, {
+                ghostClass: "ghost"
+                //handle: ".panel-heading"
+            });
+        });
+    </script>
+}
+
+<h3 class="title">@ViewBag.Title</h3>
+
+<div class="row">
+    <div class="col-xs-6">
+
+        <div class="item-box">
+            <div class="item-title"><h5>頁籤</h5></div>
+            <div class="panel-body">
+
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#home" role="tab" data-toggle="tab"><i class="fa-home text-success"></i> 有icon</a></li>
+                    <li><a href="#profile" role="tab" data-toggle="tab">tab2</a></li>
+                    <li><a href="#messages" role="tab" data-toggle="tab">tab3</a></li>
+                    <li><a href="#settings" role="tab" data-toggle="tab">tab4</a></li>
+                </ul><!-- tab-nav //-->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="home">
+                        <textarea class="form-control" name="" id="" cols="30" rows="5">tab1</textarea>
+                    </div>
+                    <div class="tab-pane" id="profile">
+                        <textarea class="form-control" name="" id="" cols="30" rows="5">tab2</textarea>
+                    </div>
+                    <div class="tab-pane" id="messages">
+                        <textarea class="form-control" name="" id="" cols="30" rows="5">tab3</textarea>
+                    </div>
+                    <div class="tab-pane" id="settings">
+                        <textarea class="form-control" name="" id="" cols="30" rows="5">tab4</textarea>
+                    </div>
+                </div><!-- tab-content //-->
+
+                <hr>
+
+                <ul class="nav nav-tabs nav-left" role="tablist">
+                    <li class="active"><a href="#home2" role="tab" data-toggle="tab"><i class="fa-home text-success"></i> 有icon</a></li>
+                    <li><a href="#profile2" role="tab" data-toggle="tab">tab2</a></li>
+                    <li><a href="#messages2" role="tab" data-toggle="tab">tab3</a></li>
+                    <li><a href="#settings2" role="tab" data-toggle="tab">tab4</a></li>
+                </ul><!-- tab-nav //-->
+                <div class="tab-content tab-left">
+                    <div class="tab-pane active" id="home2">
+                        <textarea class="form-control" name="" id="" cols="30" rows="5">tab1</textarea>
+                    </div>
+                    <div class="tab-pane" id="profile2">
+                        <textarea class="form-control" name="" id="" cols="30" rows="5">tab2</textarea>
+                    </div>
+                    <div class="tab-pane" id="messages2">
+                        <textarea class="form-control" name="" id="" cols="30" rows="5">tab3</textarea>
+                    </div>
+                    <div class="tab-pane" id="settings2">
+                        <textarea class="form-control" name="" id="" cols="30" rows="5">tab4</textarea>
+                    </div>
+                </div><!-- tab-content //-->
+
+            </div>
+        </div>
+
+        <div class="item-box">
+            <div class="item-title"><h5>收合選單</h5></div>
+            <div class="panel-body">
+
+                <div class="panel-group" id="accordion">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#accordion-1">
+                                    <i class="fa-chevron-down"></i>
+                                    收合選單1
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="accordion-1" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <textarea class="form-control" name="" id="" cols="30" rows="5">收合選單1</textarea>
+                            </div>
+                        </div>
+                    </div><!-- 收合選單1 -->
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#accordion-2">
+                                    <i class="fa-chevron-down"></i>
+                                    收合選單2
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="accordion-2" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <textarea class="form-control" name="" id="" cols="30" rows="5">收合選單2</textarea>
+                            </div>
+                        </div>
+                    </div><!-- 收合選單2 -->
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#accordion-3">
+                                    <i class="fa-plus"></i>
+                                    收合選單 Type 2 - icon 不同
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="accordion-3" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <textarea class="form-control" name="" id="" cols="30" rows="5">收合選單 Type 2</textarea>
+                            </div>
+                        </div>
+                    </div><!-- 收合選單3 -->
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#accordion-4">
+                                    <i class="fa-plus"></i>
+                                    收合選單 Type 2
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="accordion-4" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <textarea class="form-control" name="" id="" cols="30" rows="5">收合選單 Type 2</textarea>
+                            </div>
+                        </div>
+                    </div><!-- 收合選單3 -->
+                </div><!-- 收合選單 //-->
+
+            </div>
+        </div>
+
+        <div class="item-box">
+            <div class="item-title"><h5>可拖曳的收合選單</h5></div>
+            <div class="panel-body">
+                
+                <div class="panel-group" id="accordion2">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h4 class="panel-title draggable">
+                                <a data-toggle="collapse" href="#collapse3">
+                                    <i class="fa-bars"></i>
+                                    收合選單1
+                                    <ul class="widget">
+                                        <li data-toggle="tooltip" title="收合"><button class="btn-link text-default"><i class="fa-chevron-down"></i></button></li>
+                                        <li data-toggle="tooltip" title="刪除"><button class="btn-link text-danger"><i class="fa-times"></i></button></li>
+                                    </ul>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse3" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <textarea class="form-control" name="" id="" cols="30" rows="5">可同時開啟多個內容 (不要寫 data-parent 屬性)</textarea>
+                            </div>
+                        </div>
+                    </div><!-- 收合選單1 -->
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h4 class="panel-title draggable">
+                                <a class="collapsed" data-toggle="collapse" href="#collapse4">
+                                    <i class="fa-bars"></i>
+                                    收合選單2
+                                    <ul class="widget">
+                                        <li data-toggle="tooltip" title="選項"><button class="btn-link"><i class="fa-cog"></i></button></li>
+                                        <li data-toggle="tooltip" title="重新整理"><button class="btn-link text-success"><i class="fa-refresh"></i></button></li>
+                                        <li data-toggle="tooltip" title="展開"><button class="btn-link text-default"><i class="fa-chevron-down"></i></button></li>
+                                        <li data-toggle="tooltip" title="刪除"><button class="btn-link text-danger"><i class="fa-times"></i></button></li>
+                                    </ul>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse4" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <textarea class="form-control" name="" id="" cols="30" rows="5">收合選單2</textarea>
+                            </div>
+                        </div>
+                    </div><!-- 收合選單2 -->
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h4 class="panel-title draggable">
+                                <a class="collapsed" data-toggle="collapse" href="#collapse5">
+                                    <i class="fa-bars"></i>
+                                    收合選單3
+                                    <ul class="widget">
+                                        <li data-toggle="tooltip" title="選項"><button class="btn-link"><i class="fa-cog"></i></button></li>
+                                        <li data-toggle="tooltip" title="重新整理"><button class="btn-link text-success"><i class="fa-refresh"></i></button></li>
+                                        <li data-toggle="tooltip" title="展開"><button class="btn-link text-default"><i class="fa-chevron-down"></i></button></li>
+                                        <li data-toggle="tooltip" title="刪除"><button class="btn-link text-danger"><i class="fa-times"></i></button></li>
+                                    </ul>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse5" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <textarea class="form-control" name="" id="" cols="30" rows="5">收合選單3</textarea>
+                            </div>
+                        </div>
+                    </div><!-- 收合選單3 -->
+                </div><!-- 收合選單 //-->
+                
+            </div>
+        </div>
+
+        <div class="item-box">
+            <div class="item-title"><h5>頁碼</h5></div>
+            <div class="panel-body">
+                <ul class="pagination">
+                    <li><a href="#" aria-label="Previous">&laquo;</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#" aria-label="Next">&raquo;</a></li>
+                </ul>
+                <hr>
+                <ul class="pager">
+                    <li><a href="#"><i class="fa-angle-double-left"></i></a></li>
+                    <li><a href="#"><i class="fa-angle-left"></i></a></li>
+                    <li class="form-inline">
+                        <div class="form-group">
+                            <label for="">第</label>
+                            <input type="text" class="form-control" value="1">
+                            <label for="">頁，共3頁</label>
+                        </div>
+                    </li>
+                    <li><a href="#"><i class="fa-angle-right"></i></a></li>
+                    <li><a href="#"><i class="fa-angle-double-right"></i></a></li>
+                </ul>
+                <hr>
+                <ul class="pager">
+                    <li class="previous"><a href="#">← 舊</a></li>
+                    <li class="next"><a href="#">新 →</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-xs-6">
+
+        <div class="item-box">
+            <div class="item-title"><h5>提示訊息</h5></div>
+            <div class="panel-body">
+                <h4>Type 1</h4>
+                <div class="alert alert-success" role="alert">成功訊息</div>
+                <div class="alert alert-info" role="alert">一般訊息</div>
+                <div class="alert alert-warning" role="alert">警告訊息</div>
+                <div class="alert alert-danger" role="alert">錯誤訊息</div>
+                <div class="alert alert-info" role="alert">
+                    加上打叉按鈕和<a href="#" class="alert-link">超連結</a>
+                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                </div>
+                <hr>
+                <h4>Type 2</h4>
+                <div class="callout" role="alert">
+                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4>預設</h4>
+                    <p>文字文字文字文字文字文字</p>
+                </div>
+                <div class="callout callout-primary">
+                    <h4>Primary</h4>
+                    <p>文字文字文字文字文字文字</p>
+                </div>
+                <div class="callout callout-success">
+                    <h4>Success</h4>
+                    <p>文字文字文字文字文字文字</p>
+                </div>
+                <div class="callout callout-info">
+                    <h4>Info</h4>
+                    <p>文字文字文字文字文字文字</p>
+                </div>
+                <div class="callout callout-warning">
+                    <h4>Warning</h4>
+                    <p>文字文字文字文字文字文字</p>
+                </div>
+                <div class="callout callout-danger">
+                    <h4>Danger</h4>
+                    <p>文字文字文字文字文字文字</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="item-box">
+            <div class="item-title"><h5>進度條</h5></div>
+            <div class="panel-body">
+
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                        60%
+                    </div>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                        40%
+                    </div>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 2%">
+                        2%
+                    </div>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                        60%
+                    </div>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                        80%
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="item-box">
+            <div class="item-title"><h5>跳出 popup 視窗 ( modal )</h5></div>
+            <div class="panel-body">
+                <p>
+                    <button data-toggle="modal" data-target="#Modal-1">中型 (預設)</button>
+                    <button class="btn-success" data-toggle="modal" data-target="#Modal-2">小型</button>
+                    <button class="btn-warning" data-toggle="modal" data-target="#Modal-3">大型 (視窗中還有視窗)</button>
+                </p>
+                <p>
+                    <button class="btn-info" data-toggle="modal" data-target="#Modal-6">內容很多</button>
+                    <button class="btn-danger" data-toggle="modal" data-target="#Modal-7">內容很多2 (視窗內出現捲軸)</button>
+                    <button class="btn-success" data-toggle="modal" data-target="#Modal-8">移除淡入特效</button>
+                </p>
+                <p>
+                    <button data-toggle="modal" data-target="#Modal-9">上下左右置中</button>
+                    <button class="btn-warning" data-toggle="modal" data-target="#Modal-10">上下左右置中 (內容很多)</button>
+                </p>
+
+                <div class="modal fade" id="Modal-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title">中型 (預設)</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>含header、content、footer</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn-primary">Save changes</button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+
+                <div class="modal fade" id="Modal-2">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title">小型視窗</h4>
+                            </div>
+                            <div class="modal-body">
+                                <button type="button" data-dismiss="modal">Close</button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+
+                <div class="modal fade" id="Modal-3">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <p>大型視窗</p>
+                                <p><button data-toggle="modal" data-target="#Modal-4">視窗中還有視窗</button></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn-primary">Save changes</button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+
+                <div class="modal fade" id="Modal-4">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title">第二個視窗</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p><button data-toggle="modal" data-target="#Modal-5">開啟第三個視窗</button></p>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+
+                <div class="modal fade" id="Modal-5">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title">第三個視窗</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>HI</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn-primary">Save changes</button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+
+                <div class="modal fade" id="Modal-6">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title">內容很多</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn-primary">Save changes</button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+
+                <div class="modal fade fit-window" id="Modal-7">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title">內容很多2 (視窗內出現捲軸)</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="alert alert-warning">
+                                    <p>此功能目前尚在測試中</p>
+                                </div>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn-primary">Save changes</button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+
+                <div class="modal" id="Modal-8">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title">移除淡入特效</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>HI</p>
+                                <p><button type="button" data-dismiss="modal">Close</button></p>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+                <div class="modal fade fit-window center-window" id="Modal-9">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title">上下左右置中</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form action="" class="form-horizontal">
+                                    <div class="form-group">
+                                    <label for="" class="col-xs-2 control-label">姓名</label>
+                                        <div class="col-xs-10"><input type="text" class="form-control"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="col-xs-2 control-label">電話</label>
+                                        <div class="col-xs-10"><input type="text" class="form-control"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="col-xs-2 control-label">地址</label>
+                                        <div class="col-xs-10"><input type="text" class="form-control"></div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">                                
+                                <button type="button" class="btn-primary" data-dismiss="modal"><i class="fa-check"></i> 儲存</button>
+                                <button type="button" data-dismiss="modal"><i class="fa-times"></i> 關閉</button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+                <div class="modal fade fit-window center-window" id="Modal-10">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title">上下左右置中 (內容很多)</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="alert alert-warning">
+                                    <p>如果內容過多，會出現捲軸 (此功能目前尚在測試中)</p>
+                                </div>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                                <p>測試</p>
+                            </div>
+                            <div class="modal-footer">                                
+                                <button type="button" class="btn-primary" data-dismiss="modal"><i class="fa-check"></i> 儲存</button>
+                                <button type="button" data-dismiss="modal"><i class="fa-times"></i> 關閉</button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+
+            </div>
+        </div>
+
+    </div>
+</div>
+

@@ -1,0 +1,888 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+    ViewBag.Title = "列表";
+    ViewBag.BodyClass = "ch2 p1";
+}
+@section breadCrumb {
+    <li><a href=""><i class="fa-list-alt"></i> 後台介面</a></li>
+}
+
+<h3 class="title">@ViewBag.Title</h3>
+
+<div class="callout callout-warning">
+    <ol>
+        <li>標題列要用<code>&lt;th&gt;</code>，設定寬度 <code>class="col-$-%"</code> 加在<code>&lt;th&gt;</code>上面，<code>&lt;td&gt;</code> 不用加，所有 <code>&lt;th class="col-$-%"&gt;</code> 的數字總和必須等於 <strong class="text-danger">12</strong>。</li>
+        <li>如果表格欄位很多，12格不夠用，就不要在 <code>&lt;th&gt;</code> 加 class。</li>
+    </ol>
+</div>
+
+<h4 class="title">含 搜尋、排序、每頁顯示筆數、總共幾筆</h4>
+
+<div class="table-responsive">
+
+    <div class="table-header">
+        <h5 class="table-title">搜尋<strong>王小明</strong>的結果:</h5>
+        <div class="table-filter">
+            <div class="form-inline">
+                <div class="form-group">
+                    <label for="">日期</label>
+                    <span class="has-feedback">
+                        <input type="text" class="form-control input-sm datetimepicker" />
+                        <i class="fa-calendar form-control-feedback"></i>
+                    </span>
+                    <label for="">~</label>
+                    <span class="has-feedback">
+                        <input type="text" class="form-control input-sm datetimepicker" />
+                        <i class="fa-calendar form-control-feedback"></i>
+                    </span>
+                </div>
+                <button class="btn-primary btn-sm"><i class="fa-search"></i> 搜尋</button>
+
+                <div class="form-group pull-right">
+                    <label class="small" for="">每頁顯示</label>
+                    <select class="form-control input-sm" name="" id="">
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                    </select>
+                    <label class="small" for="">筆</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th class="col-xs-1 text-center">
+                    <label class="cbox">
+                        <input type="checkbox">
+                        <i class="fa-check"></i>
+                    </label>
+                </th>
+                <th class="col-xs-1 text-center">修改</th>
+                <th class="col-xs-3 ordered">
+                    <a class="desc" href="#">
+                        姓名
+                        <i class="fa-caret-up"></i>
+                        <i class="fa-caret-down"></i>
+                    </a>
+                </th>
+                <th class="col-xs-1">性別</th>
+                <th class="col-xs-3 ordered">
+                    <a href="#">
+                        住址
+                        <i class="fa-caret-up"></i>
+                        <i class="fa-caret-down"></i>
+                    </a>
+                </th>
+                <th class="col-xs-3">電話</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="text-center">
+                    <label class="cbox">
+                        <input type="checkbox">
+                        <i class="fa-check"></i>
+                    </label>
+                </td>
+                <td class="text-center">
+                    <button class="btn-link btn-lg" data-toggle="modal" data-target="#Modal-1"><i class="fa-pencil"></i></button>
+                    <button class="btn-link btn-lg text-danger"><i class="fa-trash-o"></i></button>
+                </td>
+                <td>點選這一行的 <i class="fa-pencil"></i> 會跳出視窗</td>
+                <td>02</td>
+                <td>03</td>
+                <td>04</td>
+            </tr>
+            <tr class="success">
+                <td class="text-center">
+                    <label class="cbox">
+                        <input type="checkbox" checked>
+                        <i class="fa-check"></i>
+                    </label>
+                </td>
+                <td class="text-center">
+                    <button class="btn-link btn-lg"><i class="fa-pencil"></i></button>
+                    <button class="btn-link btn-lg text-danger"><i class="fa-trash-o"></i></button>
+                </td>
+                <td>01</td>
+                <td>02</td>
+                <td>03</td>
+                <td>04</td>
+            </tr>
+            <tr>
+                <td class="text-center">
+                    <label class="cbox">
+                        <input type="checkbox">
+                        <i class="fa-check"></i>
+                    </label>
+                </td>
+                <td class="text-center">
+                    <button class="btn-link btn-lg"><i class="fa-pencil"></i></button>
+                    <button class="btn-link btn-lg text-danger"><i class="fa-trash-o"></i></button>
+                </td>
+                <td>01</td>
+                <td>02</td>
+                <td>03</td>
+                <td>04</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="table-footer">
+        <div class="pull-left">
+            <button class="btn-link text-success"><i class="fa-plus-circle"></i> 新增</button>
+            <button class="btn-link text-danger"><i class="fa-trash-o"></i> 刪除</button>
+            <button class="btn-link text-warning"><i class="fa-refresh"></i> 重新整理</button>
+        </div>
+        <small class="pull-right">第1-3筆，共3筆</small>
+        <ul class="pager">
+            <li class="disabled"><a href="" title="第一頁"><i class="fa-angle-double-left"></i></a></li>
+            <li class="disabled"><a href="" title="上一頁"><i class="fa-angle-left"></i></a></li>
+            <li class="form-inline">
+                <div class="form-group">
+                    <label for="">第</label>
+                    <input type="text" class="form-control" value="1">
+                    <label for="">頁，共3頁</label>
+                </div>
+            </li>
+            <li><a href="" title="下一頁"><i class="fa-angle-right"></i></a></li>
+            <li><a href="" title="最後一頁"><i class="fa-angle-double-right"></i></a></li>
+        </ul>
+    </div>
+</div><!-- 後台常用列表 //-->
+
+<hr class="expanded">
+
+<h4 class="title">包含子列表</h4>
+
+<div class="table-responsive">
+
+    <div class="table-header">
+        <h5 class="table-title">搜尋<strong>王小明</strong>的結果:</h5>
+        <div class="table-filter">
+            <div class="form-inline">
+                <div class="form-group">
+                    <label for="">分類一</label>
+                    <select name="" id="" class="form-control input-sm">
+                        <option value="">分類一</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="">分類二</label>
+                    <select name="" id="" class="form-control input-sm">
+                        <option value="">分類二</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="">標題</label>
+                    <input type="text" class="form-control input-sm" placeholder="請輸入關鍵字...">
+                </div>
+                <button class="btn-primary btn-sm"><i class="fa-search"></i> 搜尋</button>
+
+                <div class="form-group pull-right">
+                    <label class="small" for="">每頁顯示</label>
+                    <select class="form-control input-sm" name="" id="">
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                    </select>
+                    <label class="small" for="">筆</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th class="col-xs-1">
+                    <div class="row">
+                        <div class="col-xs-6 text-center">
+                            <label class="cbox">
+                                <input type="checkbox">
+                                <i class="fa-check"></i>
+                            </label>
+                        </div>
+                    </div>
+                </th>
+                <th class="col-xs-1 text-center">修改</th>
+                <th class="col-xs-3 ordered">
+                    <a class="desc" href="#">
+                        姓名
+                        <i class="fa-caret-up"></i>
+                        <i class="fa-caret-down"></i>
+                    </a>
+                </th>
+                <th class="col-xs-1">性別</th>
+                <th class="col-xs-3 ordered">
+                    <a href="#">
+                        住址
+                        <i class="fa-caret-up"></i>
+                        <i class="fa-caret-down"></i>
+                    </a>
+                </th>
+                <th class="col-xs-3">電話</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="row">
+                        <div class="col-xs-6 text-center">
+                            <label class="cbox">
+                                <input type="checkbox">
+                                <i class="fa-check"></i>
+                            </label>
+                        </div>
+                        <div class="col-xs-6 text-center">
+                            <button class="btn-link"><i class="fa-plus"></i></button>
+                        </div>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <button class="btn-link btn-lg"><i class="fa-pencil"></i></button>
+                    <button class="btn-link btn-lg text-danger"><i class="fa-trash-o"></i></button>
+                </td>
+                <td>01</td>
+                <td>02</td>
+                <td>03</td>
+                <td>04</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="row">
+                        <div class="col-xs-6 text-center">
+                            <label class="cbox">
+                                <input type="checkbox">
+                                <i class="fa-check"></i>
+                            </label>
+                        </div>
+                        <div class="col-xs-6 text-center">
+                            <button class="btn-link"><i class="fa-minus"></i></button>
+                        </div>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <button class="btn-link btn-lg"><i class="fa-pencil"></i></button>
+                    <button class="btn-link btn-lg text-danger"><i class="fa-trash-o"></i></button>
+                </td>
+                <td>01</td>
+                <td>02</td>
+                <td>03</td>
+                <td>04</td>
+            </tr>
+            <tr class="sub-grid">
+                <td class="fold">
+                    <div class="row">
+                        <div class="col-xs-6 col-xs-offset-6 text-center">
+                            <i class="fa-chevron-right"></i>
+                        </div>
+                    </div>
+                </td><!-- icon -->
+                <td colspan="5">
+                    <div class="row"><!-- 可設定寬度不要滿版: row + col -->
+                        <div class="col-xs-10">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="col-xs-1 text-center">
+                                            <label class="cbox">
+                                                <input type="checkbox">
+                                                <i class="fa-check"></i>
+                                            </label>
+                                        </th>
+                                        <th class="col-xs-2 text-center">修改</th>
+                                        <th class="col-xs-2 ordered">
+                                            <a href="" class="asc">
+                                                ID
+                                                <i class="fa-caret-up"></i>
+                                                <i class="fa-caret-down"></i>
+                                            </a>
+                                        </th>
+                                        <th class="col-xs-5">品名</th>
+                                        <th class="col-xs-2 ordered">
+                                            <a href="">
+                                                數量
+                                                <i class="fa-caret-up"></i>
+                                                <i class="fa-caret-down"></i>
+                                            </a>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center">
+                                            <label class="cbox">
+                                                <input type="checkbox">
+                                                <i class="fa-check"></i>
+                                            </label>
+                                        </td>
+                                        <td class="text-center">
+                                            <button class="btn-link"><i class="fa-pencil"></i></button>
+                                            <button class="btn-link text-danger"><i class="fa-trash-o"></i></button>
+                                        </td>
+                                        <td>01</td>
+                                        <td>aaa</td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr class="success">
+                                        <td class="text-center">
+                                            <label class="cbox">
+                                                <input type="checkbox" checked>
+                                                <i class="fa-check"></i>
+                                            </label>
+                                        </td>
+                                        <td class="text-center">
+                                            <button class="btn-link"><i class="fa-pencil"></i></button>
+                                            <button class="btn-link text-danger"><i class="fa-trash-o"></i></button>
+                                        </td>
+                                        <td>02</td>
+                                        <td>bbbbb</td>
+                                        <td>5</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <label class="cbox">
+                                                <input type="checkbox">
+                                                <i class="fa-check"></i>
+                                            </label>
+                                        </td>
+                                        <td class="text-center">
+                                            <button class="btn-link"><i class="fa-pencil"></i></button>
+                                            <button class="btn-link text-danger"><i class="fa-trash-o"></i></button>
+                                        </td>
+                                        <td>03</td>
+                                        <td>ccccccc</td>
+                                        <td>7</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="table-footer">
+                                <div class="pull-left">
+                                    <button class="btn-link btn-sm text-success"><i class="fa-plus-circle"></i> 新增</button>
+                                    <button class="btn-link btn-sm text-danger"><i class="fa-trash-o"></i> 刪除</button>
+                                    <button class="btn-link btn-sm text-warning"><i class="fa-refresh"></i> 重新整理</button>
+                                </div>
+                                <small class="pull-right">第1-3筆，共3筆</small>
+                                <hr class="condensed clear">
+                                <ul class="pager">
+                                    <li class="disabled"><a href="" title="第一頁"><i class="fa-angle-double-left"></i></a></li>
+                                    <li class="disabled"><a href="" title="上一頁"><i class="fa-angle-left"></i></a></li>
+                                    <li class="form-inline">
+                                        <div class="form-group">
+                                            <label for="">第</label>
+                                            <input type="text" class="form-control input-sm" value="1">
+                                            <label for="">頁，共3頁</label>
+                                        </div>
+                                    </li>
+                                    <li><a href="" title="下一頁"><i class="fa-angle-right"></i></a></li>
+                                    <li><a href="" title="最後一頁"><i class="fa-angle-double-right"></i></a></li>
+                                </ul>
+                            </div><!-- 子列表 加上表尾 -->
+                        </div>
+                    </div>
+                </td>
+            </tr><!-- 出現子列表的那一列 -->
+            <tr>
+                <td>
+                    <div class="row">
+                        <div class="col-xs-6 text-center">
+                            <label class="cbox">
+                                <input type="checkbox">
+                                <i class="fa-check"></i>
+                            </label>
+                        </div>
+                        <div class="col-xs-6 text-center">
+                            <button class="btn-link"><i class="fa-plus"></i></button>
+                        </div>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <button class="btn-link btn-lg"><i class="fa-pencil"></i></button>
+                    <button class="btn-link btn-lg text-danger"><i class="fa-trash-o"></i></button>
+                </td>
+                <td>01</td>
+                <td>02</td>
+                <td>03</td>
+                <td>04</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="table-footer">
+        <div class="pull-left">
+            <button class="btn-link text-success"><i class="fa-plus-circle"></i> 新增</button>
+            <button class="btn-link text-danger"><i class="fa-trash-o"></i> 刪除</button>
+            <button class="btn-link text-warning"><i class="fa-refresh"></i> 重新整理</button>
+        </div>
+        <small class="pull-right">第1-3筆，共3筆</small>
+        <ul class="pager">
+            <li class="disabled"><a href="" title="第一頁"><i class="fa-angle-double-left"></i></a></li>
+            <li class="disabled"><a href="" title="上一頁"><i class="fa-angle-left"></i></a></li>
+            <li class="form-inline">
+                <div class="form-group">
+                    <label for="">第</label>
+                    <input type="text" class="form-control" value="1">
+                    <label for="">頁，共3頁</label>
+                </div>
+            </li>
+            <li><a href="" title="下一頁"><i class="fa-angle-right"></i></a></li>
+            <li><a href="" title="最後一頁"><i class="fa-angle-double-right"></i></a></li>
+        </ul>
+    </div>
+</div><!-- 子列表 //-->
+
+<hr class="expanded">
+
+<h4 class="title">直接編輯，不用跳新視窗</h4>
+
+<div class="table-responsive">
+
+    <div class="table-header">
+        <h5 class="table-title">
+            搜尋
+            <strong>分類一 <i class="fa-angle-double-right"></i> 分類二 <i class="fa-angle-double-right"></i>  王小明</strong>
+            的結果:
+        </h5>
+        <div class="table-filter">
+            <div class="form-inline">
+                <div class="form-group">
+                    <label for="" class="sr-only">分類一</label>
+                    <select name="" id="" class="form-control input-sm">
+                        <option value="">分類一</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="" class="sr-only">分類二</label>
+                    <select name="" id="" class="form-control input-sm">
+                        <option value="">分類二</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="" class="sr-only">搜尋</label>
+                    <input type="text" class="form-control input-sm" placeholder="請輸入關鍵字...">
+                </div>
+                <button class="btn-primary btn-sm"><i class="fa-search"></i> 搜尋</button>
+
+                <div class="form-group pull-right">
+                    <label class="small" for="">每頁顯示</label>
+                    <select class="form-control input-sm" name="" id="">
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                    </select>
+                    <label class="small" for="">筆</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th class="col-xs-1">
+                    <div class="row">
+                        <div class="col-xs-6 text-center">
+                            <label class="cbox">
+                                <input type="checkbox">
+                                <i class="fa-check"></i>
+                            </label>
+                        </div>
+                    </div>
+                </th>
+                <th class="col-xs-1 text-center">修改</th>
+                <th class="col-xs-3 ordered">
+                    <a class="desc" href="#">
+                        姓名
+                        <i class="fa-caret-up"></i>
+                        <i class="fa-caret-down"></i>
+                    </a>
+                </th>
+                <th class="col-xs-1">性別</th>
+                <th class="col-xs-3 ordered">
+                    <a href="#">
+                        住址
+                        <i class="fa-caret-up"></i>
+                        <i class="fa-caret-down"></i>
+                    </a>
+                </th>
+                <th class="col-xs-3">電話</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="row">
+                        <div class="col-xs-6 text-center">
+                            <label class="cbox">
+                                <input type="checkbox">
+                                <i class="fa-check"></i>
+                            </label>
+                        </div>
+                        <div class="col-xs-6 text-center">
+                            <button class="btn-link"><i class="fa-plus"></i></button>
+                        </div>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <button class="btn-link btn-lg"><i class="fa-pencil"></i></button>
+                    <button class="btn-link btn-lg text-danger"><i class="fa-trash-o"></i></button>
+                </td>
+                <td>01</td>
+                <td>02</td>
+                <td>03</td>
+                <td>04</td>
+            </tr>
+            <tr class="success">
+                <td>
+                    <div class="row">
+                        <div class="col-xs-6 text-center">
+                            <label class="cbox">
+                                <input type="checkbox">
+                                <i class="fa-check"></i>
+                            </label>
+                        </div>
+                        <div class="col-xs-6 text-center">
+                            <button class="btn-link"><i class="fa-plus"></i></button>
+                        </div>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <button class="btn-link btn-lg text-success"><i class="fa-check"></i></button>
+                    <button class="btn-link btn-lg text-danger"><i class="fa-times"></i></button>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <input type="text" class="form-control" value="01">
+                    </div>
+                </td>
+                <td>02</td>
+                <td>
+                    <div class="form-group">
+                        <input type="text" class="form-control" value="03">
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <input type="text" class="form-control" value="04">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="row">
+                        <div class="col-xs-6 text-center">
+                            <label class="cbox">
+                                <input type="checkbox">
+                                <i class="fa-check"></i>
+                            </label>
+                        </div>
+                        <div class="col-xs-6 text-center">
+                            <button class="btn-link"><i class="fa-minus"></i></button>
+                        </div>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <button class="btn-link btn-lg"><i class="fa-pencil"></i></button>
+                    <button class="btn-link btn-lg text-danger"><i class="fa-trash-o"></i></button>
+                </td>
+                <td>01</td>
+                <td>02</td>
+                <td>03</td>
+                <td>04</td>
+            </tr>
+            <tr class="sub-grid">
+                <td class="fold">
+                    <div class="row">
+                        <div class="col-xs-6 col-xs-offset-6 text-center">
+                            <i class="fa-chevron-right"></i>
+                        </div>
+                    </div>
+                </td><!-- icon -->
+                <td colspan="5">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="col-xs-1 text-center">
+                                    <label class="cbox">
+                                        <input type="checkbox">
+                                        <i class="fa-check"></i>
+                                    </label>
+                                </th>
+                                <th class="col-xs-2 text-center">修改</th>
+                                <th class="col-xs-2 ordered">
+                                    <a href="" class="asc">
+                                        ID
+                                        <i class="fa-caret-up"></i>
+                                        <i class="fa-caret-down"></i>
+                                    </a>
+                                </th>
+                                <th class="col-xs-5">品名</th>
+                                <th class="col-xs-2 ordered">
+                                    <a href="">
+                                        數量
+                                        <i class="fa-caret-up"></i>
+                                        <i class="fa-caret-down"></i>
+                                    </a>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center">
+                                    <label class="cbox">
+                                        <input type="checkbox">
+                                        <i class="fa-check"></i>
+                                    </label>
+                                </td>
+                                <td class="text-center">
+                                    <button class="btn-link"><i class="fa-pencil"></i></button>
+                                    <button class="btn-link text-danger"><i class="fa-trash-o"></i></button>
+                                </td>
+                                <td>01</td>
+                                <td>aaa</td>
+                                <td>3</td>
+                            </tr>
+                            <tr class="success">
+                                <td class="text-center">
+                                    <label class="cbox">
+                                        <input type="checkbox" checked>
+                                        <i class="fa-check"></i>
+                                    </label>
+                                </td>
+                                <td class="text-center">
+                                    <button class="btn-link text-success"><i class="fa-check"></i></button>
+                                    <button class="btn-link text-danger"><i class="fa-times"></i></button>
+                                </td>
+                                <td>02</td>
+                                <td>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control input-sm" value="bbbbb">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control input-sm" value="5">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">
+                                    <label class="cbox">
+                                        <input type="checkbox">
+                                        <i class="fa-check"></i>
+                                    </label>
+                                </td>
+                                <td class="text-center">
+                                    <button class="btn-link"><i class="fa-pencil"></i></button>
+                                    <button class="btn-link text-danger"><i class="fa-trash-o"></i></button>
+                                </td>
+                                <td>03</td>
+                                <td>ccccccc</td>
+                                <td>7</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="table-footer">
+                        <div class="pull-left">
+                            <button class="btn-link btn-sm text-success"><i class="fa-plus-circle"></i> 新增</button>
+                            <button class="btn-link btn-sm text-danger"><i class="fa-trash-o"></i> 刪除</button>
+                            <button class="btn-link btn-sm text-warning"><i class="fa-refresh"></i> 重新整理</button>
+                        </div>
+                        <small class="pull-right">第1-3筆，共3筆</small>
+                        <hr class="condensed clear">
+                        <ul class="pager">
+                            <li class="disabled"><a href="" title="第一頁"><i class="fa-angle-double-left"></i></a></li>
+                            <li class="disabled"><a href="" title="上一頁"><i class="fa-angle-left"></i></a></li>
+                            <li class="form-inline">
+                                <div class="form-group">
+                                    <label for="">第</label>
+                                    <input type="text" class="form-control input-sm" value="1">
+                                    <label for="">頁，共3頁</label>
+                                </div>
+                            </li>
+                            <li><a href="" title="下一頁"><i class="fa-angle-right"></i></a></li>
+                            <li><a href="" title="最後一頁"><i class="fa-angle-double-right"></i></a></li>
+                        </ul>
+                    </div><!-- 子列表 加上表尾 -->
+                </td>
+            </tr><!-- 出現子列表的那一列 -->
+            <tr>
+                <td>
+                    <div class="row">
+                        <div class="col-xs-6 text-center">
+                            <label class="cbox">
+                                <input type="checkbox">
+                                <i class="fa-check"></i>
+                            </label>
+                        </div>
+                        <div class="col-xs-6 text-center">
+                            <button class="btn-link"><i class="fa-plus"></i></button>
+                        </div>
+                    </div>
+                </td>
+                <td class="text-center">
+                    <button class="btn-link btn-lg"><i class="fa-pencil"></i></button>
+                    <button class="btn-link btn-lg text-danger"><i class="fa-trash-o"></i></button>
+                </td>
+                <td>01</td>
+                <td>02</td>
+                <td>03</td>
+                <td>04</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="table-footer">
+        <div class="pull-left">
+            <button class="btn-link text-success"><i class="fa-plus-circle"></i> 新增</button>
+            <button class="btn-link text-danger"><i class="fa-trash-o"></i> 刪除</button>
+            <button class="btn-link text-warning"><i class="fa-refresh"></i> 重新整理</button>
+        </div>
+        <small class="pull-right">第1-3筆，共3筆</small>
+        <ul class="pager">
+            <li class="disabled"><a href="" title="第一頁"><i class="fa-angle-double-left"></i></a></li>
+            <li class="disabled"><a href="" title="上一頁"><i class="fa-angle-left"></i></a></li>
+            <li class="form-inline">
+                <div class="form-group">
+                    <label for="">第</label>
+                    <input type="text" class="form-control" value="1">
+                    <label for="">頁，共3頁</label>
+                </div>
+            </li>
+            <li><a href="" title="下一頁"><i class="fa-angle-right"></i></a></li>
+            <li><a href="" title="最後一頁"><i class="fa-angle-double-right"></i></a></li>
+        </ul>
+    </div>
+</div><!-- 直接編輯，不用跳新視窗 //-->
+
+<hr class="expanded">
+
+<div class="table">
+    <div class="thead">
+        <div class="tr">
+            <div class="th col-xs-4">1</div>
+            <div class="th col-xs-4">2</div>
+            <div class="th col-xs-4">3</div>
+        </div>
+    </div>
+    <div class="tbody">
+        <div class="tr">
+            <div class="td col-xs-4">1</div>
+            <div class="td col-xs-4">2</div>
+            <div class="td col-xs-4">3</div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="Modal-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">基本資料修改</h4>
+            </div>
+            <div class="modal-body">
+                <form action="" class="form-horizontal">
+                    <div class="form-group">
+                        <label for="" class="control-label col-xs-1">姓名</label>
+                        <div class="col-xs-5">
+                            <input type="text" class="form-control">
+                        </div>
+                        <label for="" class="control-label col-xs-1">性別</label>
+                        <div class="col-xs-5">
+                            <select name="" id="" class="form-control">
+                                <option value="">男</option>
+                                <option value="">女</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="control-label col-xs-1">住址</label>
+                        <div class="col-xs-2">
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-xs-9">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="control-label col-xs-1">電話</label>
+                        <div class="col-xs-11">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="control-label col-xs-1">照片</label>
+                        <div class="col-xs-11">
+                            <div class="form-control">
+                                <input type="file">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-11 col-xs-offset-1">
+                            <span class="img-upload">
+                                <button type="button" class="close" data-dismiss="alert">&times;<span class="sr-only">Close</span></button>
+                                <img src="holder.js">
+                            </span>
+                            <span class="img-upload">
+                                <button type="button" class="close" data-dismiss="alert">&times;<span class="sr-only">Close</span></button>
+                                <img src="holder.js">
+                            </span>
+                            <span class="img-upload">
+                                <button type="button" class="close" data-dismiss="alert">&times;<span class="sr-only">Close</span></button>
+                                <img src="holder.js">
+                            </span>
+                            <span class="img-upload">
+                                <button type="button" class="close" data-dismiss="alert">&times;<span class="sr-only">Close</span></button>
+                                <img src="holder.js">
+                            </span>
+                            <span class="img-upload">
+                                <button type="button" class="close" data-dismiss="alert">&times;<span class="sr-only">Close</span></button>
+                                <img src="holder.js">
+                            </span>
+                            <span class="img-upload">
+                                <button type="button" class="close" data-dismiss="alert">&times;<span class="sr-only">Close</span></button>
+                                <img src="holder.js">
+                            </span>
+                            <span class="img-upload">
+                                <button type="button" class="close" data-dismiss="alert">&times;<span class="sr-only">Close</span></button>
+                                <img src="holder.js">
+                            </span>
+                            <span class="img-upload">
+                                <button type="button" class="close" data-dismiss="alert">&times;<span class="sr-only">Close</span></button>
+                                <img src="holder.js">
+                            </span>
+                            <span class="img-upload">
+                                <button type="button" class="close" data-dismiss="alert">&times;<span class="sr-only">Close</span></button>
+                                <img src="holder.js">
+                            </span>
+                            <span class="img-upload">
+                                <button type="button" class="close" data-dismiss="alert">&times;<span class="sr-only">Close</span></button>
+                                <img src="holder.js">
+                            </span>
+                            <span class="img-upload">
+                                <button type="button" class="close" data-dismiss="alert">&times;<span class="sr-only">Close</span></button>
+                                <img src="holder.js">
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="control-label col-xs-1">備註</label>
+                        <div class="col-xs-11">
+                            <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal"><i class="fa-times"></i> 取消</button>
+                <button type="button" class="btn-primary" data-dismiss="modal"><i class="fa-check"></i> 儲存</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

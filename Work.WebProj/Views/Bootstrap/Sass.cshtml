@@ -1,0 +1,334 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+    ViewBag.Title = "Sass 簡介";
+    ViewBag.BodyClass = "ch1 p1";
+}
+@section breadCrumb {
+    <li><a href=""><i class="fa-list-alt"></i> Bootstrap 教學</a></li>
+}
+
+<h3 class="title">@ViewBag.Title</h3>
+<p>CSS 3 和 HTML 5 日益普及，有愈來愈強大的功能，卻沒有更進步的工具輔助，於是 Sass 誕生了。</p>
+<p>Sass 支援副檔名 .sass 和 .scss 的檔案，差別在於 .scss 有大括弧 { }，.sass 沒有，因為 .scss 長得和 CSS 比較像，所以較建議使用。<br>( CSS 可以貼到 .scss 或是直接另存成 .scss 檔都不會出錯，但是存成 .sass 就會爆炸)</p>
+<div class="row">
+    <div class="col-xs-6">
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-success">優點</li>
+            <li class="list-group-item">語法和 CSS 差不多，但是比較好寫、好維護，也多一些更方便的功能。</li>
+            <li class="list-group-item">可搭配 Compass 變得很厲害。<br>(Compass 需另外安裝，有興趣可看 <a href="http://compass-style.org/" target="new">Compass 官網</a>)</li>
+        </ul>
+    </div>
+    <div class="col-xs-6">
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-danger">缺點</li>
+            <li class="list-group-item">Sass 需要用編譯軟體來編譯成 .css 才能讓網頁讀取，常見的編譯軟體有 <a href="http://koala-app.com/index.html" target="new">Koala</a>、<a href="http://compass.kkbox.com/" target="new">Compass.app</a> ……等。</li>
+        </ul>
+    </div>
+</div>
+
+<hr class="expanded">
+
+<h3 class="title">特色</h3>
+
+<ul class="item-tab" role="tablist">
+    <li class="active"><a href="#tab1" role="tab" data-toggle="tab">Nesting 巢狀寫法</a></li>
+    <li><a href="#tab2" role="tab" data-toggle="tab">Parent References 父層參照</a></li>
+    <li><a href="#tab3" role="tab" data-toggle="tab">Variables 變數</a></li>
+    <li><a href="#tab4" role="tab" data-toggle="tab">Mixins</a></li>
+    <li><a href="#tab5" role="tab" data-toggle="tab">Extend</a></li>
+    <li><a href="#tab6" role="tab" data-toggle="tab">Import</a></li>
+    <li><a href="#tab7" role="tab" data-toggle="tab">其他</a></li>
+</ul><!-- tab-nav //-->
+<div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+        <h4 class="title">Nesting 巢狀寫法</h4>
+        <p>可以省去很多重複撰寫的步驟</p>
+        <div class="row">
+            <div class="col-xs-6">
+                <p>SCSS:</p>
+                <pre>
+#navbar {
+    width: 80%;
+    height: 23px;
+    ul {
+        list-style-type: none;
+        }
+    li {
+        float: left;
+        a { font-weight: bold; }
+    }
+}
+            </pre>
+        </div>
+        <div class="col-xs-6">
+            <p>編譯後的 CSS:</p>
+            <pre>
+#navbar {
+    width: 80%;
+    height: 23px;
+}
+#navbar ul {
+    list-style-type: none;
+}
+#navbar li {
+    float: left;
+}
+#navbar li a {
+    font-weight: bold;
+}
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane" id="tab2">
+        <h4 class="title">Parent References 父層參照</h4>
+        <p>用 &amp; 代表父層</p>
+        <div class="row">
+            <div class="col-xs-6">
+                <p>SCSS:</p>
+                <pre>
+a {
+    color: #ce4dd6;
+    &:hover { color: #ffb3ff; }
+    &:visited { color: #c458cb; }
+}
+
+#box {
+    h2 {
+        font-size: 2em;
+        .special & { font-size: 3em; }
+        .ie8 & { margin-top: -3px; }
+    }
+}
+                </pre>
+            </div>
+            <div class="col-xs-6">
+                <p>編譯後的 CSS:</p>
+                <pre>
+a {
+    color: #ce4dd6;
+}
+a:hover {
+    color: #ffb3ff;
+}
+a:visited {
+    color: #c458cb;
+}
+
+#box h2 {
+    font-size: 2em;
+}
+.special #box h2 {
+    font-size: 3em;
+}
+.ie8 #box h2 {
+    margin-top: -3px;
+}
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane" id="tab3">
+        <h4 class="title">Variables 變數</h4>
+        <p>用 $ 開頭，將常用的值統一管理，方便維護。</p>
+        <div class="row">
+            <div class="col-xs-6">
+                <p>SCSS:</p>
+                <pre>
+$gap: 20px;
+$main-color: #ce4dd6;
+
+#navbar {
+    padding-bottom: $gap;
+    color: $main-color;
+    border-bottom: $main-color 2px solid;
+    li {
+    margin-left: $gap / 2;
+    }
+}
+                </pre>
+            </div>
+            <div class="col-xs-6">
+                <p>編譯後的 CSS:</p>
+                <pre>
+#navbar {
+    padding-bottom: 20px;
+    color: #ce4dd6;
+    border-bottom: #ce4dd6 2px solid;
+}
+#navbar li {
+    margin-left: 10px;
+}
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane" id="tab4">
+        <h4 class="title">Mixins</h4>
+        <ol>
+            <li>預先寫一段語法，使用 ＠include 呼叫，沒用到的時候不會被編譯。</li>
+            <li>可以和變數搭配使用，但變數用在屬性名稱或 selector 時，要用 #{ } 包起來。</li>
+        </ol>
+        <div class="row">
+            <div class="col-xs-6">
+                <p>SCSS:</p>
+                <pre>
+// 超連結去除底線，滑鼠移過出現底線
+＠mixin hover-link {
+    text-decoration: none;
+    &:hover { text-decoration: underline; }
+}
+// 圓角效果 (+不同瀏覽器前綴語法)
+＠mixin rounded($side, $radius: 10px) {
+    border-#{$side}-radius: $radius;
+    -moz-border-radius-#{$side}: $radius;
+    -webkit-border-#{$side}-radius: $radius;
+}
+
+nav {
+    ＠include rounded(top);
+}
+nav a { ＠include hover-link; }
+
+#sidebar {
+    ＠include rounded(left, 5px);
+}
+                </pre>
+            </div>
+            <div class="col-xs-6">
+                <p>編譯後的 CSS:</p>
+                <pre>
+nav {
+    border-top-radius: 10px;
+    -moz-border-radius-top: 10px;
+    -webkit-border-top-radius: 10px;
+}
+nav a {
+    text-decoration: none;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+#sidebar {
+    border-left-radius: 5px;
+    -moz-border-radius-left: 5px;
+    -webkit-border-left-radius: 5px;
+}
+                </pre>
+            </div>
+        </div>
+        <p>上面例子的 $radius: 10px ，是預設值，如果 $radius 沒有填就自動帶入 10px</p>
+    </div>
+
+    <div class="tab-pane" id="tab5">
+        <h4 class="title">Extend</h4>
+        <p>和 Mixins 很像，但 ＠extend 是把相同內容集合在一起，生出來的 CSS 和 Mixins 不一樣，也無法搭配變數。</p>
+        <div class="row">
+            <div class="col-xs-6">
+                <p>SCSS:</p>
+                <pre>
+.btn {
+    display: inline-block;
+    color: #fff;
+    background: #666;
+    cursor: pointer;
+}
+.btn2 {
+    ＠extend .btn;
+    background: #ff0000;
+}
+                </pre>
+            </div>
+            <div class="col-xs-6">
+                <p>編譯後的 CSS:</p>
+                <pre>
+.btn, .btn2 {
+    display: inline-block;
+    color: #fff;
+    background: #666;
+    cursor: pointer;
+}
+.btn2 {
+    background: #ff0000;
+}
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane" id="tab6">
+        <h4 class="title">Import</h4>
+        <ol>
+            <li>可以將常用的 variables、mixins 分別存成 _variables.scss、_mixins.scss，再 import 到主要的 scss 檔案中，可以重複使用在多個專案，不必重寫。</li>
+            <li>檔名前面加底線 _ 的檔案，不會被編譯成 CSS</li>
+        </ol>
+        <p>SCSS:</p>
+        <pre>
+＠import "mixins";    // 也可以寫成 ＠import "_mixins"; 或 ＠import "_mixins.scss";
+＠import "variables"; // 也可以寫成 ＠import "_variables"; 或 ＠import "_variables.scss";
+        </pre>
+    </div>
+
+    <div class="tab-pane" id="tab7">
+        <h4 class="title">其他</h4>
+        <p>還有很多功能，例如：加 (+)、減 (-)、乘 (*)、除 (/)、餘數 (%)計算，px em 轉換，調整顏色色相、明度、彩度，if else 判斷……。</p>
+        <p><a href="http://sass-lang.com/documentation/Sass/Script/Functions.html" target="new">詳細內容請看官網</a>。</p>
+        <div class="row">
+            <div class="col-xs-6">
+                <p>SCSS:</p>
+                <pre>
+// px 轉換成 em
+＠function px-em($px, $context: 14px) {
+  ＠return ($px / $context) * 1em;
+}
+// 判斷要四邊都圓角 or 其中一邊
+＠mixins rounded($side: all, $radius: 10px) {
+    ＠if $side == all {
+        border-radius: $radius;
+    }
+    ＠else {
+        border-#{$side}-radius: $radius;
+    }
+}
+
+a {
+    ＠include rounded;
+    color: #ff0000;
+    font-size: px-em(16px);
+    &:hover {
+        color: lighten(#ff0000, 15%);
+    }
+}
+                </pre>
+            </div>
+            <div class="col-xs-6">
+                <p>編譯後的 CSS:</p>
+                <pre>
+a {
+    border-radius: 10px;
+    color: #ff0000;
+    font-size: 1.143em;
+}
+a:hover {
+    color: #ff4d4d;
+}
+                </pre>
+            </div>
+        </div>
+    </div>
+
+</div><!-- tab-content //-->
+
+<hr class="expanded">
+
+<h3 class="title">延伸閱讀</h3>
+
+<div class="list-group">
+    <span class="list-group-item list-group-item-success">Compass.app 教學：</span>
+    <a href="http://demo.tc/post/747" target="new" class="list-group-item">compass.app 入門篇</a>
+    <a href="http://demo.tc/post/748" target="new" class="list-group-item">compass.app SCSS篇</a>
+    <a href="http://demo.tc/post/749" target="new" class="list-group-item">compass.app Compass篇</a>
+</div>

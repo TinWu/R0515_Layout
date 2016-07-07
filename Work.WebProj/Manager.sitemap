@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0"
+            xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
+  <mvcSiteMapNode title="功能選單" clickable="false" >
+
+    <mvcSiteMapNode title="一般資料維護" clickable="false" area="Sys_Active" IconClass="fa-list-alt" key="10">
+      <mvcSiteMapNode title="首頁廣告管理" controller="Banner" action="Main" description="首頁廣告管理" roles="Admins,Managers,Users"/>
+      <mvcSiteMapNode title="最新消息" controller="NewsData" action="Main" description="最新消息" roles="Admins,Managers"/>
+      <mvcSiteMapNode title="活動花絮" controller="Active" action="Main" description="活動花絮" roles="Admins,Managers"/>
+      <mvcSiteMapNode title="會員管理" controller="MemberData" action="Main" description="會員管理" roles="Admins,Managers,Users"/>
+      <mvcSiteMapNode title="會內標籤" controller="MemberPrint" action="Main" description="會內標籤" roles="Admins,Managers"/>
+      <mvcSiteMapNode title="文件管理" controller="Document" action="Main" description="文件管理" roles="Admins,Managers,Users"/>
+    </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="系統資料設定" clickable="false" area="Sys_Base" IconClass="fa-cogs" key="90" roles="Admins,Managers">
+      <mvcSiteMapNode title="使用者管理" controller="Users" action="Main" roles="Admins"/>
+      <mvcSiteMapNode title="角色管理" controller="Roles" action="Main" roles="Admins"/>
+      <mvcSiteMapNode title="變更密碼" controller="Users" action="ChangePassword" />
+    </mvcSiteMapNode>
+  </mvcSiteMapNode>
+</mvcSiteMap>

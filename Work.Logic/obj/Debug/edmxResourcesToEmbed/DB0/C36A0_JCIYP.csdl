@@ -1,0 +1,523 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="C36A0_JCIYPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="SYS_人員">
+    <Key>
+      <PropertyRef Name="SN" />
+    </Key>
+    <Property Name="SN" Type="Int32" Nullable="false" />
+    <Property Name="UID" Type="Int32" />
+    <Property Name="PID" Type="Int32" />
+    <Property Name="PName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="LoginName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="LoginPwd" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Permission" Type="Int32" />
+    <Property Name="Remark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SYS_流水號資料表">
+    <Key>
+      <PropertyRef Name="流水號" />
+    </Key>
+    <Property Name="流水號" Type="Int32" Nullable="false" />
+    <Property Name="資料表名稱" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="號數" Type="Int32" />
+  </EntityType>
+  <EntityType Name="SYS_單位">
+    <Key>
+      <PropertyRef Name="UID" />
+    </Key>
+    <Property Name="UID" Type="Int32" Nullable="false" />
+    <Property Name="UnitName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="行業分類">
+    <Key>
+      <PropertyRef Name="流水號" />
+    </Key>
+    <Property Name="流水號" Type="Int32" Nullable="false" />
+    <Property Name="分類編號" Type="Int32" />
+    <Property Name="分類名稱" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="分類說明" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="排序" Type="Single" />
+  </EntityType>
+  <EntityType Name="產品分類">
+    <Key>
+      <PropertyRef Name="流水號" />
+    </Key>
+    <Property Name="流水號" Type="Int32" Nullable="false" />
+    <Property Name="分類編號" Type="Int32" />
+    <Property Name="分類名稱" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="分類說明" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="排序" Type="Single" />
+  </EntityType>
+  <EntityType Name="會員_其他單位分類">
+    <Key>
+      <PropertyRef Name="流水號" />
+    </Key>
+    <Property Name="流水號" Type="Int32" Nullable="false" />
+    <Property Name="分類編號" Type="Int32" />
+    <Property Name="分類名稱" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="分類說明" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="排序" Type="Single" />
+  </EntityType>
+  <EntityType Name="會員分類">
+    <Key>
+      <PropertyRef Name="流水號" />
+    </Key>
+    <Property Name="流水號" Type="Int32" Nullable="false" />
+    <Property Name="分類編號" Type="Int32" />
+    <Property Name="分類名稱" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="分類說明" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="排序" Type="Single" />
+  </EntityType>
+  <EntityType Name="會員產品">
+    <Key>
+      <PropertyRef Name="流水號" />
+    </Key>
+    <Property Name="流水號" Type="Int32" Nullable="false" />
+    <Property Name="會員流水號" Type="Int32" Nullable="false" />
+    <Property Name="產品編號" Type="Int32" />
+    <Property Name="產品名稱" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="產品分類" Type="Int32" />
+    <Property Name="產品特色" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="價格" Type="Int32" />
+    <Property Name="價格說明" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="排序" Type="Int32" />
+    <Property Name="顯示狀態Flag" Type="Boolean" Nullable="false" />
+    <Property Name="曝光" Type="Int32" />
+    <Property Name="活動日期" Type="DateTime" Precision="3" />
+    <Property Name="修改日期" Type="DateTime" Precision="3" />
+    <Property Name="點閱率" Type="Int32" Nullable="false" />
+    <Property Name="新增人員" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="修改人員" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="會員" Relationship="C36A0_JCIYPModel.FK_會員產品_會員" FromRole="會員產品" ToRole="會員" />
+  </EntityType>
+  <EntityContainer Name="C36A0_JCIYPEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="SYS_人員" EntityType="Self.SYS_人員" />
+    <EntitySet Name="SYS_流水號資料表" EntityType="Self.SYS_流水號資料表" />
+    <EntitySet Name="SYS_單位" EntityType="Self.SYS_單位" />
+    <EntitySet Name="行業分類" EntityType="Self.行業分類" />
+    <EntitySet Name="產品分類" EntityType="Self.產品分類" />
+    <EntitySet Name="會員_其他單位分類" EntityType="Self.會員_其他單位分類" />
+    <EntitySet Name="會員分類" EntityType="Self.會員分類" />
+    <EntitySet Name="會員產品" EntityType="Self.會員產品" />
+    <EntitySet Name="AspNetRoles" EntityType="C36A0_JCIYPModel.AspNetRoles" />
+    <EntitySet Name="AspNetUserClaims" EntityType="C36A0_JCIYPModel.AspNetUserClaims" />
+    <EntitySet Name="AspNetUserLogins" EntityType="C36A0_JCIYPModel.AspNetUserLogins" />
+    <EntitySet Name="AspNetUsers" EntityType="C36A0_JCIYPModel.AspNetUsers" />
+    <EntitySet Name="Department" EntityType="C36A0_JCIYPModel.Department" />
+    <EntitySet Name="i_Adr_zh_TW_Data" EntityType="C36A0_JCIYPModel.i_Adr_zh_TW_Data" />
+    <EntitySet Name="i_Currency" EntityType="C36A0_JCIYPModel.i_Currency" />
+    <EntitySet Name="i_IDX" EntityType="C36A0_JCIYPModel.i_IDX" />
+    <EntitySet Name="i_Lang" EntityType="C36A0_JCIYPModel.i_Lang" />
+    <EntitySet Name="i_Parm" EntityType="C36A0_JCIYPModel.i_Parm" />
+    <EntitySet Name="i_SN" EntityType="C36A0_JCIYPModel.i_SN" />
+    <EntitySet Name="i_UserLoginLog" EntityType="C36A0_JCIYPModel.i_UserLoginLog" />
+    <EntitySet Name="i_WebCount" EntityType="C36A0_JCIYPModel.i_WebCount" />
+    <EntitySet Name="i_WebVisitData" EntityType="C36A0_JCIYPModel.i_WebVisitData" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="C36A0_JCIYPModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="C36A0_JCIYPModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="C36A0_JCIYPModel.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <EntitySet Name="會員" EntityType="C36A0_JCIYPModel.會員" />
+    <EntitySet Name="最新消息" EntityType="C36A0_JCIYPModel.最新消息" />
+    <EntitySet Name="最新消息分類" EntityType="C36A0_JCIYPModel.最新消息分類" />
+    <AssociationSet Name="FK_最新消息_最新消息分類" Association="C36A0_JCIYPModel.FK_最新消息_最新消息分類">
+      <End Role="最新消息分類" EntitySet="最新消息分類" />
+      <End Role="最新消息" EntitySet="最新消息" />
+    </AssociationSet>
+    <EntitySet Name="活動花絮內容" EntityType="C36A0_JCIYPModel.活動花絮內容" />
+    <EntitySet Name="活動花絮分類" EntityType="C36A0_JCIYPModel.活動花絮分類" />
+    <EntitySet Name="活動花絮主檔" EntityType="C36A0_JCIYPModel.活動花絮主檔" />
+    <AssociationSet Name="FK_活動花絮內容_活動花絮主檔" Association="C36A0_JCIYPModel.FK_活動花絮內容_活動花絮主檔">
+      <End Role="活動花絮主檔" EntitySet="活動花絮主檔" />
+      <End Role="活動花絮內容" EntitySet="活動花絮內容" />
+    </AssociationSet>
+    <AssociationSet Name="FK_活動花絮主檔_活動花絮分類" Association="C36A0_JCIYPModel.FK_活動花絮主檔_活動花絮分類">
+      <End Role="活動花絮分類" EntitySet="活動花絮分類" />
+      <End Role="活動花絮主檔" EntitySet="活動花絮主檔" />
+    </AssociationSet>
+    <EntitySet Name="文件管理" EntityType="C36A0_JCIYPModel.文件管理" />
+    <AssociationSet Name="FK_會員產品_會員" Association="C36A0_JCIYPModel.FK_會員產品_會員">
+      <End Role="會員" EntitySet="會員" />
+      <End Role="會員產品" EntitySet="會員產品" />
+    </AssociationSet>
+    <EntitySet Name="BannerRotator" EntityType="C36A0_JCIYPModel.BannerRotator" />
+  </EntityContainer>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="C36A0_JCIYPModel.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="C36A0_JCIYPModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="C36A0_JCIYPModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="department_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="C36A0_JCIYPModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="C36A0_JCIYPModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="AspNetRoles" Relationship="C36A0_JCIYPModel.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="department_id" />
+    </Key>
+    <Property Name="department_id" Type="Int32" Nullable="false" />
+    <Property Name="department_name" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="i_Hide" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="i_Adr_zh_TW_Data">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="zip" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="city" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="country" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="road" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="scope" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="data" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="sort" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="i_Currency">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name_currency" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="english_currency" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="sign" Type="String" Nullable="false" MaxLength="9" FixedLength="false" Unicode="true" />
+    <Property Name="code" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="is_use" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="i_IDX">
+    <Key>
+      <PropertyRef Name="table_name" />
+    </Key>
+    <Property Name="table_name" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="IDX" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="i_Lang">
+    <Key>
+      <PropertyRef Name="lang" />
+    </Key>
+    <Property Name="lang" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="area" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="memo" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="isuse" Type="Boolean" Nullable="false" />
+    <Property Name="sort" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="i_Parm">
+    <Key>
+      <PropertyRef Name="ParmName" />
+    </Key>
+    <Property Name="ParmName" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="ParmType" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="S" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="I" Type="Int32" Nullable="false" />
+    <Property Name="F" Type="Decimal" Nullable="false" Precision="10" Scale="4" />
+    <Property Name="D" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="B" Type="Boolean" Nullable="false" />
+    <Property Name="Memo" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="i_SN">
+    <Key>
+      <PropertyRef Name="sn_type" />
+    </Key>
+    <Property Name="sn_type" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="y" Type="Int32" Nullable="false" />
+    <Property Name="m" Type="Int32" Nullable="false" />
+    <Property Name="d" Type="Int32" Nullable="false" />
+    <Property Name="w" Type="Int32" Nullable="false" />
+    <Property Name="sn_max" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="i_UserLoginLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="ip" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="account" Type="String" Nullable="false" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="logintime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="browers" Type="String" Nullable="false" MaxLength="2048" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="i_WebCount">
+    <Key>
+      <PropertyRef Name="Cnt" />
+    </Key>
+    <Property Name="Cnt" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="i_WebVisitData">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="ip" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="setdate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="browser" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="source" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="page" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Type="C36A0_JCIYPModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="C36A0_JCIYPModel.AspNetUserClaims" Role="AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Type="C36A0_JCIYPModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="C36A0_JCIYPModel.AspNetUserLogins" Role="AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Type="C36A0_JCIYPModel.AspNetRoles" Role="AspNetRoles" Multiplicity="*" />
+    <End Type="C36A0_JCIYPModel.AspNetUsers" Role="AspNetUsers" Multiplicity="*" />
+  </Association>
+  <EntityType Name="會員">
+    <Key>
+      <PropertyRef Name="流水號" />
+    </Key>
+    <Property Name="流水號" Type="Int32" Nullable="false" />
+    <Property Name="會員編號" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="會員分類編號" Type="Int32" />
+    <Property Name="姓名" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="會內職稱" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SEX" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="職業別" Type="Double" />
+    <Property Name="主行業" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="副行業" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="公司電話" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="住家電話" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="行動電話" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="傳真" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="網站" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="區號" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="地址" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="生日" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="入會日期" Type="DateTime" Precision="0" Nullable="false" />
+    <Property Name="宣示日期" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="社團經歷" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="公司簡介" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="服務項目" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="帳號" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="密碼" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="排序" Type="Single" />
+    <Property Name="顯示狀態Flag" Type="Boolean" Nullable="false" />
+    <Property Name="會員狀態" Type="Int32" />
+    <Property Name="發文註記" Type="Int32" />
+    <Property Name="活動日期" Type="DateTime" Precision="3" />
+    <Property Name="修改日期" Type="DateTime" Precision="3" />
+    <Property Name="點閱率" Type="Int32" />
+    <Property Name="新增人員" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="修改人員" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="會員產品" Relationship="C36A0_JCIYPModel.FK_會員產品_會員" FromRole="會員" ToRole="會員產品" />
+  </EntityType>
+  <EntityType Name="最新消息">
+    <Key>
+      <PropertyRef Name="流水號" />
+    </Key>
+    <Property Name="流水號" Type="Int32" Nullable="false" />
+    <Property Name="分類" Type="Int32" Nullable="false" />
+    <Property Name="標題" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="內容" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="排序" Type="Int32" Nullable="false" />
+    <Property Name="顯示狀態Flag" Type="Boolean" Nullable="false" />
+    <Property Name="活動日期" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="修改日期" Type="DateTime" Precision="3" />
+    <Property Name="點閱率" Type="Int32" />
+    <Property Name="新增人員" Type="Int32" />
+    <Property Name="修改人員" Type="Int32" />
+    <NavigationProperty Name="最新消息分類" Relationship="C36A0_JCIYPModel.FK_最新消息_最新消息分類" FromRole="最新消息" ToRole="最新消息分類" />
+  </EntityType>
+  <EntityType Name="最新消息分類">
+    <Key>
+      <PropertyRef Name="流水號" />
+    </Key>
+    <Property Name="流水號" Type="Int32" Nullable="false" />
+    <Property Name="分類編號" Type="Int32" />
+    <Property Name="分類名稱" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="分類說明" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="排序" Type="Single" />
+    <NavigationProperty Name="最新消息" Relationship="C36A0_JCIYPModel.FK_最新消息_最新消息分類" FromRole="最新消息分類" ToRole="最新消息" />
+  </EntityType>
+  <Association Name="FK_最新消息_最新消息分類">
+    <End Type="C36A0_JCIYPModel.最新消息分類" Role="最新消息分類" Multiplicity="1" />
+    <End Type="C36A0_JCIYPModel.最新消息" Role="最新消息" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="最新消息分類">
+        <PropertyRef Name="流水號" />
+      </Principal>
+      <Dependent Role="最新消息">
+        <PropertyRef Name="分類" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="活動花絮內容">
+    <Key>
+      <PropertyRef Name="流水號" />
+    </Key>
+    <Property Name="流水號" Type="Int32" Nullable="false" />
+    <Property Name="主檔流水號" Type="Int32" Nullable="false" />
+    <Property Name="標題" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="內容" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="排序" Type="Single" />
+    <Property Name="顯示狀態Flag" Type="Boolean" Nullable="false" />
+    <Property Name="活動日期" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="修改日期" Type="DateTime" Precision="3" />
+    <Property Name="點閱率" Type="Int32" />
+    <Property Name="新增人員" Type="Int32" />
+    <Property Name="修改人員" Type="Int32" />
+    <NavigationProperty Name="活動花絮主檔" Relationship="C36A0_JCIYPModel.FK_活動花絮內容_活動花絮主檔" FromRole="活動花絮內容" ToRole="活動花絮主檔" />
+  </EntityType>
+  <EntityType Name="活動花絮分類">
+    <Key>
+      <PropertyRef Name="流水號" />
+    </Key>
+    <Property Name="流水號" Type="Int32" Nullable="false" />
+    <Property Name="分類編號" Type="Int32" />
+    <Property Name="分類名稱" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="分類說明" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="排序" Type="Single" />
+    <NavigationProperty Name="活動花絮主檔" Relationship="C36A0_JCIYPModel.FK_活動花絮主檔_活動花絮分類" FromRole="活動花絮分類" ToRole="活動花絮主檔" />
+  </EntityType>
+  <EntityType Name="活動花絮主檔">
+    <Key>
+      <PropertyRef Name="流水號" />
+    </Key>
+    <Property Name="流水號" Type="Int32" Nullable="false" />
+    <Property Name="分類" Type="Int32" Nullable="false" />
+    <Property Name="標題" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="內容" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="排序" Type="Int32" Nullable="false" />
+    <Property Name="顯示狀態Flag" Type="Boolean" Nullable="false" />
+    <Property Name="活動日期" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="修改日期" Type="DateTime" Precision="3" />
+    <Property Name="點閱率" Type="Int32" />
+    <Property Name="新增人員" Type="Int32" />
+    <Property Name="修改人員" Type="Int32" />
+    <NavigationProperty Name="活動花絮內容" Relationship="C36A0_JCIYPModel.FK_活動花絮內容_活動花絮主檔" FromRole="活動花絮主檔" ToRole="活動花絮內容" />
+    <NavigationProperty Name="活動花絮分類" Relationship="C36A0_JCIYPModel.FK_活動花絮主檔_活動花絮分類" FromRole="活動花絮主檔" ToRole="活動花絮分類" />
+  </EntityType>
+  <Association Name="FK_活動花絮內容_活動花絮主檔">
+    <End Type="C36A0_JCIYPModel.活動花絮主檔" Role="活動花絮主檔" Multiplicity="1" />
+    <End Type="C36A0_JCIYPModel.活動花絮內容" Role="活動花絮內容" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="活動花絮主檔">
+        <PropertyRef Name="流水號" />
+      </Principal>
+      <Dependent Role="活動花絮內容">
+        <PropertyRef Name="主檔流水號" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_活動花絮主檔_活動花絮分類">
+    <End Type="C36A0_JCIYPModel.活動花絮分類" Role="活動花絮分類" Multiplicity="1" />
+    <End Type="C36A0_JCIYPModel.活動花絮主檔" Role="活動花絮主檔" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="活動花絮分類">
+        <PropertyRef Name="流水號" />
+      </Principal>
+      <Dependent Role="活動花絮主檔">
+        <PropertyRef Name="分類" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="文件管理">
+    <Key>
+      <PropertyRef Name="流水號" />
+    </Key>
+    <Property Name="流水號" Type="Int32" Nullable="false" />
+    <Property Name="分類" Type="Int32" Nullable="false" />
+    <Property Name="標題" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="內容" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="排序" Type="Int32" Nullable="false" />
+    <Property Name="顯示狀態Flag" Type="Boolean" Nullable="false" />
+    <Property Name="活動日期" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="修改日期" Type="DateTime" Precision="3" />
+    <Property Name="點閱率" Type="Int32" />
+    <Property Name="新增人員" Type="Int32" />
+    <Property Name="修改人員" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_會員產品_會員">
+    <End Type="C36A0_JCIYPModel.會員" Role="會員" Multiplicity="1" />
+    <End Type="C36A0_JCIYPModel.會員產品" Role="會員產品" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="會員">
+        <PropertyRef Name="流水號" />
+      </Principal>
+      <Dependent Role="會員產品">
+        <PropertyRef Name="會員流水號" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="BannerRotator">
+    <Key>
+      <PropertyRef Name="banner_rotator_id" />
+    </Key>
+    <Property Name="banner_rotator_id" Type="Int32" Nullable="false" />
+    <Property Name="banner_name" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="is_open" Type="Boolean" Nullable="false" />
+    <Property Name="sort" Type="Int32" Nullable="false" />
+  </EntityType>
+</Schema>

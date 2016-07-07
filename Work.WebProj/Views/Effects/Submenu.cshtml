@@ -1,0 +1,117 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+    ViewBag.Title = "下拉式選單";
+    ViewBag.BodyClass = "ch3 p6";
+}
+@section breadCrumb {
+    <li><a href=""><i class="fa-list-alt"></i> 特效套件</a></li>
+}
+@section CSS {
+	<style>
+
+		/* all */
+		.submenu li a {
+			display: block;
+			padding:5px 40px;
+			color:#fff;
+		}
+
+		/* submenu */
+		.submenu {
+			height:30px;
+			background: #438EB9;
+		}
+		.submenu > li {
+			float:left;
+		}
+		.submenu > li > a {
+			background: #438EB9;
+		}
+		.submenu > li:hover a {
+			background: #5BC0DE;
+		}
+
+		/* submenu-2 */
+		.submenu-2 {
+			display: none;
+		}
+		.submenu > li:hover .submenu-2 {
+			display: block;
+		}
+		.submenu-2 > li {
+			position: relative;
+			overflow: hidden;
+		}
+		.submenu-2 > li > a {
+			background: #5BC0DE;
+		}
+		.submenu-2 > li:hover a {
+			background: #5CB85C;
+		}
+
+		/* submenu-3 */
+		.submenu-2 > li:hover {
+			overflow: visible;
+		}
+		.submenu-3 {
+			width:100%;
+			position: absolute;
+			left:100%; top:0;
+		}
+		.submenu-3 > li > a {
+			background: #5CB85C;
+		}
+		.submenu-3 > li > a:hover {
+			color: #FFB752;
+		}
+	</style>
+}
+
+<h4 class="title">@ViewBag.Title</h4>
+
+<div class="alert alert-info">
+    純 CSS ，無 javascript
+</div>
+
+<ul class="submenu list-unstyled">
+	<li>
+		<a href="">第一層選單 <i class="fa-caret-down"></a></i>
+		<ul class="submenu-2 list-unstyled">
+			<li>
+				<a href="">第二層選單 <i class="fa-caret-right"></i></a>
+				<ul class="submenu-3 list-unstyled">
+					<li><a href="">第三層選單</a></li>
+					<li><a href="">第三層選單</a></li>
+					<li><a href="">第三層選單</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="">第二層選單 <i class="fa-caret-right"></i></a>
+				<ul class="submenu-3 list-unstyled">
+					<li><a href="">第三層選單</a></li>
+					<li><a href="">第三層選單</a></li>
+				</ul>
+			</li>
+			<li><a href="">第二層選單</a></li>
+			<li><a href="">第二層選單</a></li>
+		</ul>
+	</li>
+	<li>
+		<a href="">第一層選單 <i class="fa-caret-down"></a></i>
+		<ul class="submenu-2 list-unstyled">
+			<li><a href="">第二層選單</a></li>
+			<li>
+				<a href="">第二層選單 <i class="fa-caret-right"></i></a>
+				<ul class="submenu-3 list-unstyled">
+					<li><a href="">第三層選單</a></li>
+					<li><a href="">第三層選單</a></li>
+				</ul>
+			</li>
+			<li><a href="">第二層選單</a></li>
+			<li><a href="">第二層選單</a></li>
+		</ul>
+	</li>
+	<li><a href="">第一層選單</a></li>
+	<li><a href="">第一層選單</a></li>
+	<li><a href="">第一層選單</a></li>
+</ul>

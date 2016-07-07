@@ -1,0 +1,490 @@
+﻿@{
+Layout = "~/Views/Shared/Layout.cshtml";
+ViewBag.Title = "表單";
+ViewBag.BodyClass = "ch2 p2";
+}
+@section breadCrumb {
+<li><a href=""><i class="fa-list-alt"></i> 後台介面</a></li>
+}
+@section CSS {
+    <link rel="stylesheet" href="~/_Code/css/css/datetimepicker/bootstrap-datetimepicker-build.css" />
+}
+@section Scripts {
+    <script type="text/javascript" src="~/Scripts/vendor/datetimepicker/moment-with-locales.js"></script>
+    <script type="text/javascript" src="~/Scripts/vendor/datetimepicker/bootstrap-datetimepicker.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('.datetimepicker').datetimepicker({
+                format: 'YYYY年MMMD日 A h點m分',
+                locale: 'zh-tw',
+                icons: {
+                    time: "fa-clock-o",
+                    date: "fa-calendar",
+                    up: "fa-angle-up",
+                    down: "fa-angle-down",
+                    previous: "fa-angle-left",
+                    next: "fa-angle-right"
+                }
+            });
+        });
+    </script>
+}
+
+<h3 class="title">@ViewBag.Title</h3>
+
+<ul class="item-tab" role="tablist">
+    <li class="active"><a href="#form1" role="tab" data-toggle="tab">一般表單</a></li>
+    <li><a href="#form2" role="tab" data-toggle="tab">inline 表單</a></li>
+    <li><a href="#widget" role="tab" data-toggle="tab">其他</a></li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane active" id="form1">
+        <h4 class="title">常用於明細資料填寫</h4>
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label class="col-xs-2 control-label">純文字</label>
+                <div class="col-xs-4">
+                    <input type="text" class="form-control" placeholder="text">
+                </div>
+                <small class="help-inline col-xs-6">提示文字放這裡</small>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-2 control-label">不能修改</label>
+                <div class="col-xs-2">
+                    <input type="text" class="form-control" placeholder="disabled" disabled>
+                    <small class="help-block">這是有換行的提示文字</small>
+                </div>
+                <div class="col-xs-2">
+                    <input type="text" class="form-control" placeholder="readonly" readonly>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-2 control-label">多欄</label>
+                <div class="col-xs-2">
+                    <input type="text" class="form-control" placeholder="col-xs-2">
+                </div>
+                <label class="col-xs-1 control-label">Hello</label>
+                <div class="col-xs-3">
+                    <input type="text" class="form-control" placeholder="col-xs-3">
+                </div>
+                <label class="col-xs-1 control-label">Hello</label>
+                <div class="col-xs-2">
+                    <div class="radio-inline">
+                        <label>
+                            <input type="radio" name="radio-test">
+                            <span>選我</span>
+                        </label>
+                    </div>
+                    <div class="radio-inline">
+                        <label>
+                            <input type="radio" name="radio-test">
+                            <span>選我</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-2 control-label">密碼</label>
+                <div class="col-xs-4">
+                    <input type="password" class="form-control" placeholder="password">
+                </div>
+                <small class="help-inline text-danger col-xs-3">請輸入6位數以上的英數字</small>
+            </div>
+            <div class="form-group has-feedback">
+                <label class="col-xs-2 control-label">有icon</label>
+                <div class="col-xs-4">
+                    <input type="text" class="form-control" placeholder="text">
+                    <i class="fa-check form-control-feedback text-success"></i>
+                </div>
+            </div>
+            <div class="form-group has-feedback">
+                <label class="col-xs-2 control-label">日期</label>
+                <div class="col-xs-4">
+                    <input type="text" class="form-control datetimepicker" />
+                    <i class="fa-calendar form-control-feedback"></i>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-2 control-label">下拉選單</label>
+                <div class="col-xs-1">
+                    <select name="" id="" class="form-control">
+                        <option value="">請選擇</option>
+                        <option value="">A</option>
+                        <option value="">B</option>
+                    </select>
+                </div>
+                <div class="col-xs-4">
+                    <select name="" id="" class="form-control">
+                        <option value="">請選擇</option>
+                        <option value="">AAAAA</option>
+                        <option value="">BBBBB</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-2 control-label">Text area</label>
+                <div class="col-xs-8">
+                    <textarea class="form-control" cols="30" rows="2"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-xs-2 control-label">檔案上傳</label>
+                <div class="col-xs-4">
+                    <div class="form-control">
+                        <input type="file">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-8 col-xs-offset-2">
+                    <span class="doc-upload">
+                        <button type="button" class="close" data-dismiss="alert">&times;<span class="sr-only">Close</span></button>
+                        <a href="">
+                            <i class="fa-file-text-o"></i>
+                            XXX.doc
+                        </a>
+                    </span>
+                    <span class="doc-upload">
+                        <button type="button" class="close" data-dismiss="alert">&times;<span class="sr-only">Close</span></button>
+                        <a href="">
+                            <i class="fa-file-text-o"></i>
+                            XXaaaX.doc
+                        </a>
+                    </span>
+                    <span class="doc-upload">
+                        <button type="button" class="close" data-dismiss="alert">&times;<span class="sr-only">Close</span></button>
+                        <a href="">
+                            <i class="fa-file-text-o"></i>
+                            XXbbbbX.doc
+                        </a>
+                    </span>
+                    <span class="doc-upload">
+                        <button type="button" class="close" data-dismiss="alert">&times;<span class="sr-only">Close</span></button>
+                        <a href="">
+                            <i class="fa-file-text-o"></i>
+                            XXccccccccccccX.doc
+                        </a>
+                    </span>
+                    <span class="doc-upload">
+                        <button type="button" class="close" data-dismiss="alert">&times;<span class="sr-only">Close</span></button>
+                        <a href="">
+                            <i class="fa-file-text-o"></i>
+                            XXdddddddddX.doc
+                        </a>
+                    </span>
+                    <span class="doc-upload">
+                        <button type="button" class="close" data-dismiss="alert">&times;<span class="sr-only">Close</span></button>
+                        <a href="">
+                            <i class="fa-file-text-o"></i>
+                            XXddddddd222222222222ddX.doc
+                        </a>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-xs-2 control-label">圖片上傳</label>
+                <div class="col-xs-4">
+                    <div class="file-upload">
+                        <input type="file">
+                        <div class="input-group-btn">
+                            <span class="btn">選擇檔案…</span>
+                        </div>
+                        <div class="form-control">
+                            <input type="text" value="尚未選擇任何檔案" readonly>
+                        </div>
+                    </div>
+                </div>
+                <small class="help-inline col-xs-6">建議尺寸: 300*200 px <span class="text-danger">(上傳按鈕樣式目前測試中)</span></small>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-8 col-xs-offset-2">
+                    <span class="img-upload">
+                        <button type="button" class="close" data-dismiss="alert">&times;<span class="sr-only">Close</span></button>
+                        <img src="holder.js">
+                    </span>
+                    <span class="img-upload">
+                        <button type="button" class="close" data-dismiss="alert">&times;<span class="sr-only">Close</span></button>
+                        <img src="holder.js">
+                    </span>
+                    <span class="img-upload">
+                        <button type="button" class="close" data-dismiss="alert">&times;<span class="sr-only">Close</span></button>
+                        <img src="holder.js">
+                    </span>
+                    <span class="img-upload">
+                        <button type="button" class="close" data-dismiss="alert">&times;<span class="sr-only">Close</span></button>
+                        <img src="holder.js">
+                    </span>
+                    <span class="img-upload">
+                        <button type="button" class="close" data-dismiss="alert">&times;<span class="sr-only">Close</span></button>
+                        <img src="holder.js">
+                    </span>
+                    <span class="img-upload">
+                        <button type="button" class="close" data-dismiss="alert">&times;<span class="sr-only">Close</span></button>
+                        <img src="holder.js">
+                    </span>
+                    <span class="img-upload">
+                        <button type="button" class="close" data-dismiss="alert">&times;<span class="sr-only">Close</span></button>
+                        <img src="holder.js">
+                    </span>
+                    <span class="img-upload">
+                        <button type="button" class="close" data-dismiss="alert">&times;<span class="sr-only">Close</span></button>
+                        <img src="holder.js">
+                    </span>
+                    <span class="img-upload">
+                        <button type="button" class="close" data-dismiss="alert">&times;<span class="sr-only">Close</span></button>
+                        <img src="holder.js">
+                    </span>
+                    <span class="img-upload">
+                        <button type="button" class="close" data-dismiss="alert">&times;<span class="sr-only">Close</span></button>
+                        <img src="holder.js">
+                    </span>
+                    <span class="img-upload">
+                        <button type="button" class="close" data-dismiss="alert">&times;<span class="sr-only">Close</span></button>
+                        <img src="holder.js">
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-2 control-label">單選</label>
+                <div class="btn-group col-xs-9" data-toggle="buttons">
+                    <label class="btn active col-xs-2">
+                        <input type="radio"> AAA
+                    </label>
+                    <label class="btn col-xs-2">
+                        <input type="radio"> BBB
+                    </label>
+                    <label class="btn disabled col-xs-2">
+                        <input type="radio"> 不能選
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-2 control-label">多選</label>
+                <div class="col-xs-10">
+                    <div class="checkbox-inline">
+                        <label>
+                            <input type="checkbox">
+                            <span>AAA</span>
+                        </label>
+                    </div>
+                    <div class="checkbox-inline">
+                        <label>
+                            <input type="checkbox">
+                            <span>BBB</span>
+                        </label>
+                    </div>
+                    <div class="checkbox-inline">
+                        <label>
+                            <input type="checkbox" disabled>
+                            <span>不能選</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-action">
+                <div class="col-xs-2 col-xs-offset-2">
+                    <button type="submit" class="btn-primary">送出</button>　
+                    <button type="submit">取消</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="tab-pane" id="form2">
+        <h4 class="title">常用於列表搜尋</h4>
+        <form class="form-inline" role="form">
+            <div class="form-group">
+                <label>文字欄位</label>
+                <input type="text" class="form-control" placeholder="text">
+            </div>
+            <div class="form-group">
+                <label>下拉選單</label>
+                <select name="" id="" class="form-control">
+                    <option value="">00001</option>
+                    <option value="">00002</option>
+                </select>
+            </div>
+            <button type="submit" class="btn-primary">送出</button>
+            <button type="submit">取消</button>
+        </form>
+        <hr>
+        <form class="form-inline" role="form">
+            <div class="form-group has-feedback">
+                <label class="sr-only">欄位標題隱藏</label>
+                <input type="text" class="form-control datetimepicker" />
+                <i class="fa-calendar form-control-feedback"></i>
+            </div>
+            <div class="form-group">
+                <div class="checkbox-inline">
+                    <label>
+                        <input type="checkbox">
+                        <span>多選</span>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn active">
+                        <input type="radio"> 單選
+                    </label>
+                    <label class="btn">
+                        <input type="radio"> 單選
+                    </label>
+                    <label class="btn disabled">
+                        <input type="radio"> 單選
+                    </label>
+                </div>
+            </div>
+            <button type="submit" class="btn-primary">送出</button>
+            <button type="submit">取消</button>
+        </form>
+    </div>
+    <div class="tab-pane" id="widget">
+        <h4 class="title">自訂 checkbox &amp; radio buttons</h4>
+        <div class="item-box">
+            <div class="item-title">
+                <h5>多選 checkbox 樣式一覽</h5>
+            </div>
+            <div class="panel-body">
+                <form action="" class="form-horizontal">
+                    <div class="form-group">
+                    <label class="col-xs-1 control-label">Type1</label>
+                        <div class="col-xs-5">
+                            <div class="checkbox-inline">
+                                <label>
+                                    <input type="checkbox">
+                                    <span>check1</span>
+                                </label>
+                            </div>
+                            <div class="checkbox-inline">
+                                <label>
+                                    <input type="checkbox">
+                                    <span>check2</span>
+                                </label>
+                            </div>
+                            <div class="checkbox-inline">
+                                <label>
+                                    <input type="checkbox" disabled>
+                                    <span>check3</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-1 control-label">Type2</label>
+                        <div class="btn-group col-xs-5" data-toggle="buttons">
+                            <label class="btn active col-xs-4">
+                                <input type="checkbox"> check1
+                            </label>
+                            <label class="btn col-xs-4">
+                                <input type="checkbox"> check2
+                            </label>
+                            <label class="btn disabled col-xs-4">
+                                <input type="checkbox"> check3
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-1 control-label">Type3</label>
+                        <div class="col-xs-5">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span>check11111111111111111111</span>
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span>check22222222222222222222222</span>
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" disabled>
+                                    <span>check333333333333333333</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-xs-1 control-label">Type4</label>
+                        <div class="col-xs-5">
+                            <div class="switcher">
+                                <input type="checkbox" />
+                                <label for="">check me</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="item-title">
+                <h5>單選 radio button 樣式一覽</h5>
+            </div>
+            <div class="panel-body">
+                <form action="" class="form-horizontal">
+                    <div class="form-group">
+                    <label class="col-xs-1 control-label">Type1</label>
+                        <div class="col-xs-5">
+                            <div class="radio-inline">
+                                <label>
+                                    <input type="radio" name="radio-test">
+                                    <span>radio1</span>
+                                </label>
+                            </div>
+                            <div class="radio-inline">
+                                <label>
+                                    <input type="radio" name="radio-test">
+                                    <span>radio2</span>
+                                </label>
+                            </div>
+                            <div class="radio-inline">
+                                <label>
+                                    <input type="radio" name="radio-test" disabled>
+                                    <span>radio3</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-1 control-label">Type2</label>
+                        <div class="btn-group col-xs-5" data-toggle="buttons">
+                            <label class="btn active col-xs-4">
+                                <input type="radio"> radio1
+                            </label>
+                            <label class="btn col-xs-4">
+                                <input type="radio"> radio2
+                            </label>
+                            <label class="btn disabled col-xs-4">
+                                <input type="radio"> radio3
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-1 control-label">Type3</label>
+                        <div class="col-xs-5">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="radio-test" checked>
+                                    <span>radio11111111111111111</span>
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="radio-test">
+                                    <span>radio22222222222222222222222</span>
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="radio-test" disabled>
+                                    <span>radio3333333333333333333333333</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

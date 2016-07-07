@@ -1,0 +1,93 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+    ViewBag.Title = "參數設定";
+    ViewBag.BodyClass = "ch2 p4";
+}
+@section breadCrumb {
+    <li><a href=""><i class="fa-list-alt"></i> 後台介面</a></li>
+}
+
+<h4 class="title">@ViewBag.Title</h4>
+
+<div class="row">
+
+    <div class="col-xs-4">
+        <div class="item-box" id="item">
+            <div class="item-title">
+                <ul class="widget">
+                    <li><button class="btn-link text-default" data-toggle="collapse" data-parent="#item" href="#item-body"><i class="fa-chevron-down"></i></button></li>
+                </ul>
+                <h5>線上諮詢 設定</h5>
+            </div>
+            <div id="item-body" class="panel-collapse collapse in">
+                <form action="">
+                    <div class="panel-body">
+                        <div class="alert alert-success">
+                            <p><i class="fa-check"></i> 修改完成！</p>
+                        </div>
+                        <div class="form-group">
+                            <label>E-mail 收件信箱</label>
+                            <input class="form-control" type="password" />
+                            <small class="help-block">多組 E-mail 請使用逗號 ( , ) 分隔</small>
+                        </div>
+                    </div>
+                    <div class="panel-footer text-center">
+                        <button type="submit" class="btn-primary"><i class="fa-check"></i> 確定修改</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-8">
+        <div class="item-box" id="item2">
+            <div class="item-title">
+                <ul class="widget">
+                    <li><button class="btn-link"><i class="fa-cog"></i></button></li>
+                    <li><button class="btn-link text-success"><i class="fa-refresh"></i></button></li>
+                    <li><button class="btn-link text-default" data-toggle="collapse" data-parent="#item2" href="#item2-body"><i class="fa-chevron-down"></i></button></li>
+                    <li><button class="btn-link text-danger"><i class="fa-times"></i></button></li>
+                </ul>
+                <h5>首頁 主視覺圖片 設定</h5>
+            </div>
+            <div id="item2-body" class="panel-collapse collapse in">
+                <form action="">
+                    <div class="panel-body">
+                        <div class="alert alert-success">
+                            <p><i class="fa-check"></i> 修改完成！</p>
+                        </div>
+                        <div class="alert alert-danger">
+                            <p><i class="fa-times"></i> 上傳失敗！請重新上傳。</p>
+                        </div>
+                        <div class="form-group">
+                            <label>請選擇圖片 (可一次上傳多張)</label>
+                            <div class="file-upload">
+                                <input type="file" id="file">
+                                <div class="input-group-btn">
+                                    <span class="btn">選擇檔案…</span>
+                                </div>
+                                <div class="form-control">
+                                    <input type="text" value="尚未選擇任何檔案" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <span class="img-upload">
+                                <button type="button" class="close" data-dismiss="alert">&times;<span class="sr-only">Close</span></button>
+                                <img src="holder.js/">
+                            </span>
+                            <span class="img-upload">
+                                <button type="button" class="close" data-dismiss="alert">&times;<span class="sr-only">Close</span></button>
+                                <img src="holder.js/">
+                            </span>
+                        </div>
+                    </div>
+                    <div class="panel-footer text-center">
+                        <button type="submit" class="btn-primary"><i class="fa-check"></i> 確定修改</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

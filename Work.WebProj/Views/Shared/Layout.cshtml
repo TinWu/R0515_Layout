@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<!-- saved from url=(0014)about:internet -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@Resources.ResWeb.WebTitle:@ViewBag.Title</title>
+    @RenderSection("CSS", required: false)
+    <link rel="stylesheet" href="~/_Code/css/css/page.css">
+    <!--[if IE 9]><link rel="stylesheet" href="@Url.Content("~/_Code/css/css/ie9-page.css")"><![endif]-->
+</head>
+<body class="@ViewBag.BodyClass">
+
+    <div id="container">
+
+        @if (ViewBag.IsFirstPage) {}
+        else {
+        <div id="header">
+            <div class="wrap">
+
+                <h1><a href="">@Resources.ResWeb.WebTitle</a></h1>
+
+                <div id="menu">
+                    <ul class="menu">
+                        <li class="dropdown lang">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa-flag"></i>語系</a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li class="title"><i class="fa-exchange"></i> 切換語系:</li>
+                                <li><a class="current" href="#">繁體中文 (目前語系)</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown activity">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa-clock-o"></i>活動紀錄</a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li class="title"><i class="fa-eye"></i> 上次登入時間:</li>
+                                <li>2014-01-01 下午 02:00:00</li>
+                            </ul>
+                        </li>
+                        <li class="dropdown user">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa-user"></i>登入身分: manager</a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="~/Areas/Sys_Base/Views/Users/ChangePassword"><i class="fa-lock"></i> 修改密碼</a></li>
+                                <li><a href="~/Areas/Sys_Base/Views/MNGLogin"><i class="fa-power-off"></i> 登出</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div><!-- header //-->
+        }
+
+        <div id="main">
+
+            @if (ViewBag.IsFirstPage) {
+                @RenderBody()
+            }
+
+            else {
+
+            <div id="content">
+
+                <ul class="breadcrumb">
+                    <li><a href=""><i class="fa-home"></i> @Resources.ResWeb.WebTitle</a></li>
+                    @RenderSection("breadCrumb", required: false)
+                    <li>@ViewBag.Title</li>
+                    <li class="nav-search">
+                        <div class="nav-search-form">
+                            <input type="text" class="form-control" placeholder="全站搜尋...">
+                            <span class="input-group-btn">
+                                <button type="button"><i class="fa-search"></i></button>
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+
+                @RenderBody()
+
+            </div><!-- content //-->
+
+            <div id="sidebar">
+                <h3 class="title">
+                    <span class="icon">
+                        <i class="fa-square text-success"></i>
+                        <i class="fa-square text-info"></i>
+                        <i class="fa-square text-warning"></i>
+                        <i class="fa-square text-danger"></i>
+                    </span>
+                    功能選單 MENU
+                </h3>
+
+                <div id="submenu">
+                    <ul class="panel">
+
+                        <li class="panel-heading">
+                            <a class="panel-title collapsed" data-toggle="collapse" data-parent="#submenu" href="#submenu-1">
+                                <i class="fa-list-alt"></i> Bootstrap 教學
+                            </a>
+                        </li>
+                        <li id="submenu-1" class="panel-collapse collapse">
+                            <ul class="panel-body">
+                                <li><a href="~/Bootstrap/Sass"><i class="fa-caret-right"></i>Sass 簡介</a></li>
+                                <li><a href="~/Bootstrap/Intro"><i class="fa-caret-right"></i>Bootstrap 簡介</a></li>
+                                <li><a href="~/Bootstrap/Grid"><i class="fa-caret-right"></i>網格系統</a></li>
+                                <li><a href="~/Bootstrap/Typography"><i class="fa-caret-right"></i>基本元素</a></li>
+                                <li><a href="~/Bootstrap/Component"><i class="fa-caret-right"></i>UI 元件</a></li>
+                                <li><a href="~/Bootstrap/Table"><i class="fa-caret-right"></i>表格</a></li>
+                                <li><a href="~/Bootstrap/Form"><i class="fa-caret-right"></i>表單</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="panel-heading">
+                            <a class="panel-title collapsed" data-toggle="collapse" data-parent="#submenu" href="#submenu-2">
+                                <i class="fa-list-alt"></i> 後台介面
+                            </a>
+                        </li>
+                        <li id="submenu-2" class="panel-collapse collapse">
+                            <ul class="panel-body">
+                                <li><a href="~/Manage/Table"><i class="fa-caret-right"></i>列表</a></li>
+                                <li><a href="~/Manage/Form"><i class="fa-caret-right"></i>表單</a></li>
+                                <li><a href="~/Manage/Editor"><i class="fa-caret-right"></i>編輯器</a></li>
+                                <li><a href="~/Manage/Variables"><i class="fa-caret-right"></i>參數設定</a></li>
+                                <li><a href="~/Manage/Password"><i class="fa-caret-right"></i>修改密碼</a></li>
+                                <li><a href="~/Manage/Video"><i class="fa-caret-right"></i>操作影片</a></li>
+                                <li><a href="~/Manage/Login"><i class="fa-caret-right"></i>登入畫面</a></li>
+                                <li><a href="~/Manage/Login_custom"><i class="fa-caret-right"></i>登入畫面 (客製化範例)</a></li>
+                                <li><a href="~/Manage/Layout_custom"><i class="fa-caret-right"></i>內頁版頭 (客製化範例)</a></li>
+
+                            </ul>
+                        </li>
+
+                        @* <li class="panel-heading">
+                            <a class="panel-title collapsed" data-toggle="collapse" data-parent="#submenu" href="#submenu-3">
+                                <i class="fa-list-alt"></i> 特效套件
+                            </a>
+                        </li>
+                        <li id="submenu-3" class="panel-collapse collapse">
+                            <ul class="panel-body">
+                                <li><a href="~/Effects/Lazyload"><i class="fa-caret-right"></i>延遲載入</a></li>
+                                <li><a href="~/Effects/Waterfall"><i class="fa-caret-right"></i>瀑布流</a></li>
+                                <li><a href="~/Effects/Filter"><i class="fa-caret-right"></i>排序分類特效</a></li>
+                                <li><a href="~/Effects/Marquee"><i class="fa-caret-right"></i>無限跑馬燈</a></li>
+                                <li><a href="~/Effects/Slider"><i class="fa-caret-right"></i>圖片輪播</a></li>
+                                <li><a href="~/Effects/Submenu"><i class="fa-caret-right"></i>下拉式選單</a></li>
+                                <li><a href="~/Effects/Datepicker"><i class="fa-caret-right"></i>日曆小幫手</a></li>
+                                <li><a href="~/Effects/typeahead"><i class="fa-caret-right"></i>表單自動完成</a></li>
+                                <li><a href="~/Effects/Sortable"><i class="fa-caret-right"></i>拖曳排序</a></li>
+                            </ul>
+                        </li> *@
+
+                        @* <li class="panel-heading">
+                            <a class="panel-title current" href="#">
+                                <i class="fa-list-alt"></i> 沒有子選單的當前頁
+                            </a>
+                        </li> *@
+
+                    </ul>
+                </div>
+            </div><!-- sidebar //-->
+
+            }
+
+        </div><!-- main //-->
+
+    </div><!-- container //-->
+
+    <div id="footer">
+
+        <a href="#content" class="goTop"><i class="fa-angle-double-up"></i></a>
+
+    </div><!-- footer //-->
+
+    <script src="~/Scripts/vendor/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/vendor/bootstrap.min.js"></script>
+    <script src="~/Scripts/vendor/respond.min.js"></script>
+    <script src="~/Scripts/settings.js"></script>
+    <script>
+
+        var ch = $('body').attr('class').match(/\d+/);
+        $("#submenu-"+ch).addClass('in').prev('.panel-heading').children('.panel-title').removeClass('collapsed');
+        var p = $('body').attr('class').match(/\d+$/);
+        $("#submenu-"+ch).find('.panel-body li:nth-child('+p+') a').addClass('current');
+        //左選單的當前頁標示
+
+    </script>
+
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

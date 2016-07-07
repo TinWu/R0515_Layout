@@ -1,0 +1,215 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+    ViewBag.Title = "Bootstrap 簡介";
+    ViewBag.BodyClass = "ch1 p2";
+}
+@section breadCrumb {
+    <li><a href=""><i class="fa-list-alt"></i> Bootstrap 教學</a></li>
+}
+
+<h3 class="title">@ViewBag.Title</h3>
+<div class="row">
+    <div class="col-xs-6">
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-success">優點</li>
+            <li class="list-group-item">預先設計好的 UI 元件，如按鈕、輸入框、表格、頁碼……等。</li>
+            <li class="list-group-item">網格系統 (Grid System) 協助網頁排版。</li>
+            <li class="list-group-item">現成範例版面、支援 RWD、現成 Javascript 套件(須搭配 jQuery)。</li>
+            <li class="list-group-item">免費、有許多第三方套件、加快工程師開發時程。</li>
+        </ul>
+    </div>
+    <div class="col-xs-6">
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-danger">缺點</li>
+            <li class="list-group-item">固定的樣式一成不變，較不適合用在注重設計感的前台網頁。</li>
+            <li class="list-group-item">HTML 須使用很多 DIV 和 CSS class。</li>
+            <li class="list-group-item">不支援 IE7 以下，IE8 須使用 Respond.js 才能使用 RWD 功能。</li>
+            <li class="list-group-item">IE 有 CSS 字數限制，如果修改太多 Bootstrap 的原始碼造成 CSS 太長，超過限制的部分就無法讀取，需使用 CSS 分割軟體，如 <a href="http://blesscss.com/" target="new">Bless</a>。</li>
+        </ul>
+    </div>
+</div>
+
+<div class="callout callout-warning">
+    ※ Bootstrap 和 Sass 是獨立不同的東西，Sass 是升級版的 CSS ， Bootstrap 是一種網頁介面框架。<br>
+    Sass 可以單獨使用 (像以前寫 CSS 那樣)，也可以引用像 Bootstrap 這種有提供 Sass 原始碼的框架，這樣就有很多東西不用自己寫。
+</div>
+
+<hr class="expanded">
+
+<h3 class="title">如何更改預設的樣式</h3>
+<ul class="list-group">
+    <li class="list-group-item">Step 1. 下載官方 Less 或 Sass 原始檔。(以下用 Sass 為例)</li>
+    <li class="list-group-item">Step 2. 修改 _variables.scss 裡面的變數。</li>
+    <li class="list-group-item">Step 3. 要修改更多細部資料，可另建新的 scss 檔案覆寫。(盡可能不要修改除了 _variables.scss 以外的官方原始檔，以免日後有更新時受到影響)</li>
+</ul>
+<p>※ Bootstrap 官網有提供<a href="http://getbootstrap.com/customize/" target="new">客製化功能</a>，但最好還是下載原始檔來修改較方便。</p>
+
+<hr class="expanded">
+
+<h3 class="title">Bootstrap + Sass 使用技巧</h3>
+
+<ul class="item-tab" role="tablist">
+    <li class="active"><a href="#tab1" role="tab" data-toggle="tab">用 ＠extend 減少 class name</a></li>
+    <li><a href="#tab2" role="tab" data-toggle="tab">檔案命名及資料夾位置範例</a></li>
+    <li><a href="#tab3" role="tab" data-toggle="tab">套件、外掛</a></li>
+</ul><!-- tab-nav //-->
+
+<div class="tab-content">
+
+    <div class="tab-pane active" id="tab1">
+        <h4 class="title">用 ＠extend 減少 class name</h4>
+        <p>Bootstrap 設計的版面需依照固定方式撰寫 HTML，和我們平常習慣不符，可使用 ＠extend 盡量將它改為我們習慣的樣子。</p>
+        <h5 class="title">以版頭區塊為例：</h5>
+        <div class="row">
+            <div class="col-xs-4">
+                <p>官網 HTML 範例</p>
+                <pre>
+&lt;nav class="navbar navbar-default">
+    &lt;div class="container-fluid">
+        &lt;div class="navbar-header">
+            &lt;a class="navbar-brand" href="#">網站名稱&lt;/a>
+        &lt;/div>
+    &lt;/div>
+&lt;/nav>
+                </pre>
+            </div>
+            <div class="col-xs-4">
+                <p><i class="fa-arrow-right"></i> 修改後的 SCSS</p>
+                <pre>
+.wrap {
+    ＠extend .container-fluid;
+    // 我們已有一個常用的 #container
+    // 所以將 Bootstrap 的 .container 改成 .wrap 避免混淆
+}
+#header {
+    ＠extend .navbar;
+    ＠extend .navbar-default;
+    h1 {
+        ＠extend .navbar-header;
+        margin: 0;
+        line-height: 1;
+        // Bootstrap 的 h1 標題有設定間距、行高
+        // 不想要間距、行高就在此覆寫
+        a {
+            ＠extend .navbar-brand;
+        }
+    }
+}
+                </pre>
+            </div>
+            <div class="col-xs-4">
+                <p><i class="fa-arrow-right"></i> 修改後的 HTML</p>
+                <pre>
+&lt;nav id="header">
+    &lt;div class="wrap">
+        &lt;h1>
+            &lt;a href="#">網站名稱&lt;/a>
+        &lt;/h1>
+    &lt;/div><!-- wrap //-->
+&lt;/nav><!-- header //-->
+                </pre>
+            </div>
+        </div>
+        <hr>
+        <h5 class="title">同理也可以省略 icon fonts 的前綴：</h5>
+        <div class="row">
+            <div class="col-xs-4">
+                <p>官網 HTML 範例</p>
+                <pre>
+&lt;span class="glyphicon glyphicon-search">&lt;/span>
+                </pre>
+            </div>
+            <div class="col-xs-4">
+                <p><i class="fa-arrow-right"></i> 修改後的 SCSS</p>
+                <pre>
+[class*="glyphicon-"] {
+    ＠extend .glyphicon;
+}
+                </pre>
+            </div>
+            <div class="col-xs-4">
+                <p><i class="fa-arrow-right"></i> 修改後的 HTML</p>
+                <pre>
+&lt;span class="glyphicon-search">&lt;/span>
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane" id="tab2">
+        <h4 class="title">檔案命名及資料夾位置範例</h4>
+        <div class="row">
+            <div class="col-xs-6">
+                <p>資料夾位置</p>
+                <pre>
+平常放 CSS 的資料夾
+└－ sass
+　└－ bs -----------------------> 放 Bootstrap 原始檔的資料夾
+　　├－ mixins -----------------> 放 Bootstrap 一堆 mixins 的資料夾
+　　├－ …略… -------------------> 沒事不會去看的檔案
+　　├－ _non-responsive.scss ---> 如果不想使用 RWD 才需要的檔案 (非官方原始檔! 因性質類似才放在一起)
+　　├－ _variables.scss --------> 在此修改 Bootstrap 的變數
+　　└－ bootstrap.scss ---------> Bootstrap 核心
+　└－ fa -----------------------> 放 icon fonts SCSS 的資料夾 (以 Font awesome 為例)
+　　├－ …略… -------------------> 沒事不會去看的檔案
+　　├－ _variables.scss --------> 在此修改 Font awesome 的變數
+　　└－ font-awesome.scss ------> Font awesome 核心
+　├－ _variables.scss ----------> 常用的變數
+　├－ _mixins.scss -------------> 常用的 mixins
+　├－ _basic.scss --------------> 定義基本 html 元素
+　├－ _layout.scss -------------> 定義整體版面
+　├－ _modules.scss ------------> 定義常見 UI 元件 (在此匯入 Font awesome)
+　├－ _scripts.scss ------------> JS 套件的 CSS 如果要修改就放這裡
+　├－ page.scss ----------------> 匯入所需 scss，定義個別頁面
+　└－ mobile.scss --------------> 行動版
+└－ css
+　├－ page.css -----------------> 編譯後的.css
+　└－ mobile.css ---------------> 編譯後的.css
+└－ fonts
+　└－ fontAwesome --------------> 放 icon fonts 字型檔的資料夾
+　　└－ fontawesome.woff... ----> 字型檔
+                </pre>
+            </div>
+            <div class="col-xs-6">
+                <p>page.scss 匯入所需檔案</p>
+                <pre>
+/* import
+-----------------------------------------------------*/
+/* bootstrap */
+＠import "bs/bootstrap";
+
+/* tools */
+＠import "variables";
+＠import "mixins";
+
+/* base */
+＠import "basic";
+
+/* layout */
+＠import "bs/non-responsive";
+＠import "layout";
+
+/* modules */
+＠import "modules";
+
+/* others */
+＠import "scripts";
+
+
+/* 定義個別頁面
+-----------------------------------------------------*/
+…略… 
+                </pre>
+            </div>
+        </div>
+    </div>
+    
+    <div id="tab3" class="tab-pane">
+        <h4 class="title">套件、外掛</h4>
+        <div class="list-group">
+            <a href="http://bootsnipp.com/resources" target="new" class="list-group-item">Bootstrap 相關套件</a>
+            <a href="http://angular-ui.github.io/bootstrap/" target="new" class="list-group-item">UI Bootstrap for angular.js</a>
+        </div>
+    </div>
+
+</div>

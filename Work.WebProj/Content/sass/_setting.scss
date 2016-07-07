@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+// == layout
+// ----------------------------------------------------------------------
+
+// wrapper
+$wrapper-bg:         #fff !default;
+$content-spacing:    30px !default;
+
+// header
+$header-bg:          #438EB9 !default;
+$header-height:      46px !default;
+
+// top-nav
+$top-nav-height:     $header-height !default;
+$top-nav: (
+  lang:              #555,
+  activity:          #892E65,
+  user:              #2C7659
+) !default;
+
+// footer
+$footer-height:      178px !default;
+$footer-bg:          #E5E6DE !default;
+$goTop:              (bottom, 10px), (right, 15px) !default;
+

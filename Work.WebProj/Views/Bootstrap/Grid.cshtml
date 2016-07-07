@@ -1,0 +1,228 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+    ViewBag.Title = "網格系統";
+    ViewBag.BodyClass = "ch1 p3";
+}
+@section breadCrumb {
+    <li><a href=""><i class="fa-list-alt"></i> Bootstrap 教學</a></li>
+}
+
+<h3 class="title">@ViewBag.Title</h3>
+
+<ul class="list-group">
+    <li class="list-group-item">將頁面寬度分為 1~12 格，並給予相對應的 class。</li>
+    <li class="list-group-item">要修改寬度，只要修改 HTML 中 class 的數字即可。</li>
+    <li class="list-group-item">如果使用 RWD 功能，可以設定在不同裝置呈現不同的寬度。</li>
+</ul>
+
+<div class="callout callout-warning">
+    <h4>CSS 的 box-sizing</h4>
+    <p>Bootstrap 使用了 CSS 的 <code>box-sizing: border-box;</code>，所以 <code>padding</code> 和 <code>border</code> 的寬度都包含在 <code>width</code> 中，寬度設多少，總共就是多寬。<br>如果沒寫 <code>box-sizing: border-box;</code> 就要另外加上 padding 和 border 才是真正的寬度。<br><a href="http://zh-tw.learnlayout.com/box-sizing.html" target="new">更多關於 box-sizing 的介紹請按此</a></p>
+</div>
+
+<div class="callout callout-info">
+    <h4>container, row, column</h4>
+    <p>Bootstrap 的網格系統需要 container、row、column 三種元素，它們使用 <code>margin</code> 和 <code>padding</code> 來維持版面寬度的一致性，無論是螢幕大小改變或換行，彼此的間距都不會改變。<br><a href="http://www.helloerik.com/the-subtle-magic-behind-why-the-bootstrap-3-grid-works" target="new">按此可以大概了解它是怎麼運作的 (有圖解)</a></p>
+    <ol>
+        <li>column 一定要放在 row 裡面，row 一定要放在 container 裡面。</li>
+        <li>一個 container 可以包含多個 row，一個 row 可以包含多個 column。</li>
+        <li>row 裡面只能放 column，但 container 裡面可放 row 也可放其他東西。</li>
+        <li>container: <code>class="container"</code></li>
+        <li>row: <code>class="row"</code></li>
+        <li>column: <code>class="col-md-3"</code> (此為範例，<i class="fa-arrow-down"></i> 下方有詳細解說)</li>
+    </ol>
+</div>
+
+<ul class="list-group">
+    <li class="list-group-item list-group-item-success">column 的 class 命名規則： <code>class="col-$-%"</code></li>
+    <li class="list-group-item"><code>col-$-%</code> 的 <code>$</code> 分為 <code>xs</code> 、 <code>sm</code> 、 <code>md</code> 、 <code>lg</code> ，適用於 RWD 版面，不使用 RWD 時，一律寫成 <code>col-xs-%</code> 。</li>
+    <li class="list-group-item"><code>col-$-%</code> 的 <code>%</code> 為 1~12 的數字，數字愈大愈寬。數字總和超過 12 就會自動換行。</li>
+    <li class="list-group-item">
+        因應 RWD 功能，可以同時寫好幾種 class，例如 <code>class="col-md-3 col-sm-6 col-xs-12"</code> 就表示：
+        <ol>
+            <li>15吋以上電腦/平板橫放 <strong>(≥992px)</strong>：寬度是 3 格，也就是 25%。</li>
+            <li>平板直立/5吋以上手機 <strong>(≥768px)</strong>：寬度是 6 格，也就是 50%。</li>
+            <li>5吋以下手機 <strong>(&lt;768px)</strong>：寬度是 12 格，也就是 100%。</li>
+        </ol>
+        沒寫到的 class，例如 <code>col-lg-%</code> 就會沿用它的前一個裝置的寬度，也就是 <code>col-md-3</code> ，以此類推。所以如果不使用 RWD 就必須寫成 <code>col-xs-%</code>。
+    </li>
+</ul>
+
+<div class="row">
+    <div class="col-xs-12">
+
+        <div class="item-box">
+            <div class="item-title"><h5>使用範例</h5></div>
+            <div class="panel-body">
+
+                <h5 class="title">RWD: 分別設定 col-xs-12、col-sm-6、col-md-3 的寬度</h5>
+                <ul class="row list-unstyled">
+                    <li class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                .col-xs-12.col-sm-6.col-md-3
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                .col-xs-12.col-sm-6.col-md-3
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                .col-xs-12.col-sm-6.col-md-3
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                .col-xs-12.col-sm-6.col-md-3
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <hr>
+
+                <h5 class="title">No RWD: 統一寫成 col-xs-%</h5>
+                <ul class="row list-unstyled">
+                    <li class="col-xs-2">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                .col-xs-2
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-xs-3">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                .col-xs-3
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-xs-4">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                .col-xs-4
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-xs-3">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                .col-xs-3
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="item-box">
+            <div class="item-title"><h5>其他狀況</h5></div>
+            <div class="panel-body">
+
+                <h5 class="title">置中對齊：加上 row-centered 和 col-centered (非官方提供的語法)</h5>
+                <ul class="row row-centered">
+                    <li class="col-xs-4 col-centered">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                .col-xs-4
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-xs-4 col-centered">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                .col-xs-4
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <hr>
+
+                <h5 class="title">一行 5 個 columns (非官方提供的語法)</h5>
+                <ul class="row list-unstyled">
+                    <li class="col-xs-24">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                .col-xs-24
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-xs-24">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                .col-xs-24
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-xs-24">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                .col-xs-24
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-xs-24">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                .col-xs-24
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-xs-24">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                .col-xs-24
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <hr>
+
+                <h5 class="title">
+                    使用 ＠extend 可以少寫很多 class
+                    (但必須確定之後<strong class="text-danger">沒有其他人想改它的寬度</strong>)
+                </h5>
+                <ul class="row list-unstyled">
+                    <li class="col-xs-6">
+                        <p>SCSS:</p>
+                        <pre>
+.gallery {
+    ＠extend .row;
+    ＠extend .list-unstyled;   // 去除項目編號
+    li {
+        ＠extend .col-md-3;
+        ＠extend .col-sm-6;
+        ＠extend .col-xs-12;
+    }
+}
+                        </pre>
+                    </li>
+                    <li class="col-xs-6">
+                        <p>HTML:</p>
+                        <pre>
+&lt;ol class="gallery">
+    &lt;li>&lt;img src="xxx" alt="">&lt;/li>
+    &lt;li>&lt;img src="xxx" alt="">&lt;/li>
+    &lt;li>&lt;img src="xxx" alt="">&lt;/li>
+    &lt;li>&lt;img src="xxx" alt="">&lt;/li>
+&lt;/ol>
+                        </pre>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+    </div>
+</div>

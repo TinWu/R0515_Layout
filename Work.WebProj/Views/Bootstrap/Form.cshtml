@@ -1,0 +1,482 @@
+﻿@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+    ViewBag.Title = "表單";
+    ViewBag.BodyClass = "ch1 p7";
+}
+@section breadCrumb {
+    <li><a href=""><i class="fa-list-alt"></i> Bootstrap 教學</a></li>
+}
+
+<h3 class="title">@ViewBag.Title</h3>
+
+<h4 class="title">基本表單</h4>
+<ul class="item-tab" role="tablist">
+    <li class="active"><a href="#form3" role="tab" data-toggle="tab">欄位標題在上方</a></li>
+    <li><a href="#form4" role="tab" data-toggle="tab">欄位標題在右方</a></li>
+</ul><!-- tab-nav //-->
+<div class="tab-content">
+    <div class="tab-pane active" id="form3">
+        <form action="">
+            <div class="form-group">
+                <label for="">姓名</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">電話</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">地址</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="form-group text-right">
+                <div class="checkbox-inline">
+                    <label>
+                        <input type="checkbox">
+                        <span>記住我的資料</span>
+                    </label>
+                </div>
+            </div>
+            <div class="form-action text-center">
+                <button class="btn-primary"><i class="fa-check"></i> 送出</button>
+                <button><i class="fa-times"></i> 取消</button>
+            </div>
+        </form>
+    </div>
+    <div class="tab-pane" id="form4">
+        <div class="callout callout-warning">
+            <ol>
+                <li>使用 <strong class="text-danger">這種表單</strong> 時，<code>&lt;form class="form-horizontal"&gt;</code> 就是 container，<code>&lt;div class="form-group"&gt;</code> 就是 row，不用另外加 <code>class="container"</code> 跟 <code>class="row"</code></li>
+                <li><code>class="col-$-%"</code> 可以直接加在 <code>&lt;label&gt;</code> ，但不能加在 <code>&lt;input&gt;</code> 或其他元件 (ex. <code>&lt;textarea&gt;</code>)。</li>
+            </ol>
+        </div>
+        <form action="" class="form-horizontal">
+            <div class="form-group">
+                <label for="" class="col-xs-1 control-label">姓名</label>
+                <div class="col-xs-11"><input type="text" class="form-control"></div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-xs-1 control-label">電話</label>
+                <div class="col-xs-11"><input type="text" class="form-control"></div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-xs-1 control-label">地址</label>
+                <div class="col-xs-11"><input type="text" class="form-control"></div>
+            </div>
+            <div class="form-group text-right">
+                <div class="checkbox-inline">
+                    <label>
+                        <input type="checkbox">
+                        <span>記住我的資料</span>
+                    </label>
+                </div>
+            </div>
+            <div class="form-action text-center">
+                <button class="btn-success"><i class="fa-check"></i> 送出</button>
+                <button><i class="fa-times"></i> 取消</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<hr class="expanded">
+
+<div class="row">
+    <div class="col-xs-6">
+        <h4 class="title">頁籤切換</h4>
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="active"><a href="#form1" role="tab" data-toggle="tab">帳戶資訊</a></li>
+            <li><a href="#form2" role="tab" data-toggle="tab">個人基本資料</a></li>
+        </ul><!-- tab-nav //-->
+        <form role="form" class="form-horizontal">
+            <div class="tab-content">
+                <div class="tab-pane active" id="form1">
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">帳號</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control" value="test001" readonly>
+                            <small class="help-block">帳號不可修改</small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">密碼</label>
+                        <div class="col-xs-10">
+                            <input type="password" class="form-control" placeholder="password">
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="form2">
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">姓名</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control" placeholder="姓名">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">電話</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control" placeholder="電話">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">地址</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control" placeholder="地址">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">E-mail</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control" placeholder="E-mail">
+                        </div>
+                    </div>
+                </div>
+            </div><!-- tab-content //-->
+            <div class="form-action">
+                <div class="col-xs-12 text-center">
+                    <button type="submit" class="btn-primary"><i class="fa-check"></i> 送出</button>　
+                    <button type="submit"><i class="fa-times"></i> 取消</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-xs-6">
+        <h4 class="title">收合表單</h4>
+        <form role="form" class="form-horizontal">
+            <div class="panel-group" id="accordion">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                <i class="fa-chevron-down"></i>
+                                帳戶資訊
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label">帳號</label>
+                                <div class="col-xs-10">
+                                    <input type="text" class="form-control" value="test001" readonly>
+                                    <small class="help-block">帳號不可修改</small>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label">密碼</label>
+                                <div class="col-xs-10">
+                                    <input type="password" class="form-control" placeholder="password">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- 收合選單1 -->
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                <i class="fa-chevron-down"></i>
+                                個人基本資料
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label">姓名</label>
+                                <div class="col-xs-10">
+                                    <input type="text" class="form-control" placeholder="姓名">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label">電話</label>
+                                <div class="col-xs-10">
+                                    <input type="text" class="form-control" placeholder="電話">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label">地址</label>
+                                <div class="col-xs-10">
+                                    <input type="text" class="form-control" placeholder="地址">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label">E-mail</label>
+                                <div class="col-xs-10">
+                                    <input type="text" class="form-control" placeholder="E-mail">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- 收合選單2 -->
+            </div><!-- 收合選單 //-->
+            <div class="form-action">
+                <div class="col-xs-12 text-center">
+                    <button type="submit" class="btn-primary"><i class="fa-check"></i> 送出</button>　
+                    <button type="submit"><i class="fa-times"></i> 取消</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<hr class="expanded">
+
+<h4 class="title">驗證 &amp; 提示</h4>
+
+<form class="form-horizontal" role="form">
+
+    <div class="form-group has-warning has-feedback">
+        <label class="col-xs-1 control-label">警告</label>
+        <div class="col-xs-5">
+            <input type="text" class="form-control">
+            <i class="fa-exclamation-circle form-control-feedback"></i>
+            <small class="help-block">提示文字 (換行)</small>
+        </div>
+    </div>
+
+    <div class="form-group has-error has-feedback">
+        <label class="col-xs-1 control-label">錯誤</label>
+        <div class="col-xs-5">
+            <input type="text" class="form-control">
+            <i class="fa-times-circle form-control-feedback"></i>
+        </div>
+        <small class="help-inline col-xs-3">提示文字 (不換行)</small>
+    </div>
+
+    <div class="form-group has-success has-feedback">
+        <label class="col-xs-1 control-label">成功</label>
+        <div class="col-xs-5">
+            <input type="text" class="form-control">
+            <i class="fa-check-circle form-control-feedback"></i>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-1 control-label">提示</label>
+        <div class="col-xs-5">
+            <input type="text" class="form-control" placeholder="游標移過會出現提示" data-toggle="tooltip" data-placement="bottom" title="Hello!!">
+            <small class="help-block">須另加 JS 語法，詳見<a href="http://getbootstrap.com/javascript/#tooltips" target="new">官網</a></small>
+        </div>
+        <span class="help-inline">
+            <a tabindex="0" class="fa-question-circle" data-toggle="popover" title="Hello" data-content="text text~~" data-trigger="hover"></a>
+        </span>
+    </div>
+
+</form>
+
+<hr class="expanded">
+
+<h4 class="title">其他</h4>
+
+<div class="row">
+    <div class="col-xs-6">
+
+        <div class="item-box">
+            <div class="item-title"><h5>有標題、外框的表單</h5></div>
+            <form action="">
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label for="">姓名</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">電話</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">地址</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group text-right">
+                        <div class="checkbox-inline">
+                            <label>
+                                <input type="checkbox">
+                                 <span>記住我的資料</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <button class="btn-primary"><i class="fa-check"></i> 送出</button>
+                    <button><i class="fa-times"></i> 取消</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="col-xs-6">
+
+        <div class="item-box">
+            <div class="item-title">
+                <ul class="widget">
+                    <li data-toggle="tooltip" title="收合"><button class="btn-link text-default" data-toggle="collapse" data-target="#collapse1"><i class="fa-chevron-down"></i></button></li>
+                </ul>
+                <h5>inline 表單</h5>
+            </div>
+            <div class="panel-body">
+            <div id="collapse1" class="panel-collapse collapse in">
+                <form action="" class="form-inline">
+                    <div class="form-group">
+                        <label for="">電話</label>
+                        <input type="text" class="form-control input-sm">
+                    </div>
+                    <div class="form-group">
+                        <label for="">地址</label>
+                        <input type="text" class="form-control input-sm">
+                    </div>
+                    <button class="btn-primary btn-sm"><i class="fa-check"></i> 送出</button>
+                </form>
+                <hr>
+                <form action="" class="form-inline">
+                    <div class="form-group">
+                        <label for="" class="sr-only">搜尋</label>
+                        <input type="text" class="form-control input-sm" placeholder="請輸入關鍵字...">
+                        <button class="btn-primary btn-sm"><i class="fa-search"></i> 搜尋</button>
+                    </div>
+                </form>
+            </div>
+            </div>
+
+            <div class="item-title">
+                <ul class="widget">
+                    <li data-toggle="tooltip" title="收合"><button class="btn-link text-default" data-toggle="collapse" data-target="#collapse2"><i class="fa-chevron-down"></i></button></li>
+                </ul>
+                <h5>跳出 Popup 視窗</h5>
+            </div>
+            <div class="panel-body">
+            <div id="collapse2" class="panel-collapse collapse in">
+                <p>
+                    <button data-toggle="modal" data-target="#Modal-1">中型 (預設)</button>
+                    <button class="btn-success" data-toggle="modal" data-target="#Modal-2">小型</button>
+                    <button class="btn-warning" data-toggle="modal" data-target="#Modal-3">大型</button>
+                    <button class="btn-danger" data-toggle="modal" data-target="#Modal-4">上下左右置中</button>
+                </p>
+                <div class="modal fade" id="Modal-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title">中型 (預設)</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form action="" class="form-horizontal">
+                                    <div class="form-group">
+                                    <label for="" class="col-xs-1 control-label">姓名</label>
+                                        <div class="col-xs-11"><input type="text" class="form-control"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="col-xs-1 control-label">電話</label>
+                                        <div class="col-xs-11"><input type="text" class="form-control"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="col-xs-1 control-label">地址</label>
+                                        <div class="col-xs-11"><input type="text" class="form-control"></div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">                                
+                                <button type="button" class="btn-primary" data-dismiss="modal"><i class="fa-check"></i> 儲存</button>
+                                <button type="button" data-dismiss="modal"><i class="fa-times"></i> 關閉</button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+                <div class="modal fade" id="Modal-2">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title">小型</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form action="" class="form-horizontal">
+                                    <div class="form-group">
+                                    <label for="" class="col-xs-2 control-label">姓名</label>
+                                        <div class="col-xs-10"><input type="text" class="form-control"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="col-xs-2 control-label">電話</label>
+                                        <div class="col-xs-10"><input type="text" class="form-control"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="col-xs-2 control-label">地址</label>
+                                        <div class="col-xs-10"><input type="text" class="form-control"></div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">                                
+                                <button type="button" class="btn-primary" data-dismiss="modal"><i class="fa-check"></i> 儲存</button>
+                                <button type="button" data-dismiss="modal"><i class="fa-times"></i> 關閉</button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+                <div class="modal fade" id="Modal-3">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title">大型</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form action="" class="form-horizontal">
+                                    <div class="form-group">
+                                    <label for="" class="col-xs-2 control-label">姓名</label>
+                                        <div class="col-xs-10"><input type="text" class="form-control"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="col-xs-2 control-label">電話</label>
+                                        <div class="col-xs-10"><input type="text" class="form-control"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="col-xs-2 control-label">地址</label>
+                                        <div class="col-xs-10"><input type="text" class="form-control"></div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">                                
+                                <button type="button" class="btn-primary" data-dismiss="modal"><i class="fa-check"></i> 儲存</button>
+                                <button type="button" data-dismiss="modal"><i class="fa-times"></i> 關閉</button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+                <div class="modal fade fit-window center-window" id="Modal-4">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title">上下左右置中</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form action="" class="form-horizontal">
+                                    <div class="form-group">
+                                    <label for="" class="col-xs-2 control-label">姓名</label>
+                                        <div class="col-xs-10"><input type="text" class="form-control"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="col-xs-2 control-label">電話</label>
+                                        <div class="col-xs-10"><input type="text" class="form-control"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="col-xs-2 control-label">地址</label>
+                                        <div class="col-xs-10"><input type="text" class="form-control"></div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">                                
+                                <button type="button" class="btn-primary" data-dismiss="modal"><i class="fa-check"></i> 儲存</button>
+                                <button type="button" data-dismiss="modal"><i class="fa-times"></i> 關閉</button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+            </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
